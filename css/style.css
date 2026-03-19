@@ -28,6 +28,7 @@ ul li {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 20px;
 
   h1 {
     font-weight: bold;
@@ -53,29 +54,70 @@ ul li {
   }
 }
 
-/* products */
-.products {
-  background: var(--table-feild-hover-color);
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-}
-.products .container {
-  padding: 40px 0;
-}
-.products .search {
+.search {
   color: var(--normal-text-color);
 }
-.products .search-icone {
+.search-icone {
   position: absolute;
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--normal-text-color);
 }
-.products .search input {
+.search input {
   padding: 6px 4px 6px 27px;
 }
+.search input {
+  border-radius: var(--main-border-radius);
+  border: 1px solid #bdbdbd;
+  outline: 0;
+  width: 300px;
+  background-color: white;
+
+  &:focus {
+    border: 2px solid var(--main-btn-color);
+  }
+}
+
+.card-A {
+  border-radius: var(--main-border-radius);
+  width: calc(33.33333% - 20px);
+  background-color: white;
+  box-shadow: 0 0 25px rgb(212, 212, 212);
+  .top {
+    margin-bottom: 20px;
+    .left {
+      line-height: 0.2;
+      gap: 10px;
+      .icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: var(--main-border-radius);
+      }
+      .text {
+        h6 {
+          margin-top: 10px;
+        }
+        p,
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+/* start products */
+.products {
+  background: var(--table-feild-hover-color);
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
 .products select {
   padding: 6px;
 }
@@ -199,3 +241,50 @@ ul li {
     }
   }
 }
+
+@media (width < 568px) {
+  .products .container button span {
+    display: none;
+  }
+}
+
+/* end products */
+
+/* start categories */
+
+.categories {
+  background-color: var(--table-feild-hover-color);
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 40px;
+}
+
+.categories .card-A .icon {
+  background-color: #7700ff25;
+  color: #5000d1;
+}
+
+.categories card > p {
+  color: var(--normal-text-color);
+}
+
+@media (width < 992px) {
+  .card-A {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (width < 768px) {
+  .card-A {
+    width: 100%;
+  }
+}
+@media (width < 568px) {
+  .categories .container button span {
+    display: none;
+  }
+}
+
+/*  end categories */
+
+/* start suppliers */
