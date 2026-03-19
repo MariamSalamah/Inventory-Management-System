@@ -1,4 +1,4 @@
-/* main */
+/* start main */
 
 :root {
   --main-btn-color: #0077ff;
@@ -109,6 +109,28 @@ ul li {
     }
   }
 }
+
+@media (width < 992px) {
+  .card-A {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (width < 768px) {
+  .card-A {
+    width: 100%;
+  }
+}
+@media (width < 568px) {
+  .container button span {
+    display: none;
+  }
+  .search input {
+    width: 100%;
+  }
+}
+
+/* end main */
 
 /* start products */
 .products {
@@ -268,23 +290,20 @@ ul li {
   color: var(--normal-text-color);
 }
 
-@media (width < 992px) {
-  .card-A {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (width < 768px) {
-  .card-A {
-    width: 100%;
-  }
-}
-@media (width < 568px) {
-  .categories .container button span {
-    display: none;
-  }
-}
-
 /*  end categories */
 
 /* start suppliers */
+
+.suppliers {
+  padding-top: 40px;
+}
+
+.suppliers .card-A .icon {
+  background-color: #82ff7d42;
+  color: #148330;
+}
+.suppliers .card-A .bottom {
+  line-height: 0.1;
+  font-size: 14px;
+  color: var(--normal-text-color);
+}
