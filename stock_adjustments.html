@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Adjustments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- whole content div -->
+ <section class="content p-5">
+
+    <!-- headline start -->
+    <div class="headline d-lg-flex justify-content-between align-items-center">
+        <div class="">
+            <h2>Stock Adjustments</h2>
+            <p class="text-light-emphasis">Manually adjust inventory quantities</p>
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newStockAdjustment">
+  <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
+</button>
+
+    </div>
+    <!-- headline end -->
+    
+
+    <!-- product info table start -->
+   <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+   <table class="table mb-0">
+    <thead class="table-header">
+        <tr class="table-header">
+        <th class="text-dark-emphasis table-header" scope="col">Type</th>
+        <th class="text-dark-emphasis table-header" scope="col">Product</th>
+        <th class="text-dark-emphasis table-header" scope="col">Qty</th>
+        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Reason</th>
+        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td class="text-success"><i class="fa-solid fa-circle-arrow-up text-success"></i> increase</td>
+        <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
+        <td>TechWorld Inc.</td>
+        <td>+1</td>
+        <td colspan="2">Reason because</td>
+        <td colspan="2">3/14/2026</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+    <!-- product info table end -->
+
+
+
+
+
+
+<div class="modal fade" id="newStockAdjustment" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+     
+      <div class="modal-body">
+
+        
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold">New Stock Adjustment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <hr>
+
+       
+        <p class="mb-1">Product *</p>
+        <div class="dropdown mb-3">
+          <button class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            — Select Product —
+          </button>
+          <ul class="dropdown-menu w-100">
+            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43</a></li>
+            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
+            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p class="mb-1">Type *</p>
+            <div class="dropdown">
+              <button class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Increase
+              </button>
+              <ul class="dropdown-menu w-100">
+                <li><a class="dropdown-item" href="#">Increase</a></li>
+                <li><a class="dropdown-item" href="#">Decrease</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <p class="mb-1">Quantity *</p>
+            <input type="number" class="form-control" placeholder="Enter quantity">
+          </div>
+        </div>
+
+       
+        <div class="mb-3">
+          <p class="mb-1">Reason *</p>
+          <textarea class="form-control" rows="3" placeholder="Write reason..."></textarea>
+        </div>
+
+      </div>
+
+      
+      <div class="modal-footer">
+        <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary">Submit Adjustments</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="card mx-5 pb-3 px-2 visually-hidden" style="width: 40%; height: auto;">
+  <div class="card-body">
+     <div class="d-lg-flex justify-content-between align-items-center">
+            <h5 class="card-title fw-bold">New Stock Adjustment</h5>
+            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
+    </div>
+   
+    <hr>
+    <p class="card-text">Product *</p>
+        <!-- dropdown start -->
+    <div class="dropdown mb-2">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+           — Select Product —
+        </button>
+        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43 </a></li>
+            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
+            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
+
+    <div class="d-lg-flex justify-content-between align-items-center">
+        <div>
+
+    <p class="mb-1">Type *</p>
+            <!-- dropdown start -->
+    <div class="dropdown mb-2">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Increase
+        </button>
+        <ul class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">Increase </a></li>
+            <li><a class="dropdown-item" href="#">Decrease</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
+     </div>
+
+    <div>
+        <p class="mb-1">Quantity *</p>
+        
+        <input class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="number" name="" id="">
+     </div>
+
+</div>
+
+
+    <div>
+        <p class="mb-1">Reason *</p>
+        
+        <textarea class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" name="" id=""></textarea>
+     </div>
+
+</div>
+
+
+
+    <div class="d-flex justify-content-end column-gap-lg-2">
+        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
+        <a href="#" class="btn btn-primary">Submit Adjustments</a>
+    </div>
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
+</body>
+</html>
