@@ -8,3 +8,4 @@ The system allows users to track inventory, manage product categories, create pu
 The project focuses on applying clean UI/UX design, implementing clear business logic, and working using Agile teamwork practices.
 
 ---
+Pages: 
