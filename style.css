@@ -1,26 +1,32 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-body{
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #F9FAFB;
-    color: #101828;
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  background-color: #f9fafb;
+  color: #101828;
 }
-
 
 table thead tr.table-header th.table-header {
-    background-color: #F9FAFB;
+  background-color: #f9fafb;
 }
 
-.status{
-    font-size: smaller;
-    background-color: #F3F4F6;
+.status {
+  font-size: smaller;
+  background-color: #f3f4f6;
 }
 
 .table-wrapper {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
 }
