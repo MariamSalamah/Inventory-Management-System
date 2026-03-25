@@ -105,7 +105,7 @@
     <span class="d-block d-lg-none">Dashboard</span>
     <span class="link text-danger alert-danger m-0 ms-lg-auto px-1 py-1 rounded-3" data-target="Reports">
       <i class="fa-solid fa-triangle-exclamation"></i>
-      4 Low Stock</span>
+      <span id="low-notify"></span> Low Stock</span>
   </nav>
   <!-- ------------------------end nav----------------------------- -->
 
@@ -1441,8 +1441,9 @@
 
       <!-- Start Reports -->
       <section class="Reports">
+        <div class="container">
         <div class="mb-4">
-          <h3 class="fw-bold mb-1">Reports</h3>
+          <h3 class=" mt-4 fw-bold">Reports</h3>
           <p class="text-secondary mb-0">Inventory analytics and insights</p>
         </div>
 
@@ -1458,25 +1459,27 @@
         </div>
 
         <div class="table-container"></div>
+        </div>
       </section>
       <!-- End Reports -->
 
       <!-- Start Activity-Log -->
       <section class="Activity-Log">
-        <div class="d-flex justify-content-between align-items-start mb-4">
-          <div>
+        <div class="container">
+        <div class="d-flex justify-content-between align-items-start mt-4">
+          <div class="my-2">
             <h3 class="fw-bold mb-1">Activity Log</h3>
-            <p class="text-secondary mb-0">8 logged actions</p>
+            <p class="log-count text-secondary mb-0">8 logged actions</p>
           </div>
 
-          <button class="btn btn-outline-danger">
+          <button class="clearLogBtn btn btn-outline-danger">
             <i class="fa-solid fa-trash me-1"></i>
             Clear All
           </button>
         </div>
 
         <div class="mb-4" style="max-width: 250px">
-          <select class="form-select">
+          <select class="form-select" id="selectForm">
             <option>All Types</option>
             <option>Products</option>
             <option>Orders</option>
@@ -1484,128 +1487,15 @@
           </select>
         </div>
 
-        <div class="bg-white rounded-4 shadow-sm p-3">
-          <div class="d-flex justify-content-between align-items-start py-3 border-bottom">
-            <div class="d-flex gap-3">
-              <div class="bg-primary-subtle p-2 rounded-3">
-                <i class="fa-solid fa-box text-primary"></i>
-              </div>
-              <div>
-                <div class="fw-semibold">Product Created</div>
-                <div class="text-secondary small">
-                  Created product "electric" (SKU: ele-666)
-                </div>
-              </div>
-            </div>
-            <small class="text-secondary">3/17/2026, 1:46 AM</small>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-start py-3 border-bottom">
-            <div class="d-flex gap-3">
-              <div class="bg-warning-subtle p-2 rounded-3">
-                <i class="fa-solid fa-receipt text-warning"></i>
-              </div>
-              <div>
-                <div class="fw-semibold">Purchase Order Received</div>
-                <div class="text-secondary small">
-                  Received PO-01002 — stock updated for 1 product(s)
-                </div>
-              </div>
-            </div>
-            <small class="text-secondary">3/15/2026, 1:34 AM</small>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-start py-3 border-bottom">
-            <div class="d-flex gap-3">
-              <div class="bg-warning-subtle p-2 rounded-3">
-                <i class="fa-solid fa-receipt text-warning"></i>
-              </div>
-              <div>
-                <div class="fw-semibold">Purchase Order Created</div>
-                <div class="text-secondary small">
-                  Created PO-01002 with 1 item(s), total $2.00
-                </div>
-              </div>
-            </div>
-            <small class="text-secondary">3/15/2026, 1:33 AM</small>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-start py-3 border-bottom">
-            <div class="d-flex gap-3">
-              <div class="bg-success-subtle p-2 rounded-3">
-                <i class="fa-solid fa-truck text-success"></i>
-              </div>
-              <div>
-                <div class="fw-semibold">Supplier Deleted</div>
-                <div class="text-secondary small">Deleted supplier "j"</div>
-              </div>
-            </div>
-            <small class="text-secondary">3/13/2026, 6:19 AM</small>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-start py-3 border-bottom">
-            <div class="d-flex gap-3">
-              <div class="bg-success-subtle p-2 rounded-3">
-                <i class="fa-solid fa-truck text-success"></i>
-              </div>
-              <div>
-                <div class="fw-semibold">Supplier Created</div>
-                <div class="text-secondary small">Created supplier "j"</div>
-              </div>
-            </div>
-            <small class="text-secondary">3/13/2026, 6:19 AM</small>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-start py-3 border-bottom">
-            <div class="d-flex gap-3">
-              <div class="bg-warning-subtle p-2 rounded-3">
-                <i class="fa-solid fa-receipt text-warning"></i>
-              </div>
-              <div>
-                <div class="fw-semibold">Purchase Order Received</div>
-                <div class="text-secondary small">
-                  Received PO-01001 — stock updated for 1 product(s)
-                </div>
-              </div>
-            </div>
-            <small class="text-secondary">3/13/2026, 6:16 AM</small>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-start py-3 border-bottom">
-            <div class="d-flex gap-3">
-              <div class="bg-warning-subtle p-2 rounded-3">
-                <i class="fa-solid fa-receipt text-warning"></i>
-              </div>
-              <div>
-                <div class="fw-semibold">Purchase Order Created</div>
-                <div class="text-secondary small">
-                  Created PO-01001 with 1 item(s), total $45.00
-                </div>
-              </div>
-            </div>
-            <small class="text-secondary">3/13/2026, 6:16 AM</small>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-start py-3">
-            <div class="d-flex gap-3">
-              <div class="bg-secondary-subtle p-2 rounded-3">
-                <i class="fa-solid fa-gear text-secondary"></i>
-              </div>
-              <div>
-                <div class="fw-semibold">System Initialized</div>
-                <div class="text-secondary small">
-                  Inventory Management System loaded with seed data
-                </div>
-              </div>
-            </div>
-            <small class="text-secondary">3/13/2026, 6:15 AM</small>
-          </div>
+        <div class="activity-div bg-white rounded-4 shadow-sm p-3">
         </div>
+       </div>
       </section>
       <!-- End Activity-Log -->
     </div>
   </main>
-  <script src="./src/js/reports.js"></script>
+  <script src="./src/js/reports.js" type="module"></script>
+  <script src="./src/js/activitylog.js" type="module"></script>
   <!-- ------------------------end content----------------------------- -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
 </body>

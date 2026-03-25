@@ -170,22 +170,28 @@
 
   "activityLog": [
     {
-      "id": 1,
-      "action": "Product Added",
-      "productId": 1,
+      "type": "products",
+      "action": "Product created",
+      "message": "Product Laptop was created",
       "date": "2026-03-01"
     },
     {
-      "id": 2,
-      "action": "Purchase Order Received",
-      "orderId": 1,
-      "date": "2026-03-02"
+      "type": "suppliers",
+      "action": "supplier created",
+      "message": "Product Laptop was created",
+      "date": "2026-03-01"
     },
     {
-      "id": 3,
-      "action": "Stock Adjusted",
-      "productId": 3,
-      "date": "2026-03-06"
+      "type": "orders",
+      "action": "order created",
+      "message": "Product Laptop was created",
+      "date": "2026-03-01"
+    },
+    {
+      "type": "products",
+      "action": "product deleted",
+      "message": "Product Laptop was created",
+      "date": "2026-03-01"
     }
   ]
 }
