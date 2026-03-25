@@ -1,56 +1,23 @@
-// Data
-let reports = [
-  {
-    products: "Ballpoint Pens (Box of 12)",
-    sku: "offc-001",
-    category: "office suplies",
-    quentity: 9,
-    reorder: 25,
-    deficit: -16,
-    urgency: "high",
-  },
-  {
-    products: "Ballpoint Pens (Box of 12)",
-    sku: "offc-001",
-    category: "office suplies",
-    quentity: 9,
-    reorder: 25,
-    deficit: -16,
-    urgency: "high",
-  },
-  {
-    products: "Ballpoint Pens (Box of 12)",
-    sku: "offc-001",
-    category: "office suplies",
-    quentity: 9,
-    reorder: 25,
-    deficit: -16,
-    urgency: "high",
-  },
-  {
-    products: "Ballpoint Pens (Box of 12)",
-    sku: "offc-001",
-    category: "office suplies",
-    quentity: 9,
-    reorder: 25,
-    deficit: -16,
-    urgency: "high",
-  },
-];
-
 // Elements
 const lowBtn = document.querySelector(".low-stock-btn");
 const inventoryBtn = document.querySelector(".inventory-value-btn");
 const container = document.querySelector(".table-container");
+import { getData } from "../../controller/crud.js";
 
 // Load Low Stock
-function loadLowStock() {
+// Load Low Stock
+async function loadLowStock() {
+  const products = await getData("products");
+  const categories = await getData("categories");
+
+  const lowProducts = products.filter((el) => el.quantity <= el.reorderLevel);
+  document.querySelector("#low-notify").textContent = lowProducts.length;
   container.innerHTML = `
     <div class="alert alert-danger d-flex align-items-center gap-3 mb-4">
       <i class="fa-solid fa-triangle-exclamation fs-4"></i>
       <div>
-        <strong>4 products at or below reorder level</strong>
-        <div class="small">This items need to be reordered soon</div>
+        <strong>${lowProducts.length} products at or below reorder level</strong>
+        <div class="small">These items need to be reordered soon</div>
       </div>
     </div>
 
@@ -76,17 +43,23 @@ function loadLowStock() {
 
   const table = document.querySelector(".low-table");
 
-  reports.forEach((el) => {
+  lowProducts.forEach((el) => {
+    const category = categories.find((cat) => cat.id == el.categoryId);
+    console.log(category.name);
+
+    const deficit = el.reorderLevel - el.quantity;
+    const urgency = deficit <= 0 ? "high" : deficit <= 5 ? "medium" : "low";
+
     table.insertAdjacentHTML(
       "beforeend",
       `<tr>
-        <td>${el.products}</td>
+        <td>${el.name}</td>
         <td>${el.sku}</td>
-        <td>${el.category}</td>
-        <td>${el.quentity}</td>
-        <td>${el.reorder}</td>
-        <td class="text-danger fw-semibold">${el.deficit}</td>
-        <td><span class="badge bg-danger">${el.urgency}</span></td>
+        <td>${category.name}</td>
+        <td>${el.quantity}</td>
+        <td>${el.reorderLevel}</td>
+        <td class="text-danger fw-semibold">${deficit}</td>
+        <td><span class="badge ${urgency === "high" ? "bg-danger" : urgency === "medium" ? "bg-warning" : "bg-success"}">${urgency}</span></td>
       </tr>`,
     );
   });
