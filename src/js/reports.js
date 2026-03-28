@@ -1,56 +1,26 @@
-// Data
-let reports = [
-  {
-    products: "Ballpoint Pens (Box of 12)",
-    sku: "offc-001",
-    category: "office suplies",
-    quentity: 9,
-    reorder: 25,
-    deficit: -16,
-    urgency: "high",
-  },
-  {
-    products: "Ballpoint Pens (Box of 12)",
-    sku: "offc-001",
-    category: "office suplies",
-    quentity: 9,
-    reorder: 25,
-    deficit: -16,
-    urgency: "high",
-  },
-  {
-    products: "Ballpoint Pens (Box of 12)",
-    sku: "offc-001",
-    category: "office suplies",
-    quentity: 9,
-    reorder: 25,
-    deficit: -16,
-    urgency: "high",
-  },
-  {
-    products: "Ballpoint Pens (Box of 12)",
-    sku: "offc-001",
-    category: "office suplies",
-    quentity: 9,
-    reorder: 25,
-    deficit: -16,
-    urgency: "high",
-  },
-];
-
 // Elements
 const lowBtn = document.querySelector(".low-stock-btn");
 const inventoryBtn = document.querySelector(".inventory-value-btn");
 const container = document.querySelector(".table-container");
 
-// Load Low Stock
-function loadLowStock() {
+import { getData } from "../../controller/crud.js";
+
+async function loadLowStock() {
+  const products = await getData("products");
+  const categories = await getData("categories");
+
+  const lowProducts = products.filter((el) => el.quantity <= el.reorderLevel);
+
+  document.querySelectorAll("#low-notify").forEach((el) => {
+    el.textContent = lowProducts.length;
+  });
+
   container.innerHTML = `
     <div class="alert alert-danger d-flex align-items-center gap-3 mb-4">
       <i class="fa-solid fa-triangle-exclamation fs-4"></i>
       <div>
-        <strong>4 products at or below reorder level</strong>
-        <div class="small">This items need to be reordered soon</div>
+        <strong>${lowProducts.length} products at or below reorder level</strong>
+        <div class="small">These items need to be reordered soon</div>
       </div>
     </div>
 
@@ -65,7 +35,6 @@ function loadLowStock() {
               <th>Current Qty</th>
               <th>Reorder Level</th>
               <th>Deficit</th>
-              <th>Urgency</th>
             </tr>
           </thead>
           <tbody class="low-table"></tbody>
@@ -76,28 +45,91 @@ function loadLowStock() {
 
   const table = document.querySelector(".low-table");
 
-  reports.forEach((el) => {
+  lowProducts.forEach((el) => {
+    const category = categories.find((cat) => cat.id == el.categoryId);
+
+    const deficit = el.reorderLevel - el.quantity;
     table.insertAdjacentHTML(
       "beforeend",
       `<tr>
-        <td>${el.products}</td>
+        <td>${el.name}</td>
         <td>${el.sku}</td>
-        <td>${el.category}</td>
-        <td>${el.quentity}</td>
-        <td>${el.reorder}</td>
-        <td class="text-danger fw-semibold">${el.deficit}</td>
-        <td><span class="badge bg-danger">${el.urgency}</span></td>
+        <td>${category.name}</td>
+        <td>${el.quantity}</td>
+        <td>${el.reorderLevel}</td>
+        <td class="text-danger fw-semibold">${deficit}</td>
       </tr>`,
     );
   });
 }
 
-function loadInventoryValue() {
+// ======================= Inventory Value =======================
+async function loadInventoryValue() {
+  const products = await getData("products");
+  const categories = await getData("categories");
+
+  let totalRetail = 0;
+
+  // Total Inventory Value
+  products.forEach((p) => {
+    totalRetail += p.price * p.quantity;
+  });
+
+  // Category Calculation
+  let categoryMap = {};
+
+  products.forEach((p) => {
+    const category = categories.find((c) => c.id == p.categoryId);
+
+    if (!categoryMap[category.name]) {
+      categoryMap[category.name] = {
+        products: 0,
+        value: 0,
+      };
+    }
+
+    categoryMap[category.name].products += 1;
+    categoryMap[category.name].value += p.price * p.quantity;
+  });
+
+  // Category Rows
+  let categoryRows = "";
+  for (let cat in categoryMap) {
+    categoryRows += `
+      <tr>
+        <td>${cat}</td>
+        <td>${categoryMap[cat].products}</td>
+        <td>$${categoryMap[cat].value.toFixed(2)}</td>
+        <td>$${categoryMap[cat].value.toFixed(2)}</td>
+        <td class="text-success">$0</td>
+      </tr>
+    `;
+  }
+
+  // Products Rows
+  let productRows = "";
+  products.forEach((p) => {
+    const total = p.price * p.quantity;
+
+    productRows += `
+      <tr>
+        <td>
+          <div class="fw-semibold">${p.name}</div>
+          <small class="text-secondary">${p.sku}</small>
+        </td>
+        <td>$${p.price}</td>
+        <td>$${p.price}</td>
+        <td>${p.quantity}</td>
+        <td class="text-end fw-bold">$${total.toFixed(2)}</td>
+      </tr>
+    `;
+  });
+
   container.innerHTML = `
     <div class="d-flex flex-column gap-4">
 
-    
       <div class="row g-3">
+        
         <div class="col-md-4">
           <div class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center gap-3">
             <div class="bg-success-subtle p-2 rounded-3">
@@ -105,7 +137,7 @@ function loadInventoryValue() {
             </div>
             <div>
               <p class="mb-1 small">Total Retail Value</p>
-              <strong>$38,766.13</strong>
+              <strong>$${totalRetail.toFixed(2)}</strong>
             </div>
           </div>
         </div>
@@ -113,11 +145,11 @@ function loadInventoryValue() {
         <div class="col-md-4">
           <div class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center gap-3">
             <div class="bg-warning-subtle p-2 rounded-3">
-              <i class="fa-solid fa-dollar-sign fs-4 text-warning"></i>
+              <i class="fa-solid fa-coins fs-4 text-warning"></i>
             </div>
             <div>
               <p class="mb-1 small">Total Cost Value</p>
-              <strong>$38,766.13</strong>
+              <strong>$${totalRetail.toFixed(2)}</strong>
             </div>
           </div>
         </div>
@@ -125,100 +157,56 @@ function loadInventoryValue() {
         <div class="col-md-4">
           <div class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center gap-3">
             <div class="bg-primary-subtle p-2 rounded-3">
-              <i class="fa-solid fa-dollar-sign fs-4 text-primary"></i>
+              <i class="fa-solid fa-chart-line fs-4 text-primary"></i>
             </div>
             <div>
               <p class="mb-1 small">Potential Profit</p>
-              <strong>$38,766.13</strong>
+              <strong>$0</strong>
             </div>
           </div>
         </div>
+
       </div>
 
-  
+      <!-- Category Table -->
       <div class="bg-white p-4 rounded-4 shadow-sm">
         <h5 class="fw-bold mb-3">Value by Category</h5>
-        <div class="table-responsive">
-          <table class="table align-middle mb-0">
-            <thead class="table-light">
-              <tr>
-                <th>Category</th>
-                <th>Products</th>
-                <th>Retail Value</th>
-                <th>Cost Value</th>
-                <th>Margin</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Electronics</td>
-                <td>4</td>
-                <td>$33,669.39</td>
-                <td>$112,326.00</td>
-                <td class="text-success">-$78,656.61</td>
-              </tr>
-              <tr>
-                <td>Office Supplies</td>
-                <td>2</td>
-                <td>$1,847.41</td>
-                <td>$918.00</td>
-                <td class="text-success">$929.41</td>
-              </tr>
-              <tr>
-                <td>Furniture</td>
-                <td>2</td>
-                <td>$2,949.93</td>
-                <td>$1,540.00</td>
-                <td class="text-success">$1,409.93</td>
-              </tr>
-              <tr>
-                <td>Cleaning</td>
-                <td>1</td>
-                <td>$299.40</td>
-                <td>$108.00</td>
-                <td class="text-success">$191.40</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="table align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Category</th>
+              <th>Products</th>
+              <th>Retail Value</th>
+              <th>Cost Value</th>
+              <th>Margin</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${categoryRows}
+          </tbody>
+        </table>
       </div>
 
-      
+      <!-- Products Table -->
       <div class="bg-white p-4 rounded-4 shadow-sm">
         <h5 class="fw-bold mb-3">All Products — Inventory Value</h5>
+        <table class="table align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Product</th>
+              <th>Unit Price</th>
+              <th>Cost</th>
+              <th>Qty</th>
+              <th class="text-end">Total Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${productRows}
+          </tbody>
+        </table>
 
-        <div class="table-responsive">
-          <table class="table align-middle mb-0">
-            <thead class="table-light">
-              <tr>
-                <th>Product</th>
-                <th>Unit Price</th>
-                <th>Cost</th>
-                <th>Qty</th>
-                <th class="text-end">Total Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>electric<br><small class="text-secondary">ele-666</small></td>
-                <td>$155.00</td>
-                <td>$555.00</td>
-                <td>200</td>
-                <td class="text-end">$31,000.00</td>
-              </tr>
-              <tr>
-                <td>A4 Copy Paper<br><small class="text-secondary">OFFC-001</small></td>
-                <td>$8.99</td>
-                <td>$4.50</td>
-                <td>200</td>
-                <td class="text-end">$1,798.00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="d-flex justify-content-end border-top pt-3 mt-3">
-          <strong>Grand Total: $38,766.13</strong>
+        <div class="d-flex justify-content-end pt-3 mt-3">
+          <strong>Grand Total: $${totalRetail}</strong>
         </div>
       </div>
 
