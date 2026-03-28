@@ -47,5 +47,18 @@ window.addEventListener("load", async function () {
     logActivityData(filterlog);
   });
 });
+async function clearAllLogs() {
+  const logData = await getData("activityLog");
 
+  for (let log of logData) {
+    await fetch(`http://localhost:3000/activityLog/${log.id}`, {
+      method: "DELETE",
+    });
+  }
+
+  activityDiv.innerHTML = "";
+  document.querySelector(".log-count").textContent = "0 logged actions";
+}
+
+clear.addEventListener("click", clearAllLogs);
 // clearLogBtn.addEventListener("click");
