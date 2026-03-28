@@ -70,6 +70,42 @@
   "products": [
     {
       "id": "1",
+    { "id": 1, "name": "Computer Accessories" },
+    { "id": 2, "name": "Monitors" },
+    { "id": 3, "name": "Storage Devices" },
+    { "id": 4, "name": "Networking" }
+  ],
+
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "Tech Supplies Co.",
+      "email": "sales@techsupplies.com",
+      "phone": "01000000001"
+    },
+    {
+      "id": 2,
+      "name": "Global Keyboards",
+      "email": "info@globalkeyboards.com",
+      "phone": "01000000002"
+    },
+    {
+      "id": 3,
+      "name": "Display Market",
+      "email": "contact@displaymarket.com",
+      "phone": "01000000003"
+    },
+    {
+      "id": 4,
+      "name": "Network Hub",
+      "email": "support@networkhub.com",
+      "phone": "01000000004"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
       "name": "Wireless Mouse",
       "sku": "WM-1001",
       "categoryId": 1,
@@ -242,6 +278,8 @@
       "id": "3Ett9nBfQo8"
     }
   ],
+  "$schema": "./node_modules/json-server/schema.json"
+
   "activityLog": [
     {
       "type": "products",
