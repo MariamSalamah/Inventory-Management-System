@@ -8,6 +8,7 @@
   --main-transition: 0.3s;
   --normal-text-color: #333;
   --table-feild-hover-color: #f9fafb;
+  --input-focus-color: #0061bd;
 }
 
 body {
@@ -156,6 +157,17 @@ ul li {
   .search input {
     width: 100%;
   }
+}
+textarea,
+input,
+select {
+  outline: 0;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: 2px solid var(--input-focus-color);
 }
 
 /* end main */
@@ -382,8 +394,68 @@ span.link {
   display: block;
 }
 
+.sec-Form {
+  z-index: 99999999;
+  background-color: rgba(0, 0, 0, 0.39);
+  /* animation states live in the js-classes block below */
+
+  .window {
+    width: 800px;
+    min-height: 60%;
+    border-radius: calc(var(--main-border-radius) + 5px);
+    background-color: var(--table-feild-hover-color);
+
+    .title {
+      padding: 15px 20px 10px 20px;
+      font-weight: bold;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .closeWindow {
+        transition: var(--main-transition);
+        cursor: pointer;
+        &:hover {
+          color: red;
+        }
+      }
+    }
+
+    .actions {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+
+      button {
+        cursor: pointer;
+        padding: 10px;
+        border-radius: var(--main-border-radius);
+        transition: var(--main-transition);
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      .cancel {
+        border: 1px solid rgba(160, 160, 160, 0.26);
+      }
+      .create {
+        background-color: var(--main-btn-color);
+        border: 0;
+        color: white;
+      }
+    }
+  }
+}
+
 /* Medium and Small screens */
 @media (max-width: 992px) {
+  .sec-Form .window {
+    width: 80%;
+  }
   aside {
     transform: translateX(-350px);
     z-index: 1000;
@@ -411,8 +483,28 @@ span.link {
   width: 100%;
   overflow: hidden;
   padding-top: 20px;
+  padding-bottom: 60px;
 }
 
+.Products .sec-Form .input {
+  width: 49%;
+
+  input,
+  select {
+    background-color: transparent;
+    padding: 10px 8px;
+    border: 1px solid rgba(151, 151, 151, 0.5);
+    border-radius: var(--main-border-radius);
+  }
+}
+
+.Products .sec-Form textarea {
+  background-color: transparent;
+  padding: 10px 8px;
+  border: 1px solid rgba(151, 151, 151, 0.5);
+  border-radius: var(--main-border-radius);
+  height: 80px;
+}
 .Products select {
   padding: 6px;
 }
@@ -452,7 +544,7 @@ span.link {
 .Products tbody tr {
   border-top: 1px solid rgb(218, 218, 218);
 }
-.Products table .Product {
+.Products table .title {
   max-width: 300px;
 }
 .Products th,
@@ -582,3 +674,67 @@ span.link {
 }
 
 /* end suppliers */
+
+/* ── Modal animation ───────────────────────────────────────────────── */
+
+/* Backdrop */
+.sec-Form {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.sec-Form.modal-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Window card */
+.sec-Form .window {
+  transform: translateY(-28px) scale(0.97);
+  transition:
+    transform 0.28s cubic-bezier(0.34, 1.36, 0.64, 1),
+    opacity 0.25s ease;
+  opacity: 0;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.sec-Form.modal-open .window {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Keep heddin as a hard display:none ONLY before the first open,
+   so the modal is invisible on page load without flashing. */
+.sec-Form.heddin {
+  display: none !important;
+}
+
+/* ── Validation ─────────────────────────────────────────────────────── */
+
+.field-error input,
+.field-error select,
+.field-error textarea {
+  border-color: var(--error-color) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15) !important;
+}
+
+.error-msg {
+  color: var(--error-color);
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+}
+
+.field-error .error-msg {
+  display: block;
+}
+
+/* Label inside a field-error wrapper also goes red */
+.field-error label {
+  color: var(--error-color);
+}
+
+/* ── end js classes ─────────────────────────────────────────────────── */
