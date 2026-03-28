@@ -60,8 +60,6 @@
     }
   ],
   "products": [
-    {
-      "id": "1",
     { "id": 1, "name": "Computer Accessories" },
     { "id": 2, "name": "Monitors" },
     { "id": 3, "name": "Storage Devices" },
@@ -267,7 +265,7 @@
       "urgency": "high"
     }
   ],
-  "$schema": "./node_modules/json-server/schema.json"
+  "$schema": "./node_modules/json-server/schema.json",
 
   "activityLog": [
     {
