@@ -1,153 +1,236 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- -----------------fonts-------------------- -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <!-- -----------------fonts-------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- -----------------fontawesome-------------------- -->
+    <script
+      src="https://kit.fontawesome.com/1c5a67489d.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- -----------------bootstrap-------------------- -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet" />
-  <!-- -----------------fontawesome-------------------- -->
-  <script src="https://kit.fontawesome.com/1c5a67489d.js" crossorigin="anonymous"></script>
-  <!-- -----------------bootstrap-------------------- -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- -----------------style-------------------- -->
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-  <!-- -----------------style-------------------- -->
+    <link rel="stylesheet" href="./src/styles/style.css" />
 
-  <link rel="stylesheet" href="./src/styles/style.css" />
+    <!-- -----------------JQuery-------------------- -->
 
-  <!-- -----------------JQuery-------------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <!-- -----------------JS-------------------- -->
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-  <!-- -----------------JS-------------------- -->
+    <script src="./src/js/main.js"></script>
+    <script src="./src/js/Suppliers.js" type="module"></script>
+    <script src="./src/js/Dashboard.js" type="module"></script>
+  </head>
 
-  <script src="./src/js/main.js"></script>
-</head>
-
-<body>
-  <div class="overlay"></div>
-  <!-- ------------------------start sidebar----------------------------- -->
-  <aside class="position-fixed vh-100 start-0 top-0 bottom-0 d-flex flex-column">
-    <div class="aside-header p-4 d-flex align-items-center gap-3">
-      <div class="logo d-flex justify-content-center align-items-center bg-primary text-light fs-4 rounded-4">
-        <i class="fa-solid fa-cubes"></i>
+  <body>
+    <div class="overlay"></div>
+    <!-- ------------------------start sidebar----------------------------- -->
+    <aside
+      class="position-fixed vh-100 start-0 top-0 bottom-0 d-flex flex-column"
+    >
+      <div class="aside-header p-4 d-flex align-items-center gap-3">
+        <div
+          class="logo d-flex justify-content-center align-items-center bg-primary text-light fs-4 rounded-4"
+        >
+          <i class="fa-solid fa-cubes"></i>
+        </div>
+        <div class="text-logo flex-grow-1 d-flex flex-column">
+          <span class="">StockPilot </span>
+          <span class="text-uppercase">Inventory System</span>
+        </div>
+        <div class="close-aside d-block d-lg-none">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
       </div>
-      <div class="text-logo flex-grow-1 d-flex flex-column">
-        <span class="">ITI </span>
-        <span class="text-uppercase">Inventory System</span>
+      <div class="aside-links p-4">
+        <div class="Overview d-flex flex-column mb-3">
+          <span class="title-links text-uppercase ps-2 mb-2">Overview</span>
+          <span
+            class="link active btn border-0 py-2 text-start"
+            data-target="Dashboard"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-layout-dashboard me-2"
+              aria-hidden="true"
+            >
+              <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+              <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+              <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+              <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+            </svg>
+            Dashboard</span
+          >
+        </div>
+        <div class="Inventory d-flex flex-column mb-3">
+          <span class="title-links text-uppercase ps-2 mb-2">Inventory</span>
+          <span
+            class="link btn border-0 py-2 text-start"
+            data-target="Products"
+          >
+            <i class="fa-solid fa-box-open me-2"></i>
+            Products</span
+          >
+          <span
+            class="link btn border-0 py-2 text-start"
+            data-target="Categories"
+          >
+            <i class="fa-solid fa-tag me-2"></i>
+            Categories</span
+          >
+          <span
+            class="link btn border-0 py-2 text-start"
+            data-target="Suppliers"
+          >
+            <i class="fa-regular fa-truck me-2"></i>
+            Suppliers</span
+          >
+        </div>
+        <div class="Operations d-flex flex-column mb-3">
+          <span class="title-links text-uppercase ps-2 mb-2">Inventory</span>
+          <span
+            class="link btn border-0 py-2 text-start"
+            data-target="Purchase"
+          >
+            <i class="fa-regular fa-clipboard me-2"></i>
+            Purchase Orders</span
+          >
+          <span
+            class="link btn border-0 py-2 text-start"
+            data-target="Stock-Adjustments"
+          >
+            <i class="fa-solid fa-arrow-right-arrow-left me-2"></i>
+            Stock Adjustments</span
+          >
+        </div>
+        <div class="Analytics d-flex flex-column mb-3">
+          <span class="title-links text-uppercase ps-2 mb-2">Analytics</span>
+          <span
+            class="link d-flex align-items-center gap-1 btn border-0 py-2 text-start"
+            data-target="Reports"
+          >
+            <i class="fa-regular fa-chart-bar me-2"></i>
+            <span>Reports</span>
+            <span class="ms-auto text-danger alert-danger px-1 py-1 rounded-3">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              4</span
+            >
+          </span>
+          <span
+            class="link btn border-0 py-2 text-start"
+            data-target="Activity-Log"
+          >
+            <i class="fa-solid fa-scroll me-2"></i>
+            Activity Log</span
+          >
+        </div>
       </div>
-      <div class="close-aside d-block d-lg-none">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-    </div>
-    <div class="aside-links p-4">
-      <div class="Overview d-flex flex-column mb-3">
-        <span class="title-links text-uppercase ps-2 mb-2">Overview</span>
-        <span class="link active btn border-0 py-2 text-start" data-target="Dashboard">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-layout-dashboard me-2" aria-hidden="true">
-            <rect width="7" height="9" x="3" y="3" rx="1"></rect>
-            <rect width="7" height="5" x="14" y="3" rx="1"></rect>
-            <rect width="7" height="9" x="14" y="12" rx="1"></rect>
-            <rect width="7" height="5" x="3" y="16" rx="1"></rect>
-          </svg>
-          Dashboard</span>
-      </div>
-      <div class="Inventory d-flex flex-column mb-3">
-        <span class="title-links text-uppercase ps-2 mb-2">Inventory</span>
-        <span class="link btn border-0 py-2 text-start" data-target="Products">
-          <i class="fa-solid fa-box-open me-2"></i>
-          Products</span>
-        <span class="link btn border-0 py-2 text-start" data-target="Categories">
-          <i class="fa-solid fa-tag me-2"></i>
-          Categories</span>
-        <span class="link btn border-0 py-2 text-start" data-target="Suppliers">
-          <i class="fa-regular fa-truck me-2"></i>
-          Suppliers</span>
-      </div>
-      <div class="Operations d-flex flex-column mb-3">
-        <span class="title-links text-uppercase ps-2 mb-2">Inventory</span>
-        <span class="link btn border-0 py-2 text-start" data-target="Purchase">
-          <i class="fa-regular fa-clipboard me-2"></i>
-          Purchase Orders</span>
-        <span class="link btn border-0 py-2 text-start" data-target="Stock-Adjustments">
-          <i class="fa-solid fa-arrow-right-arrow-left me-2"></i>
-          Stock Adjustments</span>
-      </div>
-      <div class="Analytics d-flex flex-column mb-3">
-        <span class="title-links text-uppercase ps-2 mb-2">Analytics</span>
-        <span class="link d-flex align-items-center gap-1 btn border-0 py-2 text-start" data-target="Reports">
-          <i class="fa-regular fa-chart-bar me-2"></i>
-          <span>Reports</span>
-          <span class="ms-auto text-danger alert-danger px-1 py-1 rounded-3">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-           <span id="low-notify"></span></span>
-        </span>
-        <span class="link btn border-0 py-2 text-start" data-target="Activity-Log">
-          <i class="fa-solid fa-scroll me-2"></i>
-          Activity Log</span>
-      </div>
-    </div>
-    <div class="aside-footer"></div>
-  </aside>
-  <!-- ------------------------end sidebar----------------------------- -->
+      <div class="aside-footer"></div>
+    </aside>
+    <!-- ------------------------end sidebar----------------------------- -->
 
-  <!-- ------------------------start nav----------------------------- -->
-  <nav class="position-fixed p-3 top-0 d-flex justify-content-between align-items-center z-3">
-    <span class="d-block d-lg-none"><i class="fa-solid fa-bars"></i></span>
-    <span class="d-block d-lg-none">Dashboard</span>
-    <span class="link text-danger alert-danger m-0 ms-lg-auto px-1 py-1 rounded-3" data-target="Reports">
-      <i class="fa-solid fa-triangle-exclamation"></i>
-      <span id="low-notify"></span> Low Stock</span>
-  </nav>
-  <!-- ------------------------end nav----------------------------- -->
+    <!-- ------------------------start nav----------------------------- -->
+    <nav
+      class="position-fixed p-3 top-0 d-flex justify-content-between align-items-center z-3"
+    >
+      <span class="d-block d-lg-none"><i class="fa-solid fa-bars"></i></span>
+      <span class="d-block d-lg-none">Dashboard</span>
+      <span
+        class="link text-danger alert-danger m-0 ms-lg-auto px-1 py-1 rounded-3"
+        data-target="Reports"
+      >
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        4 Low Stock</span
+      >
+    </nav>
+    <!-- ------------------------end nav----------------------------- -->
 
-  <!-- ------------------------start content----------------------------- -->
-  <main class="">
-    <div class="">
-      <!-- Start Dashboard -->
-      <section class="Dashboard container-lg p-4">
-        <h2 class="m-0">Dashboard</h2>
-        <p class="m-0 mb-4">Overview of your inventory at a glance</p>
-        <div class="Categories-dashboard">
-          <div class="row gy-4">
-            <div class="col-12 col-lg-4 col-md-6">
-              <div class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4" data-target="Products">
-                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
-                  <i class="fa-solid fa-box-open"></i>
-                </div>
-                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
-                  <span>total products</span>
-                  <span>8</span>
+    <!-- ------------------------start content----------------------------- -->
+    <main class="">
+      <div class="">
+        <!-- Start Dashboard -->
+        <section class="Dashboard container-lg p-4">
+          <h2 class="m-0">Dashboard</h2>
+          <p class="m-0 mb-4">Overview of your inventory at a glance</p>
+          <div class="Categories-dashboard">
+            <div class="row gy-4">
+              <div class="col-12 col-lg-4 col-md-6">
+                <div
+                  class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4"
+                  data-target="Products"
+                >
+                  <div
+                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
+                  >
+                    <i class="fa-solid fa-box-open"></i>
+                  </div>
+                  <div
+                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
+                  >
+                    <span>total products</span>
+                    <span id="prodlen">8</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6">
-              <div class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4" data-target="Categories">
-                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
-                  <i class="fa-solid fa-tag"></i>
-                </div>
-                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
-                  <span>Categories</span>
-                  <span> 4</span>
+              <div class="col-12 col-lg-4 col-md-6">
+                <div
+                  class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4"
+                  data-target="Categories"
+                >
+                  <div
+                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
+                  >
+                    <i class="fa-solid fa-tag"></i>
+                  </div>
+                  <div
+                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
+                  >
+                    <span>Categories</span>
+                    <span id="catlen"> 4</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6">
-              <div class="card d-flex flex-row link align-items-center gap-3 p-3 rounded-4" data-target="Suppliers">
-                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
-                  <i class="fa-regular fa-truck"></i>
-                </div>
-                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
-                  <span>Suppliers</span>
-                  <span> 3</span>
+              <div class="col-12 col-lg-4 col-md-6">
+                <div
+                  class="card d-flex flex-row link align-items-center gap-3 p-3 rounded-4"
+                  data-target="Suppliers"
+                >
+                  <div
+                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
+                  >
+                    <i class="fa-regular fa-truck"></i>
+                  </div>
+                  <div
+                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
+                  >
+                    <span>Suppliers</span>
+                    <span id="suplLen"> 3</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -161,1343 +244,2481 @@
                   <span id="low-notify"> 4</span>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6">
-              <div class="card d-flex flex-row link align-items-center gap-3 p-3 rounded-4" data-target="Reports">
-                <div class="card-icon d-flex link align-items-center justify-content-center p-2 rounded-3">
-                  <i class="fa-solid fa-dollar-sign"></i>
-                </div>
-                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
-                  <span>Inventory Value</span>
-                  <span>$7,670.65</span>
+              <div class="col-12 col-lg-4 col-md-6">
+                <div
+                  class="card d-flex flex-row link align-items-center gap-3 p-3 rounded-4"
+                  data-target="Reports"
+                >
+                  <div
+                    class="card-icon d-flex link align-items-center justify-content-center p-2 rounded-3"
+                  >
+                    <i class="fa-solid fa-dollar-sign"></i>
+                  </div>
+                  <div
+                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
+                  >
+                    <span>Inventory Value</span>
+                    <span id="InventoryValue">$7,670.65</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-lg-4 col-md-6">
-              <div class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4" data-target="Purchase">
-                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
-                  <i class="fa-regular fa-clipboard"></i>
-                </div>
-                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
-                  <span>Pending Orders</span>
-                  <span>0</span>
+              <div class="col-12 col-lg-4 col-md-6">
+                <div
+                  class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4"
+                  data-target="Purchase"
+                >
+                  <div
+                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
+                  >
+                    <i class="fa-regular fa-clipboard"></i>
+                  </div>
+                  <div
+                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
+                  >
+                    <span>Pending Orders</span>
+                    <span id="PendingOrdersLen">0</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="tabls mt-4">
-          <div class="row gy-4">
-            <div class="col-12 col-lg-6">
-              <div class="card p-3 rounded-4">
-                <div class="card-title bg-body d-flex align-items-center justify-content-between">
-                  <h3>
-                    <i class="fa-solid fa-arrow-trend-down"></i> Low Stock
-                    Alerts
-                  </h3>
-                  <span class="link" data-target="Reports">View All <i class="fa-solid fa-arrow-right-long"></i></span>
-                </div>
-                <div class="card-body">
-                  <div class="cell pb-3 mb-3 d-flex align-items-center justify-content-between">
-                    <div class="right">
-                      <p class="m-0">Mechanical Keyboard</p>
-                      <p class="m-0">Electronics · SKU: ELEC-002</p>
-                    </div>
-                    <div class="left alert-danger text-danger p-2 rounded-4">
-                      <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
-                    </div>
+          <div class="tabls mt-4">
+            <div class="row gy-4">
+              <div class="col-12 col-lg-6">
+                <div class="card p-3 rounded-4">
+                  <div
+                    class="card-title bg-body d-flex align-items-center justify-content-between"
+                  >
+                    <h3>
+                      <i class="fa-solid fa-arrow-trend-down"></i> Low Stock
+                      Alerts
+                    </h3>
+                    <span class="link" data-target="Reports"
+                      >View All <i class="fa-solid fa-arrow-right-long"></i
+                    ></span>
                   </div>
-                  <div class="cell pb-3 mb-3 d-flex align-items-center justify-content-between">
-                    <div class="right">
-                      <p class="m-0">Mechanical Keyboard</p>
-                      <p class="m-0">Electronics · SKU: ELEC-002</p>
-                    </div>
-                    <div class="left alert-danger text-danger p-2 rounded-4">
-                      <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
-                    </div>
-                  </div>
-                  <div class="cell pb-3 mb-3 d-flex align-items-center justify-content-between">
-                    <div class="right">
-                      <p class="m-0">Mechanical Keyboard</p>
-                      <p class="m-0">Electronics · SKU: ELEC-002</p>
-                    </div>
-                    <div class="left alert-danger text-danger p-2 rounded-4">
-                      <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-6">
-              <div class="card p-3 rounded-4">
-                <div class="card-title bg-body d-flex align-items-center justify-content-between">
-                  <h3>Recent Activity</h3>
-                  <span class="link" data-target="Reports">View All <i class="fa-solid fa-arrow-right-long"></i></span>
-                </div>
-                <div class="card-body">
-                  <div class="cell d-flex align-items-center justify-content-between">
-                    <div class="right">
-                      <p class="m-0">System Initialized</p>
-                      <p class="m-0">
-                        Inventory Management System loaded with seed data
-                      </p>
-                      <p class="m-0">3/14/2026, 9:30:54 PM</p>
-                    </div>
-                    <!-- <div class="left alert-danger text-danger p-2 rounded-4">
+                  <div class="card-body" id="reports-dashboard">
+                    <div
+                      class="cell pb-3 mb-3 d-flex align-items-center justify-content-between"
+                    >
+                      <div class="right">
+                        <p class="m-0">Mechanical Keyboard</p>
+                        <p class="m-0">Electronics · SKU: ELEC-002</p>
+                      </div>
+                      <div class="left alert-danger text-danger p-2 rounded-4">
                         <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
-                      </div> -->
+                      </div>
+                    </div>
+                    <div
+                      class="cell pb-3 mb-3 d-flex align-items-center justify-content-between"
+                    >
+                      <div class="right">
+                        <p class="m-0">Mechanical Keyboard</p>
+                        <p class="m-0">Electronics · SKU: ELEC-002</p>
+                      </div>
+                      <div class="left alert-danger text-danger p-2 rounded-4">
+                        <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
+                      </div>
+                    </div>
+                    <div
+                      class="cell pb-3 mb-3 d-flex align-items-center justify-content-between"
+                    >
+                      <div class="right">
+                        <p class="m-0">Mechanical Keyboard</p>
+                        <p class="m-0">Electronics · SKU: ELEC-002</p>
+                      </div>
+                      <div class="left alert-danger text-danger p-2 rounded-4">
+                        <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="card p-3 rounded-4">
+                  <div
+                    class="card-title bg-body d-flex align-items-center justify-content-between"
+                  >
+                    <h3>Recent Activity</h3>
+                    <span class="link" data-target="Reports"
+                      >View All <i class="fa-solid fa-arrow-right-long"></i
+                    ></span>
+                  </div>
+                  <div class="card-body" id="card-RecentActivity-dashboard">
+                    <div
+                      class="cell d-flex align-items-center justify-content-between"
+                    >
+                      <div class="right">
+                        <p class="m-0">System Initialized</p>
+                        <p class="m-0">
+                          Inventory Management System loaded with seed data
+                        </p>
+                        <p class="m-0">3/14/2026, 9:30:54 PM</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- End Dashboard -->
+        </section>
+        <!-- End Dashboard -->
 
-      <!-- Start Products -->
-      <section class="Products">
-        <div class="container">
-          <div class="sec-header">
-            <div class="text">
-              <h2>Products</h2>
-              <!-- dynamic number shows the count of product -->
-              <p><span>num</span> products in inventory</p>
+        <!-- Start Products -->
+        <section class="Products">
+          <div class="container">
+            <div class="sec-header">
+              <div class="text">
+                <h2>Products</h2>
+                <!-- dynamic number shows the count of product -->
+                <p><span>num</span> products in inventory</p>
+              </div>
+
+              <button class="d-flex justify-content-center align-items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class=""
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5v14"></path>
+                </svg>
+                Add Product
+              </button>
             </div>
 
-            <button class="d-flex justify-content-center align-items-center"><svg xmlns="http://www.w3.org/2000/svg"
-                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true">
-                <path d="M5 12h14"></path>
-                <path d="M12 5v14"></path>
-              </svg>
-              Add Product
-            </button>
-          </div>
+            <div class="search-and-categories mt-4 d-flex gap-3">
+              <div class="search position-relative">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="search-icone lucide lucide-search absolute text-gray-400"
+                  aria-hidden="true"
+                >
+                  <path d="m21 21-4.34-4.34"></path>
+                  <circle cx="11" cy="11" r="8"></circle>
+                </svg>
+                <input
+                  class="input-field"
+                  type="text"
+                  placeholder="Search by name or SKU..."
+                />
+              </div>
 
-          <div class="search-and-categories mt-4 d-flex gap-3">
+              <select name="categories" id="categories" class="">
+                <option value="all">All Categories</option>
+                <option value="2">first</option>
+                <option value="2">second</option>
+              </select>
+            </div>
+
+            <table class="productTable">
+              <thead>
+                <tr>
+                  <th class="Product-head">Product</th>
+                  <th class="SKU-head">SKU</th>
+                  <th class="Category-head">Category</th>
+                  <th class="Price-head">Price</th>
+                  <th class="Stock-head">Stock</th>
+                  <th class="Status-head">Status</th>
+                  <th class="Actions-head">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="Product d-flex justify-content-start align-items-center gap-2"
+                  >
+                    <div
+                      class="title-icon d-flex justify-content-center align-items-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-package text-blue-500"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
+                        ></path>
+                        <path d="M12 22V12"></path>
+                        <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                        <path d="m7.5 4.27 9 5.15"></path>
+                      </svg>
+                    </div>
+                    <span>Wireless Mouse</span>
+                  </td>
+                  <td class="SKU">ELEC-001</td>
+                  <td class="category">Electronics</td>
+                  <td class="price">$29.99</td>
+                  <td class="stock">45</td>
+                  <td class="product-status in-stock">
+                    <div>In Stock</div>
+                  </td>
+                  <td
+                    class="actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td
+                    class="Product d-flex justify-content-start align-items-center gap-2"
+                  >
+                    <div
+                      class="title-icon d-flex justify-content-center align-items-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-package text-blue-500"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
+                        ></path>
+                        <path d="M12 22V12"></path>
+                        <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                        <path d="m7.5 4.27 9 5.15"></path>
+                      </svg>
+                    </div>
+                    <span>Mechanical Keyboard</span>
+                  </td>
+                  <td class="SKU">ELEC-002</td>
+                  <td class="category">Electronics</td>
+                  <td class="price">$89.99</td>
+                  <td class="stock">12</td>
+                  <td class="product-status low">
+                    <div>Low</div>
+                  </td>
+                  <td
+                    class="actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td
+                    class="Product d-flex justify-content-start align-items-center gap-2"
+                  >
+                    <div
+                      class="title-icon d-flex justify-content-center align-items-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-package text-blue-500"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
+                        ></path>
+                        <path d="M12 22V12"></path>
+                        <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                        <path d="m7.5 4.27 9 5.15"></path>
+                      </svg>
+                    </div>
+                    <span>A4 Copy Paper (Ream)</span>
+                  </td>
+                  <td class="SKU">OFFC-001</td>
+                  <td class="category">Office Supplies</td>
+                  <td class="price">$8.99</td>
+                  <td class="stock">205</td>
+                  <td class="product-status in-stock">
+                    <div>In Stock</div>
+                  </td>
+                  <td
+                    class="actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <!-- End Products -->
+
+        <!-- Start Categories -->
+        <section class="Categories">
+          <div class="container">
+            <div class="sec-header">
+              <div class="text">
+                <h2>Categories</h2>
+                <p>Organize your products into categories</p>
+              </div>
+
+              <button class="d-flex justify-content-center align-items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class=""
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5v14"></path>
+                </svg>
+                <span>Add Category</span>
+              </button>
+            </div>
+
             <div class="search position-relative">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="search-icone lucide lucide-search absolute text-gray-400" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="search-icone lucide lucide-search absolute text-gray-400"
+                aria-hidden="true"
+              >
                 <path d="m21 21-4.34-4.34"></path>
                 <circle cx="11" cy="11" r="8"></circle>
               </svg>
-              <input class="input-field" type="text" placeholder="Search by name or SKU...">
+              <input
+                class="input-field"
+                type="text"
+                placeholder="Search categories..."
+              />
             </div>
 
-            <select name="categories" id="categories" class="">
-              <option value="all">All Categories</option>
-              <option value="2">first</option>
-              <option value="2">second</option>
+            <div
+              class="cards d-flex justify-content-start flex-wrap mt-5 gap-4"
+            >
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-tag text-purple-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                        ></path>
+                        <circle
+                          cx="7.5"
+                          cy="7.5"
+                          r=".5"
+                          fill="currentColor"
+                        ></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>Electronics</h6>
+                      <p><span>0</span> products</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p>Electronic devices and components</p>
+              </div>
+
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-tag text-purple-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                        ></path>
+                        <circle
+                          cx="7.5"
+                          cy="7.5"
+                          r=".5"
+                          fill="currentColor"
+                        ></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>Electronics</h6>
+                      <p><span>0</span> products</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p>Electronic devices and components</p>
+              </div>
+
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-tag text-purple-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                        ></path>
+                        <circle
+                          cx="7.5"
+                          cy="7.5"
+                          r=".5"
+                          fill="currentColor"
+                        ></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>Electronics</h6>
+                      <p><span>0</span> products</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p>Electronic devices and components</p>
+              </div>
+
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-tag text-purple-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                        ></path>
+                        <circle
+                          cx="7.5"
+                          cy="7.5"
+                          r=".5"
+                          fill="currentColor"
+                        ></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>Electronics</h6>
+                      <p><span>0</span> products</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p>Electronic devices and components</p>
+              </div>
+
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-tag text-purple-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                        ></path>
+                        <circle
+                          cx="7.5"
+                          cy="7.5"
+                          r=".5"
+                          fill="currentColor"
+                        ></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>Electronics</h6>
+                      <p><span>0</span> products</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p>Electronic devices and components</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Categories -->
+
+        <!-- Start Suppliers -->
+        <section class="Suppliers">
+          <div class="container">
+            <div class="sec-header">
+              <div class="text">
+                <h2>Suppliers</h2>
+                <p>Manage your product suppliers</p>
+              </div>
+
+              <button
+                class="d-flex justify-content-center align-items-center"
+                data-bs-toggle="modal"
+                data-bs-target="#supplierModal"
+                id="addSupplierBtn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class=""
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5v14"></path>
+                </svg>
+                <span>Add Supplier</span>
+              </button>
+            </div>
+
+            <div class="search position-relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="search-icone lucide lucide-search absolute text-gray-400"
+                aria-hidden="true"
+              >
+                <path d="m21 21-4.34-4.34"></path>
+                <circle cx="11" cy="11" r="8"></circle>
+              </svg>
+              <input
+                class="input-field"
+                type="text"
+                id="searchSupplier"
+                placeholder="Search suppliers..."
+              />
+            </div>
+
+            <div
+              class="cards d-flex justify-content-start flex-wrap mt-5 gap-4"
+              id="suppliersContainer"
+            >
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-truck text-emerald-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                        ></path>
+                        <path d="M15 18H9"></path>
+                        <path
+                          d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
+                        ></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                        <circle cx="7" cy="18" r="2"></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>TechWorld Inc.</h6>
+                      <p>Alice Johnson</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="bottom">
+                  <p class="email">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    </svg>
+                    <span>alice@techworld.com</span>
+                  </p>
+                  <p class="phone">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path>
+                    </svg>
+                    <span>555-0101</span>
+                  </p>
+                  <p class="location">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>123 Tech Blvd, San Jose, CA</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-truck text-emerald-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                        ></path>
+                        <path d="M15 18H9"></path>
+                        <path
+                          d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
+                        ></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                        <circle cx="7" cy="18" r="2"></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>TechWorld Inc.</h6>
+                      <p>Alice Johnson</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="bottom">
+                  <p class="email">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    </svg>
+                    <span>alice@techworld.com</span>
+                  </p>
+                  <p class="phone">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path>
+                    </svg>
+                    <span>555-0101</span>
+                  </p>
+                  <p class="location">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>123 Tech Blvd, San Jose, CA</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-truck text-emerald-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                        ></path>
+                        <path d="M15 18H9"></path>
+                        <path
+                          d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
+                        ></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                        <circle cx="7" cy="18" r="2"></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>TechWorld Inc.</h6>
+                      <p>Alice Johnson</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="bottom">
+                  <p class="email">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    </svg>
+                    <span>alice@techworld.com</span>
+                  </p>
+                  <p class="phone">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path>
+                    </svg>
+                    <span>555-0101</span>
+                  </p>
+                  <p class="location">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>123 Tech Blvd, San Jose, CA</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-truck text-emerald-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                        ></path>
+                        <path d="M15 18H9"></path>
+                        <path
+                          d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
+                        ></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                        <circle cx="7" cy="18" r="2"></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>TechWorld Inc.</h6>
+                      <p>Alice Johnson</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="bottom">
+                  <p class="email">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    </svg>
+                    <span>alice@techworld.com</span>
+                  </p>
+                  <p class="phone">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path>
+                    </svg>
+                    <span>555-0101</span>
+                  </p>
+                  <p class="location">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>123 Tech Blvd, San Jose, CA</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="card card-A p-4 bg-white">
+                <div
+                  class="top d-flex justify-content-between align-items-start"
+                >
+                  <div class="left d-flex align-items-center">
+                    <div class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-truck text-emerald-600"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                        ></path>
+                        <path d="M15 18H9"></path>
+                        <path
+                          d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
+                        ></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                        <circle cx="7" cy="18" r="2"></circle>
+                      </svg>
+                    </div>
+                    <div class="text">
+                      <h6>TechWorld Inc.</h6>
+                      <p>Alice Johnson</p>
+                    </div>
+                  </div>
+                  <div
+                    class="right actions d-flex justify-content-center align-items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-gray-400"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide text-danger text-red-400"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 11v6"></path>
+                      <path d="M14 11v6"></path>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                      <path d="M3 6h18"></path>
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="bottom">
+                  <p class="email">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    </svg>
+                    <span>alice@techworld.com</span>
+                  </p>
+                  <p class="phone">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-phone text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                      ></path>
+                    </svg>
+                    <span>555-0101</span>
+                  </p>
+                  <p class="location">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin text-gray-300"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>123 Tech Blvd, San Jose, CA</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Suppliers -->
+
+        <!-- Start Purchase Orders -->
+        <section class="Purchase content p-5">
+          <!-- headline start -->
+          <div
+            class="headline d-lg-flex justify-content-between align-items-center"
+          >
+            <div class="">
+              <h2>Purchase Orders</h2>
+              <p class="text-light-emphasis">Order stock from suppliers</p>
+            </div>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#createOrderModal"
+              id="createOrder"
+            >
+              <i class="fa-solid fa-plus fs-6 fw-lighter"></i> Create Order
+            </button>
+          </div>
+          <!-- headline end -->
+
+          <!-- dropdown start -->
+          <div class="dropdown my-lg-0 my-3">
+            <button
+              class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              All Statuses
+            </button>
+            <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+              <li><a class="dropdown-item" href="#">All Statuses</a></li>
+              <li><a class="dropdown-item" href="#">Pending</a></li>
+              <li><a class="dropdown-item" href="#">Received</a></li>
+              <li><a class="dropdown-item" href="#">Cancelled</a></li>
+            </ul>
+          </div>
+          <!-- dropdown end -->
+
+          <!-- product info table start -->
+          <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+            <table class="table mb-0">
+              <thead class="table-header">
+                <tr class="table-header">
+                  <th class="text-dark-emphasis table-header" scope="col">
+                    PO #
+                  </th>
+                  <th
+                    class="text-dark-emphasis table-header d-none d-sm-table-cell"
+                    scope="col"
+                  >
+                    Supplier
+                  </th>
+                  <th class="text-dark-emphasis table-header" scope="col">
+                    Items
+                  </th>
+                  <th class="text-dark-emphasis table-header" scope="col">
+                    Total
+                  </th>
+                  <th class="text-dark-emphasis table-header" scope="col">
+                    Status
+                  </th>
+                  <th
+                    class="text-dark-emphasis table-header d-none d-md-table-cell"
+                    scope="col"
+                  >
+                    Date
+                  </th>
+                  <th class="text-dark-emphasis table-header" scope="col">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PO-01001</td>
+                  <td class="d-none d-sm-table-cell">TechWorld Inc.</td>
+                  <td>1</td>
+                  <td>$15.00</td>
+                  <td>
+                    <span
+                      class="rounded-pill text-dark-emphasis text-opacity-25 px-2 py-1 status"
+                      >Cancelled</span
+                    >
+                  </td>
+                  <td class="d-none d-md-table-cell">3/14/2026</td>
+                  <td>
+                    <span
+                      class="d-flex justify-content-end gap-2 align-items-center"
+                      ><i
+                        class="fa-regular fa-eye text-dark-emphasis text-opacity-25"
+                      ></i
+                      ><i class="fa-regular fa-circle-check text-success"></i
+                      ><i class="fa-regular fa-circle-xmark text-danger"></i
+                    ></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- product info table end -->
+
+          <!-- create order onclick -->
+          <div
+            id="createOrderCard"
+            class="card mx-5 visually-hidden"
+            style="width: 60%"
+          >
+            <div class="card-body">
+              <div class="d-lg-flex justify-content-between align-items-center">
+                <h5 class="card-title fw-bold">Create Purchase Order</h5>
+                <i
+                  class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"
+                ></i>
+              </div>
+
+              <hr />
+              <p class="card-text">Supplier *</p>
+              <!-- dropdown start -->
+              <div class="dropdown mb-2">
+                <button
+                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  — Select Suppliers —
+                </button>
+                <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+                  <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Office Depot Pro</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
+                </ul>
+              </div>
+              <!-- dropdown end -->
+
+              <div class="d-lg-flex justify-content-between align-items-center">
+                <p>Order Items</p>
+                <p class="text-primary">
+                  <i class="fa-solid fa-plus fs-6 fw-lighter"></i> Add item
+                </p>
+              </div>
+              <div
+                class="rounded-2 p-2 text-center mb-4"
+                style="background-color: rgba(231, 231, 231, 0.349)"
+              >
+                <p>No items added yet. Click "Add Item" to start.</p>
+              </div>
+
+              <div class="d-flex justify-content-end column-gap-lg-2">
+                <a href="#" class="btn bg-light text-black border-dark-subtle"
+                  >Cancel</a
+                >
+                <a href="#" class="btn btn-primary">Create order</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="createOrderModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div
+                    class="d-lg-flex justify-content-between align-items-center"
+                  >
+                    <h5 class="fw-bold">Create Purchase Order</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                    ></button>
+                  </div>
+
+                  <hr />
+
+                  <p>Supplier *</p>
+
+                  <!-- dropdown -->
+                  <div class="dropdown mb-2">
+                    <button
+                      class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                    >
+                      — Select Suppliers —
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#">TechWorld Inc.</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Office Depot Pro</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">FurniCraft Ltd.</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="d-lg-flex justify-content-between align-items-center"
+                  >
+                    <p>Order Items</p>
+                    <p class="text-primary">
+                      <i class="fa-solid fa-plus"></i> Add item
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2 p-2 text-center mb-4"
+                    style="background-color: rgba(231, 231, 231, 0.349)"
+                  >
+                    <p>No items added yet. Click "Add Item" to start.</p>
+                  </div>
+
+                  <div class="d-flex justify-content-end gap-2">
+                    <button class="btn bg-light border" data-bs-dismiss="modal">
+                      Cancel
+                    </button>
+                    <button class="btn btn-primary">Create order</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Purchase Orders -->
+
+        <!-- start Stock Adjustments -->
+        <section class="Stock-Adjustments content p-5">
+          <!-- headline start -->
+          <div
+            class="headline d-lg-flex justify-content-between align-items-center"
+          >
+            <div class="">
+              <h2>Stock Adjustments</h2>
+              <p class="text-light-emphasis">
+                Manually adjust inventory quantities
+              </p>
+            </div>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#newStockAdjustment"
+            >
+              <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
+            </button>
+          </div>
+          <!-- headline end -->
+
+          <!-- product info table start -->
+          <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+            <table class="table mb-0">
+              <thead class="table-header">
+                <tr class="table-header">
+                  <th class="text-dark-emphasis table-header" scope="col">
+                    Type
+                  </th>
+                  <th class="text-dark-emphasis table-header" scope="col">
+                    Product
+                  </th>
+                  <th class="text-dark-emphasis table-header" scope="col">
+                    Qty
+                  </th>
+                  <th
+                    class="text-dark-emphasis table-header"
+                    scope="col"
+                    colspan="2"
+                  >
+                    Reason
+                  </th>
+                  <th
+                    class="text-dark-emphasis table-header"
+                    scope="col"
+                    colspan="2"
+                  >
+                    Date
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-success">
+                    <i class="fa-solid fa-circle-arrow-up text-success"></i>
+                    increase
+                  </td>
+                  <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
+                  <td>TechWorld Inc.</td>
+                  <td>+1</td>
+                  <td colspan="2">Reason because</td>
+                  <td colspan="2">3/14/2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- product info table end -->
+
+          <div class="modal fade" id="newStockAdjustment" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h5 class="fw-bold">New Stock Adjustment</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                    ></button>
+                  </div>
+
+                  <hr />
+
+                  <p class="mb-1">Product *</p>
+                  <div class="dropdown mb-3">
+                    <button
+                      class="btn bg-light text-black border w-100 text-start dropdown-toggle"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                    >
+                      — Select Product —
+                    </button>
+                    <ul class="dropdown-menu w-100">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          >Wireless Mouse — Current: 43</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          >Laptop 6357Hp — Current: 5</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          >Headset 634 bluetooth — Current: 12</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <p class="mb-1">Type *</p>
+                      <div class="dropdown">
+                        <button
+                          class="btn bg-light text-black border w-100 text-start dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                        >
+                          Increase
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                          <li>
+                            <a class="dropdown-item" href="#">Increase</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Decrease</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <p class="mb-1">Quantity *</p>
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Enter quantity"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <p class="mb-1">Reason *</p>
+                    <textarea
+                      class="form-control"
+                      rows="3"
+                      placeholder="Write reason..."
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button class="btn bg-light border" data-bs-dismiss="modal">
+                    Cancel
+                  </button>
+                  <button class="btn btn-primary">Submit Adjustments</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card mx-5 pb-3 px-2 visually-hidden"
+            style="width: 40%; height: auto"
+          >
+            <div class="card-body">
+              <div class="d-lg-flex justify-content-between align-items-center">
+                <h5 class="card-title fw-bold">New Stock Adjustment</h5>
+                <i
+                  class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"
+                ></i>
+              </div>
+
+              <hr />
+              <p class="card-text">Product *</p>
+              <!-- dropdown start -->
+              <div class="dropdown mb-2">
+                <button
+                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  — Select Product —
+                </button>
+                <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Wireless Mouse — Current: 43
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Laptop 6357Hp — Current: 5</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Headset 634 bluetooth — Current: 12</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- dropdown end -->
+
+              <div class="d-lg-flex justify-content-between align-items-center">
+                <div>
+                  <p class="mb-1">Type *</p>
+                  <!-- dropdown start -->
+                  <div class="dropdown mb-2">
+                    <button
+                      class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Increase
+                    </button>
+                    <ul
+                      class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9"
+                    >
+                      <li><a class="dropdown-item" href="#">Increase </a></li>
+                      <li><a class="dropdown-item" href="#">Decrease</a></li>
+                    </ul>
+                  </div>
+                  <!-- dropdown end -->
+                </div>
+
+                <div>
+                  <p class="mb-1">Quantity *</p>
+
+                  <input
+                    class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
+                    type="number"
+                    name=""
+                    id=""
+                  />
+                </div>
+              </div>
+
+              <div>
+                <p class="mb-1">Reason *</p>
+
+                <textarea
+                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
+                  name=""
+                  id=""
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end column-gap-lg-2">
+              <a href="#" class="btn bg-light text-black border-dark-subtle"
+                >Cancel</a
+              >
+              <a href="#" class="btn btn-primary">Submit Adjustments</a>
+            </div>
+          </div>
+          <!-- </div> -->
+        </section>
+
+        <!-- End Stock Adjustments -->
+
+        <!-- Start Reports -->
+        <section class="Reports">
+          <div class="mb-4">
+            <h3 class="fw-bold mb-1">Reports</h3>
+            <p class="text-secondary mb-0">Inventory analytics and insights</p>
+          </div>
+
+          <div
+            class="reports-btn d-inline-flex gap-1 p-1 rounded-3 mb-4"
+            style="background-color: rgb(230, 229, 229)"
+          >
+            <div class="low-stock-btn px-3 py-2 rounded-3 bg-white">
+              <i class="fa-solid fa-arrow-trend-down me-1"></i>
+              Low Stock Report
+            </div>
+            <div class="inventory-value-btn px-3 py-2 rounded-3">
+              <i class="fa-solid fa-chart-line me-1"></i>
+              Inventory Value
+            </div>
+          </div>
+
+          <div class="table-container"></div>
+        </section>
+        <!-- End Reports -->
+
+        <!-- Start Activity-Log -->
+        <section class="Activity-Log">
+          <div class="d-flex justify-content-between align-items-start mb-4">
+            <div>
+              <h3 class="fw-bold mb-1">Activity Log</h3>
+              <p class="text-secondary mb-0">8 logged actions</p>
+            </div>
+
+            <button class="btn btn-outline-danger">
+              <i class="fa-solid fa-trash me-1"></i>
+              Clear All
+            </button>
+          </div>
+
+          <div class="mb-4" style="max-width: 250px">
+            <select class="form-select">
+              <option>All Types</option>
+              <option>Products</option>
+              <option>Orders</option>
+              <option>Suppliers</option>
             </select>
           </div>
 
-
-          <table class="productTable">
-            <thead>
-              <tr>
-                <th class="Product-head">Product</th>
-                <th class="SKU-head">SKU</th>
-                <th class="Category-head">Category</th>
-                <th class="Price-head">Price</th>
-                <th class="Stock-head">Stock</th>
-                <th class="Status-head">Status</th>
-                <th class="Actions-head">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="Product d-flex justify-content-start align-items-center gap-2">
-                  <div class="title-icon d-flex justify-content-center align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-package text-blue-500" aria-hidden="true">
-                      <path
-                        d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
-                      </path>
-                      <path d="M12 22V12"></path>
-                      <polyline points="3.29 7 12 12 20.71 7"></polyline>
-                      <path d="m7.5 4.27 9 5.15"></path>
-                    </svg>
-
+          <div class="bg-white rounded-4 shadow-sm p-3">
+            <div
+              class="d-flex justify-content-between align-items-start py-3 border-bottom"
+            >
+              <div class="d-flex gap-3">
+                <div class="bg-primary-subtle p-2 rounded-3">
+                  <i class="fa-solid fa-box text-primary"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Product Created</div>
+                  <div class="text-secondary small">
+                    Created product "electric" (SKU: ele-666)
                   </div>
-                  <span>Wireless Mouse</span>
-
-                </td>
-                <td class="SKU">ELEC-001</td>
-                <td class="category">Electronics</td>
-                <td class="price">$29.99</td>
-                <td class="stock">45</td>
-                <td class="product-status in-stock">
-                  <div>In Stock</div>
-                </td>
-                <td class="actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </td>
-
-              </tr>
-
-              <tr>
-                <td class="Product d-flex justify-content-start align-items-center gap-2">
-                  <div class="title-icon d-flex justify-content-center align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-package text-blue-500" aria-hidden="true">
-                      <path
-                        d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
-                      </path>
-                      <path d="M12 22V12"></path>
-                      <polyline points="3.29 7 12 12 20.71 7"></polyline>
-                      <path d="m7.5 4.27 9 5.15"></path>
-                    </svg>
-
-                  </div>
-                  <span>Mechanical Keyboard</span>
-
-                </td>
-                <td class="SKU">ELEC-002</td>
-                <td class="category">Electronics</td>
-                <td class="price">$89.99</td>
-                <td class="stock">12</td>
-                <td class="product-status low">
-                  <div>Low</div>
-                </td>
-                <td class="actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </td>
-
-              </tr>
-
-              <tr>
-                <td class="Product d-flex justify-content-start align-items-center gap-2">
-                  <div class="title-icon d-flex justify-content-center align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-package text-blue-500" aria-hidden="true">
-                      <path
-                        d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
-                      </path>
-                      <path d="M12 22V12"></path>
-                      <polyline points="3.29 7 12 12 20.71 7"></polyline>
-                      <path d="m7.5 4.27 9 5.15"></path>
-                    </svg>
-
-                  </div>
-                  <span>A4 Copy Paper (Ream)</span>
-
-                </td>
-                <td class="SKU">OFFC-001</td>
-                <td class="category">Office Supplies</td>
-                <td class="price">$8.99</td>
-                <td class="stock">205</td>
-                <td class="product-status in-stock">
-                  <div>In Stock</div>
-                </td>
-                <td class="actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </section>
-      <!-- End Products -->
-
-      <!-- Start Categories -->
-      <section class="Categories">
-        <div class="container">
-          <div class="sec-header">
-            <div class="text">
-              <h2>Categories</h2>
-              <p>Organize your products into categories</p>
+                </div>
+              </div>
+              <small class="text-secondary">3/17/2026, 1:46 AM</small>
             </div>
 
-            <button class="d-flex justify-content-center align-items-center"><svg xmlns="http://www.w3.org/2000/svg"
-                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true">
-                <path d="M5 12h14"></path>
-                <path d="M12 5v14"></path>
-              </svg>
-              <span>Add Category</span>
+            <div
+              class="d-flex justify-content-between align-items-start py-3 border-bottom"
+            >
+              <div class="d-flex gap-3">
+                <div class="bg-warning-subtle p-2 rounded-3">
+                  <i class="fa-solid fa-receipt text-warning"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Purchase Order Received</div>
+                  <div class="text-secondary small">
+                    Received PO-01002 — stock updated for 1 product(s)
+                  </div>
+                </div>
+              </div>
+              <small class="text-secondary">3/15/2026, 1:34 AM</small>
+            </div>
 
-            </button>
+            <div
+              class="d-flex justify-content-between align-items-start py-3 border-bottom"
+            >
+              <div class="d-flex gap-3">
+                <div class="bg-warning-subtle p-2 rounded-3">
+                  <i class="fa-solid fa-receipt text-warning"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Purchase Order Created</div>
+                  <div class="text-secondary small">
+                    Created PO-01002 with 1 item(s), total $2.00
+                  </div>
+                </div>
+              </div>
+              <small class="text-secondary">3/15/2026, 1:33 AM</small>
+            </div>
+
+            <div
+              class="d-flex justify-content-between align-items-start py-3 border-bottom"
+            >
+              <div class="d-flex gap-3">
+                <div class="bg-success-subtle p-2 rounded-3">
+                  <i class="fa-solid fa-truck text-success"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Supplier Deleted</div>
+                  <div class="text-secondary small">Deleted supplier "j"</div>
+                </div>
+              </div>
+              <small class="text-secondary">3/13/2026, 6:19 AM</small>
+            </div>
+
+            <div
+              class="d-flex justify-content-between align-items-start py-3 border-bottom"
+            >
+              <div class="d-flex gap-3">
+                <div class="bg-success-subtle p-2 rounded-3">
+                  <i class="fa-solid fa-truck text-success"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Supplier Created</div>
+                  <div class="text-secondary small">Created supplier "j"</div>
+                </div>
+              </div>
+              <small class="text-secondary">3/13/2026, 6:19 AM</small>
+            </div>
+
+            <div
+              class="d-flex justify-content-between align-items-start py-3 border-bottom"
+            >
+              <div class="d-flex gap-3">
+                <div class="bg-warning-subtle p-2 rounded-3">
+                  <i class="fa-solid fa-receipt text-warning"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Purchase Order Received</div>
+                  <div class="text-secondary small">
+                    Received PO-01001 — stock updated for 1 product(s)
+                  </div>
+                </div>
+              </div>
+              <small class="text-secondary">3/13/2026, 6:16 AM</small>
+            </div>
+
+            <div
+              class="d-flex justify-content-between align-items-start py-3 border-bottom"
+            >
+              <div class="d-flex gap-3">
+                <div class="bg-warning-subtle p-2 rounded-3">
+                  <i class="fa-solid fa-receipt text-warning"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Purchase Order Created</div>
+                  <div class="text-secondary small">
+                    Created PO-01001 with 1 item(s), total $45.00
+                  </div>
+                </div>
+              </div>
+              <small class="text-secondary">3/13/2026, 6:16 AM</small>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-start py-3">
+              <div class="d-flex gap-3">
+                <div class="bg-secondary-subtle p-2 rounded-3">
+                  <i class="fa-solid fa-gear text-secondary"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">System Initialized</div>
+                  <div class="text-secondary small">
+                    Inventory Management System loaded with seed data
+                  </div>
+                </div>
+              </div>
+              <small class="text-secondary">3/13/2026, 6:15 AM</small>
+            </div>
           </div>
+        </section>
+        <!-- End Activity-Log -->
+        <!-- Start Model suppliers -->
 
-          <div class="search position-relative">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="search-icone lucide lucide-search absolute text-gray-400" aria-hidden="true">
-              <path d="m21 21-4.34-4.34"></path>
-              <circle cx="11" cy="11" r="8"></circle>
-            </svg>
-            <input class="input-field" type="text" placeholder="Search categories...">
-          </div>
-
-          <div class="cards d-flex justify-content-start flex-wrap mt-5 gap-4">
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="supplierModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Add Supplier
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  id="closeBtnhead"
+                ></button>
               </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputCompanyName" class="form-label"
+                      >Company Name *</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputCompanyName"
+                    />
+                    <p class="m-0" id="error-Company"></p>
                   </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
+                  <div class="d-flex gap-3">
+                    <div class="mb-3 w-50">
+                      <label for="exampleInputName" class="form-label"
+                        >Contact Person</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputName"
+                      />
+                      <p class="m-0" id="error-name"></p>
+                    </div>
+                    <div class="mb-3 w-50">
+                      <label for="exampleInputEmail1" class="form-label">
+                        Email</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail"
+                        aria-describedby="emailHelp"
+                      />
+                      <p class="m-0" id="error-email"></p>
+                    </div>
                   </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
+                  <div class="d-flex gap-3">
+                    <div class="mb-3 w-50">
+                      <label for="exampleInputPhone" class="form-label"
+                        >Phone</label
+                      >
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="exampleInputPhone"
+                      />
+                      <p class="m-0" id="error-phone"></p>
+                    </div>
+                    <div class="mb-3 w-50">
+                      <label for="exampleInputAddress" class="form-label">
+                        Address</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputAddress"
+                      />
+                      <p class="m-0" id="error-address"></p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    id="closeBtn"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="saveBtnSupplier"
+                  >
+                    Save changes
+                  </button>
+                </form>
               </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-
-
-          </div>
-
-        </div>
-
-      </section>
-      <!-- End Categories -->
-
-      <!-- Start Suppliers -->
-      <section class="Suppliers">
-        <div class="container">
-          <div class="sec-header">
-            <div class="text">
-              <h2>Suppliers</h2>
-              <p>Manage your product suppliers</p>
-            </div>
-
-            <button class="d-flex justify-content-center align-items-center"><svg xmlns="http://www.w3.org/2000/svg"
-                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true">
-                <path d="M5 12h14"></path>
-                <path d="M12 5v14"></path>
-              </svg>
-              <span>Add Supplier</span>
-
-            </button>
-          </div>
-
-          <div class="search position-relative">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="search-icone lucide lucide-search absolute text-gray-400" aria-hidden="true">
-              <path d="m21 21-4.34-4.34"></path>
-              <circle cx="11" cy="11" r="8"></circle>
-            </svg>
-            <input class="input-field" type="text" placeholder="Search suppliers...">
-          </div>
-
-
-
-          <div class="cards d-flex justify-content-start flex-wrap mt-5 gap-4">
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-truck text-emerald-600" aria-hidden="true">
-                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
-                      <path d="M15 18H9"></path>
-                      <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14">
-                      </path>
-                      <circle cx="17" cy="18" r="2"></circle>
-                      <circle cx="7" cy="18" r="2"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>TechWorld Inc.</h6>
-                    <p>Alice Johnson</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-
-
-              <div class="bottom">
-                <p class="email"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-mail text-gray-300" aria-hidden="true">
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  </svg>
-                  <span>alice@techworld.com</span>
-                </p>
-                <p class="phone"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-phone text-gray-300" aria-hidden="true">
-                    <path
-                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
-                    </path>
-                  </svg>
-                  <span>555-0101</span>
-                </p>
-                <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-map-pin text-gray-300" aria-hidden="true">
-                    <path
-                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
-                    </path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  <span>123 Tech Blvd, San Jose, CA</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-truck text-emerald-600" aria-hidden="true">
-                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
-                      <path d="M15 18H9"></path>
-                      <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14">
-                      </path>
-                      <circle cx="17" cy="18" r="2"></circle>
-                      <circle cx="7" cy="18" r="2"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>TechWorld Inc.</h6>
-                    <p>Alice Johnson</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-
-
-              <div class="bottom">
-                <p class="email"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-mail text-gray-300" aria-hidden="true">
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  </svg>
-                  <span>alice@techworld.com</span>
-                </p>
-                <p class="phone"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-phone text-gray-300" aria-hidden="true">
-                    <path
-                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
-                    </path>
-                  </svg>
-                  <span>555-0101</span>
-                </p>
-                <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-map-pin text-gray-300" aria-hidden="true">
-                    <path
-                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
-                    </path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  <span>123 Tech Blvd, San Jose, CA</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-truck text-emerald-600" aria-hidden="true">
-                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
-                      <path d="M15 18H9"></path>
-                      <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14">
-                      </path>
-                      <circle cx="17" cy="18" r="2"></circle>
-                      <circle cx="7" cy="18" r="2"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>TechWorld Inc.</h6>
-                    <p>Alice Johnson</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-
-
-              <div class="bottom">
-                <p class="email"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-mail text-gray-300" aria-hidden="true">
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  </svg>
-                  <span>alice@techworld.com</span>
-                </p>
-                <p class="phone"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-phone text-gray-300" aria-hidden="true">
-                    <path
-                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
-                    </path>
-                  </svg>
-                  <span>555-0101</span>
-                </p>
-                <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-map-pin text-gray-300" aria-hidden="true">
-                    <path
-                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
-                    </path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  <span>123 Tech Blvd, San Jose, CA</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-truck text-emerald-600" aria-hidden="true">
-                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
-                      <path d="M15 18H9"></path>
-                      <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14">
-                      </path>
-                      <circle cx="17" cy="18" r="2"></circle>
-                      <circle cx="7" cy="18" r="2"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>TechWorld Inc.</h6>
-                    <p>Alice Johnson</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-
-
-              <div class="bottom">
-                <p class="email"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-mail text-gray-300" aria-hidden="true">
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  </svg>
-                  <span>alice@techworld.com</span>
-                </p>
-                <p class="phone"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-phone text-gray-300" aria-hidden="true">
-                    <path
-                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
-                    </path>
-                  </svg>
-                  <span>555-0101</span>
-                </p>
-                <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-map-pin text-gray-300" aria-hidden="true">
-                    <path
-                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
-                    </path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  <span>123 Tech Blvd, San Jose, CA</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-truck text-emerald-600" aria-hidden="true">
-                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
-                      <path d="M15 18H9"></path>
-                      <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14">
-                      </path>
-                      <circle cx="17" cy="18" r="2"></circle>
-                      <circle cx="7" cy="18" r="2"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>TechWorld Inc.</h6>
-                    <p>Alice Johnson</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-
-
-              <div class="bottom">
-                <p class="email"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-mail text-gray-300" aria-hidden="true">
-                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  </svg>
-                  <span>alice@techworld.com</span>
-                </p>
-                <p class="phone"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-phone text-gray-300" aria-hidden="true">
-                    <path
-                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
-                    </path>
-                  </svg>
-                  <span>555-0101</span>
-                </p>
-                <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-map-pin text-gray-300" aria-hidden="true">
-                    <path
-                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
-                    </path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  <span>123 Tech Blvd, San Jose, CA</span>
-                </p>
-              </div>
+              <!-- <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div> -->
             </div>
           </div>
         </div>
-      </section>
-      <!-- End Suppliers -->
-
-    <!-- Start Purchase Orders -->
-     <section class="Purchase content p-5">
-
-    <!-- headline start -->
-    <div class="headline d-lg-flex justify-content-between align-items-center">
-        <div class="">
-            <h2>Purchase Orders</h2>
-            <p class="text-light-emphasis">Order stock from suppliers</p>
-        </div>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createOrderModal" id="createOrder"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Create Order</button>
-
-    </div>
-    <!-- headline end -->
-
-    <!-- dropdown start -->
-    <div class="dropdown my-lg-0 my-3">
-        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            All Statuses
-        </button>
-        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-            <li><a class="dropdown-item" href="#">All Statuses</a></li>
-            <li><a class="dropdown-item" href="#">Pending</a></li>
-            <li><a class="dropdown-item" href="#">Received</a></li>
-            <li><a class="dropdown-item" href="#">Cancelled</a></li>
-        </ul>
-    </div>
-    <!-- dropdown end -->
-
-
-    
-
-    <!-- product info table start -->
-     <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
-   <table class="table mb-0">
-    <thead class="table-header">
-        <tr class="table-header">
-        <th class="text-dark-emphasis table-header" scope="col">PO #</th>
-        <th class="text-dark-emphasis table-header d-none d-sm-table-cell" scope="col">Supplier</th>
-        <th class="text-dark-emphasis table-header" scope="col">Items</th>
-        <th class="text-dark-emphasis table-header" scope="col">Total</th>
-        <th class="text-dark-emphasis table-header" scope="col">Status</th>
-        <th class="text-dark-emphasis table-header d-none d-md-table-cell" scope="col">Date</th>
-        <th class="text-dark-emphasis table-header" scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td>PO-01001</td>
-        <td class="d-none d-sm-table-cell">TechWorld Inc.</td>
-        <td>1</td>
-        <td>$15.00</td>
-        <td><span class="rounded-pill text-dark-emphasis text-opacity-25 px-2 py-1 status">Cancelled</span></td>
-        <td class="d-none d-md-table-cell">3/14/2026</td>
-        <td><span class="d-flex justify-content-end gap-2 align-items-center"><i class="fa-regular fa-eye text-dark-emphasis text-opacity-25"></i><i class="fa-regular fa-circle-check text-success"></i><i class="fa-regular fa-circle-xmark text-danger"></i></span></td>
-        </tr>
-    </tbody>
-  </table>
-  </div>
-    <!-- product info table end -->
-
-
-
-    <!-- create order onclick -->
-<div id="createOrderCard" class="card mx-5 visually-hidden" style="width: 60%;">
-  <div class="card-body">
-     <div class="d-lg-flex justify-content-between align-items-center">
-            <h5 class="card-title fw-bold">Create Purchase Order</h5>
-            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
-    </div>
-   
-    <hr>
-    <p class="card-text">Supplier *</p>
-        <!-- dropdown start -->
-    <div class="dropdown mb-2">
-        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-           — Select Suppliers —
-        </button>
-        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-            <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
-            <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
-            <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
-        </ul>
-    </div>
-    <!-- dropdown end -->
-
-     <div class="d-lg-flex justify-content-between align-items-center">
-            <p>Order Items</p>
-             <p class="text-primary"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Add item</p>
-    </div>
-    <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.349);">
-        <p>No items added yet. Click "Add Item" to start.</p>
-    </div>
-
-    <div class="d-flex justify-content-end column-gap-lg-2">
-        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
-        <a href="#" class="btn btn-primary">Create order</a>
-    </div>
-  
-  </div>
-</div>
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="createOrderModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-
-      <div class="modal-body">
-        <div class="d-lg-flex justify-content-between align-items-center">
-          <h5 class="fw-bold">Create Purchase Order</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <hr>
-
-        <p>Supplier *</p>
-
-        <!-- dropdown -->
-        <div class="dropdown mb-2">
-          <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown">
-            — Select Suppliers —
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
-            <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
-            <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
-          </ul>
-        </div>
-
-        <div class="d-lg-flex justify-content-between align-items-center">
-          <p>Order Items</p>
-          <p class="text-primary">
-            <i class="fa-solid fa-plus"></i> Add item
-          </p>
-        </div>
-
-        <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.349);">
-          <p>No items added yet. Click "Add Item" to start.</p>
-        </div>
-
-        <div class="d-flex justify-content-end gap-2">
-          <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
-          <button class="btn btn-primary">Create order</button>
-        </div>
-
+        <!-- End Model suppliers -->
       </div>
-
-    </div>
-  </div>
-</div>
-
-
-     </section>
-    <!-- End Purchase Orders -->
-
-    <!-- start Stock Adjustments -->
-<section class="Stock-Adjustments content p-5">
-
-     <!-- headline start -->
-    <div class="headline d-lg-flex justify-content-between align-items-center">
-        <div class="">
-            <h2>Stock Adjustments</h2>
-            <p class="text-light-emphasis">Manually adjust inventory quantities</p>
-        </div>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newStockAdjustment">
-  <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
-</button>
-
-    </div>
-    <!-- headline end -->
-    
-
-    <!-- product info table start -->
-   <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
-   <table class="table mb-0">
-    <thead class="table-header">
-        <tr class="table-header">
-        <th class="text-dark-emphasis table-header" scope="col">Type</th>
-        <th class="text-dark-emphasis table-header" scope="col">Product</th>
-        <th class="text-dark-emphasis table-header" scope="col">Qty</th>
-        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Reason</th>
-        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td class="text-success"><i class="fa-solid fa-circle-arrow-up text-success"></i> increase</td>
-        <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
-        <td>TechWorld Inc.</td>
-        <td>+1</td>
-        <td colspan="2">Reason because</td>
-        <td colspan="2">3/14/2026</td>
-        </tr>
-    </tbody>
-  </table>
-  </div>
-    <!-- product info table end -->
-
-<div class="modal fade" id="newStockAdjustment" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-
-     
-      <div class="modal-body">
-
-        
-        <div class="d-flex justify-content-between align-items-center">
-          <h5 class="fw-bold">New Stock Adjustment</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <hr>
-
-       
-        <p class="mb-1">Product *</p>
-        <div class="dropdown mb-3">
-          <button class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
-            — Select Product —
-          </button>
-          <ul class="dropdown-menu w-100">
-            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43</a></li>
-            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
-            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
-          </ul>
-        </div>
-
-        
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <p class="mb-1">Type *</p>
-            <div class="dropdown">
-              <button class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                Increase
-              </button>
-              <ul class="dropdown-menu w-100">
-                <li><a class="dropdown-item" href="#">Increase</a></li>
-                <li><a class="dropdown-item" href="#">Decrease</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <p class="mb-1">Quantity *</p>
-            <input type="number" class="form-control" placeholder="Enter quantity">
-          </div>
-        </div>
-
-       
-        <div class="mb-3">
-          <p class="mb-1">Reason *</p>
-          <textarea class="form-control" rows="3" placeholder="Write reason..."></textarea>
-        </div>
-
-      </div>
-
-      
-      <div class="modal-footer">
-        <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
-        <button class="btn btn-primary">Submit Adjustments</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-<div class="card mx-5 pb-3 px-2 visually-hidden" style="width: 40%; height: auto;">
-  <div class="card-body">
-     <div class="d-lg-flex justify-content-between align-items-center">
-            <h5 class="card-title fw-bold">New Stock Adjustment</h5>
-            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
-    </div>
-   
-    <hr>
-    <p class="card-text">Product *</p>
-        <!-- dropdown start -->
-    <div class="dropdown mb-2">
-        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-           — Select Product —
-        </button>
-        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43 </a></li>
-            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
-            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
-        </ul>
-    </div>
-    <!-- dropdown end -->
-
-    <div class="d-lg-flex justify-content-between align-items-center">
-        <div>
-
-    <p class="mb-1">Type *</p>
-            <!-- dropdown start -->
-    <div class="dropdown mb-2">
-        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Increase
-        </button>
-        <ul class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9">
-            <li><a class="dropdown-item" href="#">Increase </a></li>
-            <li><a class="dropdown-item" href="#">Decrease</a></li>
-        </ul>
-    </div>
-    <!-- dropdown end -->
-     </div>
-
-    <div>
-        <p class="mb-1">Quantity *</p>
-        
-        <input class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="number" name="" id="">
-     </div>
-
-</div>
-
-
-    <div>
-        <p class="mb-1">Reason *</p>
-        
-        <textarea class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" name="" id=""></textarea>
-     </div>
-
-</div>
-
-
-
-    <div class="d-flex justify-content-end column-gap-lg-2">
-        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
-        <a href="#" class="btn btn-primary">Submit Adjustments</a>
-    </div>
-  
-  </div>
-</div>
-
-</section>
-
-
-    <!-- End Stock Adjustments -->
-
-
-      <!-- Start Reports -->
-      <section class="Reports">
-        <div class="container">
-        <div class="mb-4">
-          <h3 class=" mt-4 fw-bold">Reports</h3>
-          <p class="text-secondary mb-0">Inventory analytics and insights</p>
-        </div>
-
-        <div class="reports-btn d-inline-flex gap-1 p-1 rounded-3 mb-4" style="background-color: rgb(230, 229, 229)">
-          <div class="low-stock-btn px-3 py-2 rounded-3 bg-white">
-            <i class="fa-solid fa-arrow-trend-down me-1"></i>
-            Low Stock Report
-          </div>
-          <div class="inventory-value-btn px-3 py-2 rounded-3">
-            <i class="fa-solid fa-chart-line me-1"></i>
-            Inventory Value
-          </div>
-        </div>
-
-        <div class="table-container"></div>
-        </div>
-      </section>
-      <!-- End Reports -->
-
-      <!-- Start Activity-Log -->
-      <section class="Activity-Log">
-        <div class="container">
-        <div class="d-flex justify-content-between align-items-start mt-4">
-          <div class="my-2">
-            <h3 class="fw-bold mb-1">Activity Log</h3>
-            <p class="log-count text-secondary mb-0">8 logged actions</p>
-          </div>
-
-          <button class="clearLogBtn btn btn-outline-danger">
-            <i class="fa-solid fa-trash me-1"></i>
-            Clear All
-          </button>
-        </div>
-
-        <div class="mb-4" style="max-width: 250px">
-          <select class="form-select" id="selectForm">
-            <option>All Types</option>
-            <option>Products</option>
-            <option>Orders</option>
-            <option>Suppliers</option>
-          </select>
-        </div>
-
-        <div class="activity-div bg-white rounded-4 shadow-sm p-3">
-        </div>
-       </div>
-      </section>
-      <!-- End Activity-Log -->
-    </div>
-  </main>
-  <script src="./src/js/reports.js" type="module"></script>
-  <script src="./src/js/activitylog.js" type="module"></script>
-  <!-- ------------------------end content----------------------------- -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
-</body>
-
+    </main>
+    <script src="./src/js/reports.js"></script>
+    <!-- ------------------------end content----------------------------- -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

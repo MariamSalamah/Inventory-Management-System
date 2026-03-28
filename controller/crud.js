@@ -23,6 +23,10 @@ export function getData(endpoint) {
   return request(endpoint);
 }
 
+export function getSingleData(endpoint, id) {
+  return request(`${endpoint}/${id}`);
+}
+
 export function postData(endpoint, data) {
   return request(endpoint, {
     method: "POST",
