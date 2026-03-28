@@ -12,8 +12,8 @@ async function request(endpoint, options = {}) {
     if (!res.ok) {
       throw new Error("Request failed");
     }
-
-    return await res.json();
+    const text = await res.text();
+    return text ? JSON.parse(text) : null;
   } catch (error) {
     console.log("Error:", error);
   }

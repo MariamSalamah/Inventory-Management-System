@@ -1,41 +1,51 @@
 {
   "categories": [
-    { "id": 1, "name": "Computer Accessories" },
-    { "id": 2, "name": "Monitors" },
-    { "id": 3, "name": "Storage Devices" },
-    { "id": 4, "name": "Networking" }
+    {
+      "id": "1",
+      "name": "Computer Accessories"
+    },
+    {
+      "id": "2",
+      "name": "Monitors"
+    },
+    {
+      "id": "3",
+      "name": "Storage Devices"
+    },
+    {
+      "id": "4",
+      "name": "Networking"
+    }
   ],
-
   "suppliers": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Tech Supplies Co.",
       "email": "sales@techsupplies.com",
       "phone": "01000000001"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Global Keyboards",
       "email": "info@globalkeyboards.com",
       "phone": "01000000002"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Display Market",
       "email": "contact@displaymarket.com",
       "phone": "01000000003"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Network Hub",
       "email": "support@networkhub.com",
       "phone": "01000000004"
     }
   ],
-
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Wireless Mouse",
       "sku": "WM-1001",
       "categoryId": 1,
@@ -45,7 +55,7 @@
       "reorderLevel": 10
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Mechanical Keyboard",
       "sku": "MK-1002",
       "categoryId": 1,
@@ -55,7 +65,7 @@
       "reorderLevel": 5
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "27 Inch Monitor",
       "sku": "MN-1003",
       "categoryId": 2,
@@ -65,7 +75,7 @@
       "reorderLevel": 10
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "USB-C Charger",
       "sku": "CH-1004",
       "categoryId": 1,
@@ -75,7 +85,7 @@
       "reorderLevel": 10
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "External SSD 1TB",
       "sku": "SSD-1005",
       "categoryId": 3,
@@ -85,17 +95,7 @@
       "reorderLevel": 5
     },
     {
-      "id": 6,
-      "name": "WiFi Router",
-      "sku": "RT-1006",
-      "categoryId": 4,
-      "supplierId": 4,
-      "price": 90,
-      "quantity": 6,
-      "reorderLevel": 5
-    },
-    {
-      "id": 7,
+      "id": "7",
       "name": "Gaming Headset",
       "sku": "GH-1007",
       "categoryId": 1,
@@ -105,20 +105,39 @@
       "reorderLevel": 5
     },
     {
-      "id": 8,
       "name": "USB Flash 64GB",
       "sku": "USB-1008",
       "categoryId": 3,
       "supplierId": 1,
-      "price": 12,
+      "price": 22,
       "quantity": 100,
-      "reorderLevel": 20
+      "reorderLevel": 20,
+      "id": "8"
+    },
+    {
+      "name": "adasdasd",
+      "sku": "ELEC-033",
+      "categoryId": 2,
+      "supplierId": 2,
+      "price": 0.15,
+      "quantity": 7,
+      "reorderLevel": 15,
+      "id": "6CPVAW4SLzo"
+    },
+    {
+      "name": "adasdasd",
+      "sku": "ELEC-036",
+      "categoryId": 1,
+      "supplierId": 2,
+      "price": 0.12,
+      "quantity": 7,
+      "reorderLevel": 18,
+      "id": "nvasETTldfM"
     }
   ],
-
   "purchaseOrders": [
     {
-      "id": 1,
+      "id": "1",
       "supplierId": 1,
       "date": "2026-03-01",
       "status": "received",
@@ -134,7 +153,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "supplierId": 2,
       "date": "2026-03-05",
       "status": "pending",
@@ -150,42 +169,41 @@
       ]
     }
   ],
-
   "stockAdjustments": [
     {
-      "id": 1,
+      "id": "1",
       "productId": 3,
       "type": "decrease",
       "quantity": 2,
       "reason": "Damaged items"
     },
     {
-      "id": 2,
+      "id": "2",
       "productId": 6,
       "type": "increase",
       "quantity": 3,
       "reason": "Stock correction"
     }
   ],
-
   "activityLog": [
     {
-      "id": 1,
+      "id": "1",
       "action": "Product Added",
       "productId": 1,
       "date": "2026-03-01"
     },
     {
-      "id": 2,
+      "id": "2",
       "action": "Purchase Order Received",
       "orderId": 1,
       "date": "2026-03-02"
     },
     {
-      "id": 3,
+      "id": "3",
       "action": "Stock Adjusted",
       "productId": 3,
       "date": "2026-03-06"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
