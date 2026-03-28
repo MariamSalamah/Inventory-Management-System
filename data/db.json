@@ -180,14 +180,12 @@
       "supplierId": 1,
       "date": "2026-03-01",
       "status": "received",
+      "total": 150,
       "items": [
         {
-          "productId": 1,
-          "quantity": 20
-        },
-        {
           "productId": 8,
-          "quantity": 50
+          "quantity": 50,
+          "cost": 3
         }
       ]
     },
@@ -196,14 +194,12 @@
       "supplierId": 2,
       "date": "2026-03-05",
       "status": "pending",
+      "total": 200,
       "items": [
         {
-          "productId": 2,
-          "quantity": 15
-        },
-        {
           "productId": 7,
-          "quantity": 10
+          "quantity": 10,
+          "cost": 20
         }
       ]
     }

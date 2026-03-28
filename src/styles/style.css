@@ -737,4 +737,8 @@ span.link {
   color: var(--error-color);
 }
 
+#addItemBtn {
+  cursor: pointer;
+}
+
 /* ── end js classes ─────────────────────────────────────────────────── */

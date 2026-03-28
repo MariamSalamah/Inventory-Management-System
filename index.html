@@ -37,8 +37,11 @@
     <script src="./src/js/main.js"></script>
     <script src="./src/js/Suppliers.js" type="module"></script>
     <script src="./src/js/Dashboard.js" type="module"></script>
-     <script src="./src/js/products.js" type="module"></script>
-      <script src="./src/js/categories.js" type="module"></script>
+    <script src="./src/js/products.js" type="module"></script>
+    <script src="./src/js/categories.js" type="module"></script>
+    <script type="module" src="./src/js/purchase-orders.js"></script>
+    <script type="module" src="./src/js/stock_adjustments.js"></script>
+
   </head>
 
   <body>
@@ -1178,506 +1181,358 @@
       </section>
       <!-- End Suppliers -->
 
-        <!-- Start Purchase Orders -->
-        <section class="Purchase content p-5">
-          <!-- headline start -->
-          <div
-            class="headline d-lg-flex justify-content-between align-items-center"
-          >
-            <div class="">
-              <h2>Purchase Orders</h2>
-              <p class="text-light-emphasis">Order stock from suppliers</p>
-            </div>
-            <button
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#createOrderModal"
-              id="createOrder"
-            >
-              <i class="fa-solid fa-plus fs-6 fw-lighter"></i> Create Order
-            </button>
-          </div>
-          <!-- headline end -->
+    <!-- Start Purchase Orders -->
+     <section class="Purchase content p-5">
 
-          <!-- dropdown start -->
-          <div class="dropdown my-lg-0 my-3">
-            <button
-              class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              All Statuses
-            </button>
-            <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-              <li><a class="dropdown-item" href="#">All Statuses</a></li>
-              <li><a class="dropdown-item" href="#">Pending</a></li>
-              <li><a class="dropdown-item" href="#">Received</a></li>
-              <li><a class="dropdown-item" href="#">Cancelled</a></li>
-            </ul>
-          </div>
-          <!-- dropdown end -->
+    <!-- headline start -->
+    <div class="headline d-lg-flex justify-content-between align-items-center">
+        <div class="">
+            <h2>Purchase Orders</h2>
+            <p class="text-light-emphasis">Order stock from suppliers</p>
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createOrderModal" id="createOrder"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Create Order</button>
 
-          <!-- product info table start -->
-          <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
-            <table class="table mb-0">
-              <thead class="table-header">
-                <tr class="table-header">
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    PO #
-                  </th>
-                  <th
-                    class="text-dark-emphasis table-header d-none d-sm-table-cell"
-                    scope="col"
-                  >
-                    Supplier
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Items
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Total
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Status
-                  </th>
-                  <th
-                    class="text-dark-emphasis table-header d-none d-md-table-cell"
-                    scope="col"
-                  >
-                    Date
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>PO-01001</td>
-                  <td class="d-none d-sm-table-cell">TechWorld Inc.</td>
-                  <td>1</td>
-                  <td>$15.00</td>
-                  <td>
-                    <span
-                      class="rounded-pill text-dark-emphasis text-opacity-25 px-2 py-1 status"
-                      >Cancelled</span
-                    >
-                  </td>
-                  <td class="d-none d-md-table-cell">3/14/2026</td>
-                  <td>
-                    <span
-                      class="d-flex justify-content-end gap-2 align-items-center"
-                      ><i
-                        class="fa-regular fa-eye text-dark-emphasis text-opacity-25"
-                      ></i
-                      ><i class="fa-regular fa-circle-check text-success"></i
-                      ><i class="fa-regular fa-circle-xmark text-danger"></i
-                    ></span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- product info table end -->
+    </div>
+    <!-- headline end -->
 
-          <!-- create order onclick -->
-          <div
-            id="createOrderCard"
-            class="card mx-5 visually-hidden"
-            style="width: 60%"
-          >
-            <div class="card-body">
-              <div class="d-lg-flex justify-content-between align-items-center">
-                <h5 class="card-title fw-bold">Create Purchase Order</h5>
-                <i
-                  class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"
-                ></i>
-              </div>
+    <!-- dropdown start -->
+    <div class="dropdown my-lg-0 my-3">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            All Statuses
+        </button>
+        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">All Statuses</a></li>
+            <li><a class="dropdown-item" href="#">Pending</a></li>
+            <li><a class="dropdown-item" href="#">Received</a></li>
+            <li><a class="dropdown-item" href="#">Cancelled</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
 
-              <hr />
-              <p class="card-text">Supplier *</p>
-              <!-- dropdown start -->
-              <div class="dropdown mb-2">
-                <button
-                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  — Select Suppliers —
-                </button>
-                <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-                  <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Office Depot Pro</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
-                </ul>
-              </div>
-              <!-- dropdown end -->
 
-              <div class="d-lg-flex justify-content-between align-items-center">
-                <p>Order Items</p>
-                <p class="text-primary">
-                  <i class="fa-solid fa-plus fs-6 fw-lighter"></i> Add item
-                </p>
-              </div>
-              <div
-                class="rounded-2 p-2 text-center mb-4"
-                style="background-color: rgba(231, 231, 231, 0.349)"
-              >
-                <p>No items added yet. Click "Add Item" to start.</p>
-              </div>
+    
 
-              <div class="d-flex justify-content-end column-gap-lg-2">
-                <a href="#" class="btn bg-light text-black border-dark-subtle"
-                  >Cancel</a
-                >
-                <a href="#" class="btn btn-primary">Create order</a>
-              </div>
-            </div>
-          </div>
+    <!-- product info table start -->
+     <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+   <table class="table mb-0">
+    <thead class="table-header">
+        <tr class="table-header">
+        <th class="text-dark-emphasis table-header" scope="col">PO #</th>
+        <th class="text-dark-emphasis table-header d-none d-sm-table-cell" scope="col">Supplier</th>
+        <th class="text-dark-emphasis table-header" scope="col">Items</th>
+        <th class="text-dark-emphasis table-header" scope="col">Total</th>
+        <th class="text-dark-emphasis table-header" scope="col">Status</th>
+        <th class="text-dark-emphasis table-header d-none d-md-table-cell" scope="col">Date</th>
+        <th class="text-dark-emphasis table-header" scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody id="purchaseOrdersTable">
+        <tr>
+        <td>PO-01001</td>
+        <td class="d-none d-sm-table-cell">TechWorld Inc.</td>
+        <td>1</td>
+        <td>$15.00</td>
+        <td><span class="rounded-pill text-dark-emphasis text-opacity-25 px-2 py-1 status">Cancelled</span></td>
+        <td class="d-none d-md-table-cell">3/14/2026</td>
+        <td><span class="d-flex justify-content-end gap-2 align-items-center"><i class="fa-regular fa-eye text-dark-emphasis text-opacity-25"></i><i class="fa-regular fa-circle-check text-success"></i><i class="fa-regular fa-circle-xmark text-danger"></i></span></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+    <!-- product info table end -->
 
-          <!-- Modal -->
-          <div class="modal fade" id="createOrderModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <div
-                    class="d-lg-flex justify-content-between align-items-center"
-                  >
-                    <h5 class="fw-bold">Create Purchase Order</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
 
-                  <hr />
 
-                  <p>Supplier *</p>
+    <!-- create order onclick -->
+<div id="createOrderCard" class="card mx-5 visually-hidden" style="width: 60%;">
+  <div class="card-body">
+     <div class="d-lg-flex justify-content-between align-items-center">
+            <h5 class="card-title fw-bold">Create Purchase Order</h5>
+            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
+    </div>
+   
+    <hr>
+    <p class="card-text">Supplier *</p>
+        <!-- dropdown start -->
+    <div class="dropdown mb-2">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+           — Select Suppliers —
+        </button>
+        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
+            <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
+            <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
 
-                  <!-- dropdown -->
-                  <div class="dropdown mb-2">
-                    <button
-                      class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      — Select Suppliers —
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#">TechWorld Inc.</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">Office Depot Pro</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">FurniCraft Ltd.</a>
-                      </li>
-                    </ul>
-                  </div>
+     <div class="d-lg-flex justify-content-between align-items-center">
+            <p>Order Items</p>
+             <p class="text-primary"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Add item</p>
+    </div>
+    <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.349);">
+        <p>No items added yet. Click "Add Item" to start.</p>
+    </div>
 
-                  <div
-                    class="d-lg-flex justify-content-between align-items-center"
-                  >
-                    <p>Order Items</p>
-                    <p class="text-primary">
-                      <i class="fa-solid fa-plus"></i> Add item
-                    </p>
-                  </div>
+    <div class="d-flex justify-content-end column-gap-lg-2">
+        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
+        <a href="#" class="btn btn-primary">Create order</a>
+    </div>
+  
+  </div>
+</div>
 
-                  <div
-                    class="rounded-2 p-2 text-center mb-4"
-                    style="background-color: rgba(231, 231, 231, 0.349)"
-                  >
-                    <p>No items added yet. Click "Add Item" to start.</p>
-                  </div>
 
-                  <div class="d-flex justify-content-end gap-2">
-                    <button class="btn bg-light border" data-bs-dismiss="modal">
-                      Cancel
-                    </button>
-                    <button class="btn btn-primary">Create order</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- End Purchase Orders -->
 
-        <!-- start Stock Adjustments -->
-        <section class="Stock-Adjustments content p-5">
-          <!-- headline start -->
-          <div
-            class="headline d-lg-flex justify-content-between align-items-center"
-          >
-            <div class="">
-              <h2>Stock Adjustments</h2>
-              <p class="text-light-emphasis">
-                Manually adjust inventory quantities
-              </p>
-            </div>
-            <button
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#newStockAdjustment"
-            >
-              <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
-            </button>
-          </div>
-          <!-- headline end -->
 
-          <!-- product info table start -->
-          <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
-            <table class="table mb-0">
-              <thead class="table-header">
-                <tr class="table-header">
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Type
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Product
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Qty
-                  </th>
-                  <th
-                    class="text-dark-emphasis table-header"
-                    scope="col"
-                    colspan="2"
-                  >
-                    Reason
-                  </th>
-                  <th
-                    class="text-dark-emphasis table-header"
-                    scope="col"
-                    colspan="2"
-                  >
-                    Date
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="text-success">
-                    <i class="fa-solid fa-circle-arrow-up text-success"></i>
-                    increase
-                  </td>
-                  <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
-                  <td>TechWorld Inc.</td>
-                  <td>+1</td>
-                  <td colspan="2">Reason because</td>
-                  <td colspan="2">3/14/2026</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- product info table end -->
 
-          <div class="modal fade" id="newStockAdjustment" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <h5 class="fw-bold">New Stock Adjustment</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
+<!-- Modal -->
+<div class="modal fade" id="createOrderModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
 
-                  <hr />
+      <div class="modal-body">
+        <div class="d-lg-flex justify-content-between align-items-center">
+          <h5 class="fw-bold">Create Purchase Order</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
 
-                  <p class="mb-1">Product *</p>
-                  <div class="dropdown mb-3">
-                    <button
-                      class="btn bg-light text-black border w-100 text-start dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      — Select Product —
-                    </button>
-                    <ul class="dropdown-menu w-100">
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          >Wireless Mouse — Current: 43</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          >Laptop 6357Hp — Current: 5</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          >Headset 634 bluetooth — Current: 12</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
+        <hr>
 
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <p class="mb-1">Type *</p>
-                      <div class="dropdown">
-                        <button
-                          class="btn bg-light text-black border w-100 text-start dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                        >
-                          Increase
-                        </button>
-                        <ul class="dropdown-menu w-100">
-                          <li>
-                            <a class="dropdown-item" href="#">Increase</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item" href="#">Decrease</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+        <p>Supplier *</p>
 
-                    <div class="col-md-6">
-                      <p class="mb-1">Quantity *</p>
-                      <input
-                        type="number"
-                        class="form-control"
-                        placeholder="Enter quantity"
-                      />
-                    </div>
-                  </div>
+        <!-- dropdown -->
+        <div class="dropdown mb-2">
+          <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown">
+            — Select Suppliers —
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
+            <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
+            <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
+          </ul>
+        </div>
 
-                  <div class="mb-3">
-                    <p class="mb-1">Reason *</p>
-                    <textarea
-                      class="form-control"
-                      rows="3"
-                      placeholder="Write reason..."
-                    ></textarea>
-                  </div>
-                </div>
+        <div class="d-lg-flex justify-content-between align-items-center">
+          <p>Order Items</p>
+          <p id="addItemBtn" class="text-primary">
+            <i class="fa-solid fa-plus"></i> Add item
+          </p>
+        </div>
 
-                <div class="modal-footer">
-                  <button class="btn bg-light border" data-bs-dismiss="modal">
-                    Cancel
-                  </button>
-                  <button class="btn btn-primary">Submit Adjustments</button>
-                </div>
-              </div>
+        <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.267);">
+          <p  id="noItemsMsg">No items added yet. Click "Add Item" to start.</p>
+          <div id="itemsContainer"></div>
+        </div>
+
+         
+
+
+        <div class="d-flex justify-content-end gap-2">
+          <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
+          <button id="createOrderBtn" class="btn btn-primary">Create order</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+     </section>
+    <!-- End Purchase Orders -->
+
+
+
+
+
+    <!-- start Stock Adjustments -->
+
+    <section class="Stock-Adjustments content p-5">
+
+      
+     <!-- headline start -->
+    <div class="headline d-lg-flex justify-content-between align-items-center">
+        <div class="">
+            <h2>Stock Adjustments</h2>
+            <p class="text-light-emphasis">Manually adjust inventory quantities</p>
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newStockAdjustment">
+  <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
+</button>
+
+    </div>
+    <!-- headline end -->
+    
+
+    <!-- product info table start -->
+   <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+   <table class="table mb-0">
+    <thead class="table-header">
+        <tr class="table-header">
+        <th class="text-dark-emphasis table-header" scope="col">Type</th>
+        <th class="text-dark-emphasis table-header" scope="col">Product</th>
+        <th class="text-dark-emphasis table-header" scope="col">Qty</th>
+        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Reason</th>
+        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Date</th>
+        </tr>
+    </thead>
+    <tbody id="stockAdjustmentsTable">
+        <tr>
+        <td class="text-success"><i class="fa-solid fa-circle-arrow-up text-success"></i> increase</td>
+        <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
+        <td>TechWorld Inc.</td>
+        <td>+1</td>
+        <td colspan="2">Reason because</td>
+        <td colspan="2">3/14/2026</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+    <!-- product info table end -->
+
+
+
+<div class="modal fade" id="newStockAdjustment" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+     
+      <div class="modal-body">
+
+        
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold">New Stock Adjustment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <hr>
+
+       
+        <p class="mb-1">Product *</p>
+        <div class="dropdown mb-3">
+          <button id="stockProductBtn" class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            — Select Product —
+          </button>
+          <ul class="dropdown-menu w-100" id="stockProductsList">
+            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43</a></li>
+            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
+            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p class="mb-1">Type *</p>
+            <div class="dropdown">
+              <button id="stockTypeBtn" class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Increase
+              </button>
+              <ul class="dropdown-menu w-100" id="stockTypeList">
+                <li><a class="dropdown-item" href="#">Increase</a></li>
+                <li><a class="dropdown-item" href="#">Decrease</a></li>
+              </ul>
             </div>
           </div>
 
-          <div
-            class="card mx-5 pb-3 px-2 visually-hidden"
-            style="width: 40%; height: auto"
-          >
-            <div class="card-body">
-              <div class="d-lg-flex justify-content-between align-items-center">
-                <h5 class="card-title fw-bold">New Stock Adjustment</h5>
-                <i
-                  class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"
-                ></i>
-              </div>
-
-              <hr />
-              <p class="card-text">Product *</p>
-              <!-- dropdown start -->
-              <div class="dropdown mb-2">
-                <button
-                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  — Select Product —
-                </button>
-                <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      >Wireless Mouse — Current: 43
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      >Laptop 6357Hp — Current: 5</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      >Headset 634 bluetooth — Current: 12</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <!-- dropdown end -->
-
-              <div class="d-lg-flex justify-content-between align-items-center">
-                <div>
-                  <p class="mb-1">Type *</p>
-                  <!-- dropdown start -->
-                  <div class="dropdown mb-2">
-                    <button
-                      class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Increase
-                    </button>
-                    <ul
-                      class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9"
-                    >
-                      <li><a class="dropdown-item" href="#">Increase </a></li>
-                      <li><a class="dropdown-item" href="#">Decrease</a></li>
-                    </ul>
-                  </div>
-                  <!-- dropdown end -->
-                </div>
-
-                <div>
-                  <p class="mb-1">Quantity *</p>
-
-                  <input
-                    class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
-                    type="number"
-                    name=""
-                    id=""
-                  />
-                </div>
-              </div>
-
-              <div>
-                <p class="mb-1">Reason *</p>
-
-                <textarea
-                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
-                  name=""
-                  id=""
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-end column-gap-lg-2">
-              <a href="#" class="btn bg-light text-black border-dark-subtle"
-                >Cancel</a
-              >
-              <a href="#" class="btn btn-primary">Submit Adjustments</a>
-            </div>
+          <div class="col-md-6">
+            <p class="mb-1">Quantity *</p>
+            <input type="number" id="stockQtyInput" class="form-control" placeholder="Enter quantity">
           </div>
-          <!-- </div> -->
-        </section>
+        </div>
 
-        <!-- End Stock Adjustments -->
+       
+        <div class="mb-3">
+          <p class="mb-1">Reason *</p>
+          <textarea id="stockReasonInput" class="form-control" rows="3" placeholder="Write reason..."></textarea>
+        </div>
 
+      </div>
+
+      
+      <div class="modal-footer">
+        <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
+        <button id="submitAdjustmentBtn" class="btn btn-primary">Submit Adjustments</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card mx-5 pb-3 px-2 visually-hidden" style="width: 40%; height: auto;">
+  <div class="card-body">
+     <div class="d-lg-flex justify-content-between align-items-center">
+            <h5 class="card-title fw-bold">New Stock Adjustment</h5>
+            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
+    </div>
+   
+    <hr>
+    <p class="card-text">Product *</p>
+        <!-- dropdown start -->
+    <div class="dropdown mb-2">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+           — Select Product —
+        </button>
+        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43 </a></li>
+            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
+            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
+
+    <div class="d-lg-flex justify-content-between align-items-center">
+        <div>
+
+    <p class="mb-1">Type *</p>
+            <!-- dropdown start -->
+    <div class="dropdown mb-2">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Increase
+        </button>
+        <ul class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">Increase </a></li>
+            <li><a class="dropdown-item" href="#">Decrease</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
+     </div>
+
+    <div>
+        <p class="mb-1">Quantity *</p>
+        
+        <input class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="number" name="" id="">
+     </div>
+
+</div>
+
+
+    <div>
+        <p class="mb-1">Reason *</p>
+        
+        <textarea class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" name="" id=""></textarea>
+     </div>
+
+</div>
+
+
+
+    <div class="d-flex justify-content-end column-gap-lg-2">
+        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
+        <a href="#" class="btn btn-primary">Submit Adjustments</a>
+    </div>
+  
+  </div>
+</div>
+
+
+</section>
+
+    <!-- End Stock Adjustments -->
   
       <!-- Start Reports -->
       <section class="Reports">
