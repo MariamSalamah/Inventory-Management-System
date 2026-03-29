@@ -37,6 +37,11 @@
     <script src="./src/js/main.js"></script>
     <script src="./src/js/Suppliers.js" type="module"></script>
     <script src="./src/js/Dashboard.js" type="module"></script>
+    <script src="./src/js/products.js" type="module"></script>
+    <script src="./src/js/categories.js" type="module"></script>
+    <script type="module" src="./src/js/purchase-orders.js"></script>
+    <script type="module" src="./src/js/stock_adjustments.js"></script>
+
   </head>
 
   <body>
@@ -371,781 +376,411 @@
         </section>
         <!-- End Dashboard -->
 
-        <!-- Start Products -->
-        <section class="Products">
-          <div class="container">
-            <div class="sec-header">
-              <div class="text">
-                <h2>Products</h2>
-                <!-- dynamic number shows the count of product -->
-                <p><span>num</span> products in inventory</p>
-              </div>
+  <!-- Start Products -->
+      <section class="Products">
 
-              <button class="d-flex justify-content-center align-items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class=""
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-                Add Product
-              </button>
+        <div
+          class="sec-Form heddin vh-100 vw-100 position-fixed top-0 start-0 d-flex justify-content-center align-items-center">
+          <div class="window">
+
+            <div class="title">
+              <h4>Add Product</h4>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="closeWindow lucide lucide-x text-gray-500" aria-hidden="true">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
             </div>
 
-            <div class="search-and-categories mt-4 d-flex gap-3">
-              <div class="search position-relative">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="search-icone lucide lucide-search absolute text-gray-400"
-                  aria-hidden="true"
-                >
-                  <path d="m21 21-4.34-4.34"></path>
-                  <circle cx="11" cy="11" r="8"></circle>
-                </svg>
-                <input
-                  class="input-field"
-                  type="text"
-                  placeholder="Search by name or SKU..."
-                />
+            <div class="content p-4 d-flex flex-wrap gap-2 row-gap-4 justify-content-between">
+
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="sku">SKU <p>*</p></label>
+                <input class="w-100" type="text" id="sku" placeholder="e.g. ELEC-004">
               </div>
 
-              <select name="categories" id="categories" class="">
-                <option value="all">All Categories</option>
-                <option value="2">first</option>
-                <option value="2">second</option>
-              </select>
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="productName">Product Name <p>*</p>
+                </label>
+                <input class="w-100" type="text" id="productName">
+              </div>
+
+              <div class="textArea w-100">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1 mb-3" for="productDescription">Description
+                  <p>*</p>
+                </label>
+                <textarea name="productDescription" id="productDescription" class="w-100"></textarea>
+              </div>
+
+
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="productCategory">Categories <p>*</p>
+                </label>
+                <select class="w-100" type="text" id="productCategory">
+                  <option key="23423423423" value="none">--Select--</option>
+                </select>
+              </div>
+
+
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="productSupplier">Supplier <p>*</p>
+                </label>
+                <select class="w-100" type="text" id="productSupplier">
+                  <option key="23423423423" value="none">--Select--</option>
+                </select>
+              </div>
+
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="SellingPrice">Selling Price ($) <p>*
+                  </p>
+                </label>
+                <input class="w-100" type="number" min="0" step="0.01" id="SellingPrice">
+              </div>
+
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="CostPrice">Cost Price ($) <p>*</p>
+                </label>
+                <input class="w-100" type="number" min="0" step="0.01" id="CostPrice">
+              </div>
+
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="productQuantity">Quantity <p>*</p>
+                </label>
+                <input class="w-100" type="number" min="0" id="productQuantity">
+              </div>
+
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="productReorder">Reorder Level <p>*
+                  </p>
+                </label>
+                <input class="w-100" type="number" min="0" id="productReorder">
+              </div>
+
+              <div class="actions">
+                <button class="cancel">Cancel</button>
+                <button class="create">Create</button>
+              </div>
+
             </div>
 
-            <table class="productTable">
-              <thead>
-                <tr>
-                  <th class="Product-head">Product</th>
-                  <th class="SKU-head">SKU</th>
-                  <th class="Category-head">Category</th>
-                  <th class="Price-head">Price</th>
-                  <th class="Stock-head">Stock</th>
-                  <th class="Status-head">Status</th>
-                  <th class="Actions-head">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td
-                    class="Product d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <div
-                      class="title-icon d-flex justify-content-center align-items-center"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-package text-blue-500"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
-                        ></path>
-                        <path d="M12 22V12"></path>
-                        <polyline points="3.29 7 12 12 20.71 7"></polyline>
-                        <path d="m7.5 4.27 9 5.15"></path>
-                      </svg>
-                    </div>
-                    <span>Wireless Mouse</span>
-                  </td>
-                  <td class="SKU">ELEC-001</td>
-                  <td class="category">Electronics</td>
-                  <td class="price">$29.99</td>
-                  <td class="stock">45</td>
-                  <td class="product-status in-stock">
-                    <div>In Stock</div>
-                  </td>
-                  <td
-                    class="actions d-flex justify-content-center align-items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-gray-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-danger text-red-400"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 11v6"></path>
-                      <path d="M14 11v6"></path>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                      <path d="M3 6h18"></path>
-                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td
-                    class="Product d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <div
-                      class="title-icon d-flex justify-content-center align-items-center"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-package text-blue-500"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
-                        ></path>
-                        <path d="M12 22V12"></path>
-                        <polyline points="3.29 7 12 12 20.71 7"></polyline>
-                        <path d="m7.5 4.27 9 5.15"></path>
-                      </svg>
-                    </div>
-                    <span>Mechanical Keyboard</span>
-                  </td>
-                  <td class="SKU">ELEC-002</td>
-                  <td class="category">Electronics</td>
-                  <td class="price">$89.99</td>
-                  <td class="stock">12</td>
-                  <td class="product-status low">
-                    <div>Low</div>
-                  </td>
-                  <td
-                    class="actions d-flex justify-content-center align-items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-gray-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-danger text-red-400"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 11v6"></path>
-                      <path d="M14 11v6"></path>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                      <path d="M3 6h18"></path>
-                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td
-                    class="Product d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <div
-                      class="title-icon d-flex justify-content-center align-items-center"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-package text-blue-500"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
-                        ></path>
-                        <path d="M12 22V12"></path>
-                        <polyline points="3.29 7 12 12 20.71 7"></polyline>
-                        <path d="m7.5 4.27 9 5.15"></path>
-                      </svg>
-                    </div>
-                    <span>A4 Copy Paper (Ream)</span>
-                  </td>
-                  <td class="SKU">OFFC-001</td>
-                  <td class="category">Office Supplies</td>
-                  <td class="price">$8.99</td>
-                  <td class="stock">205</td>
-                  <td class="product-status in-stock">
-                    <div>In Stock</div>
-                  </td>
-                  <td
-                    class="actions d-flex justify-content-center align-items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-gray-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-danger text-red-400"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 11v6"></path>
-                      <path d="M14 11v6"></path>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                      <path d="M3 6h18"></path>
-                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-        </section>
-        <!-- End Products -->
+        </div>
 
-        <!-- Start Categories -->
-        <section class="Categories">
-          <div class="container">
-            <div class="sec-header">
-              <div class="text">
-                <h2>Categories</h2>
-                <p>Organize your products into categories</p>
-              </div>
-
-              <button class="d-flex justify-content-center align-items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class=""
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-                <span>Add Category</span>
-              </button>
+        <div class="container">
+          <div class="sec-header">
+            <div class="text">
+              <h2>Products</h2>
+              <!-- dynamic number shows the count of product -->
+              <p><span>num</span> products in inventory</p>
             </div>
 
+            <button class="addBTN d-flex justify-content-center align-items-center"><svg
+                xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""
+                aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="M12 5v14"></path>
+              </svg>
+              Add Product
+            </button>
+          </div>
+
+          <div class="search-and-categories mt-4 d-flex gap-3">
             <div class="search position-relative">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="search-icone lucide lucide-search absolute text-gray-400"
-                aria-hidden="true"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="search-icone lucide lucide-search absolute text-gray-400" aria-hidden="true">
                 <path d="m21 21-4.34-4.34"></path>
                 <circle cx="11" cy="11" r="8"></circle>
               </svg>
-              <input
-                class="input-field"
-                type="text"
-                placeholder="Search categories..."
-              />
+              <input class="input-field" type="text" placeholder="Search by name or SKU...">
             </div>
 
-            <div
-              class="cards d-flex justify-content-start flex-wrap mt-5 gap-4"
-            >
-              <div class="card card-A p-4 bg-white">
-                <div
-                  class="top d-flex justify-content-between align-items-start"
-                >
-                  <div class="left d-flex align-items-center">
-                    <div class="icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-tag text-purple-600"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
-                        ></path>
-                        <circle
-                          cx="7.5"
-                          cy="7.5"
-                          r=".5"
-                          fill="currentColor"
-                        ></circle>
-                      </svg>
-                    </div>
-                    <div class="text">
-                      <h6>Electronics</h6>
-                      <p><span>0</span> products</p>
-                    </div>
-                  </div>
-                  <div
-                    class="right actions d-flex justify-content-center align-items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-gray-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-danger text-red-400"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 11v6"></path>
-                      <path d="M14 11v6"></path>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                      <path d="M3 6h18"></path>
-                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                  </div>
-                </div>
-                <p>Electronic devices and components</p>
-              </div>
-
-              <div class="card card-A p-4 bg-white">
-                <div
-                  class="top d-flex justify-content-between align-items-start"
-                >
-                  <div class="left d-flex align-items-center">
-                    <div class="icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-tag text-purple-600"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
-                        ></path>
-                        <circle
-                          cx="7.5"
-                          cy="7.5"
-                          r=".5"
-                          fill="currentColor"
-                        ></circle>
-                      </svg>
-                    </div>
-                    <div class="text">
-                      <h6>Electronics</h6>
-                      <p><span>0</span> products</p>
-                    </div>
-                  </div>
-                  <div
-                    class="right actions d-flex justify-content-center align-items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-gray-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-danger text-red-400"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 11v6"></path>
-                      <path d="M14 11v6"></path>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                      <path d="M3 6h18"></path>
-                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                  </div>
-                </div>
-                <p>Electronic devices and components</p>
-              </div>
-
-              <div class="card card-A p-4 bg-white">
-                <div
-                  class="top d-flex justify-content-between align-items-start"
-                >
-                  <div class="left d-flex align-items-center">
-                    <div class="icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-tag text-purple-600"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
-                        ></path>
-                        <circle
-                          cx="7.5"
-                          cy="7.5"
-                          r=".5"
-                          fill="currentColor"
-                        ></circle>
-                      </svg>
-                    </div>
-                    <div class="text">
-                      <h6>Electronics</h6>
-                      <p><span>0</span> products</p>
-                    </div>
-                  </div>
-                  <div
-                    class="right actions d-flex justify-content-center align-items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-gray-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-danger text-red-400"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 11v6"></path>
-                      <path d="M14 11v6"></path>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                      <path d="M3 6h18"></path>
-                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                  </div>
-                </div>
-                <p>Electronic devices and components</p>
-              </div>
-
-              <div class="card card-A p-4 bg-white">
-                <div
-                  class="top d-flex justify-content-between align-items-start"
-                >
-                  <div class="left d-flex align-items-center">
-                    <div class="icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-tag text-purple-600"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
-                        ></path>
-                        <circle
-                          cx="7.5"
-                          cy="7.5"
-                          r=".5"
-                          fill="currentColor"
-                        ></circle>
-                      </svg>
-                    </div>
-                    <div class="text">
-                      <h6>Electronics</h6>
-                      <p><span>0</span> products</p>
-                    </div>
-                  </div>
-                  <div
-                    class="right actions d-flex justify-content-center align-items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-gray-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-danger text-red-400"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 11v6"></path>
-                      <path d="M14 11v6"></path>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                      <path d="M3 6h18"></path>
-                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                  </div>
-                </div>
-                <p>Electronic devices and components</p>
-              </div>
-
-              <div class="card card-A p-4 bg-white">
-                <div
-                  class="top d-flex justify-content-between align-items-start"
-                >
-                  <div class="left d-flex align-items-center">
-                    <div class="icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-tag text-purple-600"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
-                        ></path>
-                        <circle
-                          cx="7.5"
-                          cy="7.5"
-                          r=".5"
-                          fill="currentColor"
-                        ></circle>
-                      </svg>
-                    </div>
-                    <div class="text">
-                      <h6>Electronics</h6>
-                      <p><span>0</span> products</p>
-                    </div>
-                  </div>
-                  <div
-                    class="right actions d-flex justify-content-center align-items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-gray-400"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide text-danger text-red-400"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 11v6"></path>
-                      <path d="M14 11v6"></path>
-                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                      <path d="M3 6h18"></path>
-                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                  </div>
-                </div>
-                <p>Electronic devices and components</p>
-              </div>
-            </div>
+            <select name="categories" id="categories" class="">
+              <option value="all">All Categories</option>
+              <option value="2">first</option>
+              <option value="2">second</option>
+            </select>
           </div>
-        </section>
-        <!-- End Categories -->
 
-        <!-- Start Suppliers -->
+
+          <table class="productTable">
+            <thead>
+              <tr>
+                <th class="Product-head">Product</th>
+                <th class="SKU-head">SKU</th>
+                <th class="Category-head">Category</th>
+                <th class="Price-head">Price</th>
+                <th class="Stock-head">Stock</th>
+                <th class="Status-head">Status</th>
+                <th class="Actions-head">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+
+
+
+
+
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+      <!-- End Products -->
+
+      <!-- Start Categories -->
+      <section class="Categories">
+
+        <div
+          class="sec-Form heddin vh-100 vw-100 position-fixed top-0 start-0 d-flex justify-content-center align-items-center">
+          <div class="window">
+
+            <div class="title">
+              <h4>Add Category</h4>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="closeWindow lucide lucide-x text-gray-500" aria-hidden="true">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+            </div>
+
+            <div class="content p-4 d-flex flex-wrap gap-2 row-gap-4 justify-content-between">
+
+
+
+              <div class="input">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1" for="categoryName">Name <p>*</p>
+                </label>
+                <input class="w-100" type="text" id="categoryName">
+              </div>
+
+              <div class="textArea w-100">
+                <label class="d-flex align-items-start gap-2 fw-semibold lh-1 mb-3"
+                  for="categoryDescription">Description
+                </label>
+                <textarea name="categoryDescription" id="categoryDescription" class="w-100"></textarea>
+              </div>
+
+              <div class="actions">
+                <button class="cancel">Cancel</button>
+                <button class="create">Create</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="container">
+          <div class="sec-header">
+            <div class="text">
+              <h2>Categories</h2>
+              <p>Organize your products into categories</p>
+            </div>
+
+            <button class="addCatBTN d-flex justify-content-center align-items-center"><svg
+                xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""
+                aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="M12 5v14"></path>
+              </svg>
+              <span>Add Category</span>
+
+            </button>
+          </div>
+
+          <div class="search position-relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="search-icone lucide lucide-search absolute text-gray-400" aria-hidden="true">
+              <path d="m21 21-4.34-4.34"></path>
+              <circle cx="11" cy="11" r="8"></circle>
+            </svg>
+            <input class="input-field" type="text" placeholder="Search categories...">
+          </div>
+
+          <div class="cards d-flex justify-content-start flex-wrap mt-5 gap-4">
+
+
+            <div class="card card-A p-4 bg-white">
+              <div class="top d-flex justify-content-between align-items-start ">
+                <div class="left d-flex align-items-center">
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
+                      <path
+                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
+                      </path>
+                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    </svg>
+                  </div>
+                  <div class="text">
+                    <h6>Electronics</h6>
+                    <p><span>0</span> products</p>
+                  </div>
+                </div>
+                <div class="right actions d-flex justify-content-center align-items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide text-gray-400" aria-hidden="true">
+                    <path
+                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
+                    </path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide text-danger text-red-400" aria-hidden="true">
+                    <path d="M10 11v6"></path>
+                    <path d="M14 11v6"></path>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                    <path d="M3 6h18"></path>
+                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </div>
+
+              </div>
+              <p>Electronic devices and components</p>
+            </div>
+
+            <div class="card card-A p-4 bg-white">
+              <div class="top d-flex justify-content-between align-items-start ">
+                <div class="left d-flex align-items-center">
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
+                      <path
+                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
+                      </path>
+                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    </svg>
+                  </div>
+                  <div class="text">
+                    <h6>Electronics</h6>
+                    <p><span>0</span> products</p>
+                  </div>
+                </div>
+                <div class="right actions d-flex justify-content-center align-items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide text-gray-400" aria-hidden="true">
+                    <path
+                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
+                    </path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide text-danger text-red-400" aria-hidden="true">
+                    <path d="M10 11v6"></path>
+                    <path d="M14 11v6"></path>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                    <path d="M3 6h18"></path>
+                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </div>
+
+              </div>
+              <p>Electronic devices and components</p>
+            </div>
+
+            <div class="card card-A p-4 bg-white">
+              <div class="top d-flex justify-content-between align-items-start ">
+                <div class="left d-flex align-items-center">
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
+                      <path
+                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
+                      </path>
+                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    </svg>
+                  </div>
+                  <div class="text">
+                    <h6>Electronics</h6>
+                    <p><span>0</span> products</p>
+                  </div>
+                </div>
+                <div class="right actions d-flex justify-content-center align-items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide text-gray-400" aria-hidden="true">
+                    <path
+                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
+                    </path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide text-danger text-red-400" aria-hidden="true">
+                    <path d="M10 11v6"></path>
+                    <path d="M14 11v6"></path>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                    <path d="M3 6h18"></path>
+                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </div>
+
+              </div>
+              <p>Electronic devices and components</p>
+            </div>
+
+            <div class="card card-A p-4 bg-white">
+              <div class="top d-flex justify-content-between align-items-start ">
+                <div class="left d-flex align-items-center">
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
+                      <path
+                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
+                      </path>
+                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    </svg>
+                  </div>
+                  <div class="text">
+                    <h6>Electronics</h6>
+                    <p><span>0</span> products</p>
+                  </div>
+                </div>
+                <div class="right actions d-flex justify-content-center align-items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide text-gray-400" aria-hidden="true">
+                    <path
+                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
+                    </path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide text-danger text-red-400" aria-hidden="true">
+                    <path d="M10 11v6"></path>
+                    <path d="M14 11v6"></path>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                    <path d="M3 6h18"></path>
+                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </div>
+
+              </div>
+              <p>Electronic devices and components</p>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+      </section>
+      <!-- End Categories -->
+
+      <!-- Start Suppliers -->
         <section class="Suppliers">
           <div class="container">
             <div class="sec-header">
@@ -1918,688 +1553,417 @@
         </section>
         <!-- End Suppliers -->
 
-        <!-- Start Purchase Orders -->
-        <section class="Purchase content p-5">
-          <!-- headline start -->
-          <div
-            class="headline d-lg-flex justify-content-between align-items-center"
-          >
-            <div class="">
-              <h2>Purchase Orders</h2>
-              <p class="text-light-emphasis">Order stock from suppliers</p>
-            </div>
-            <button
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#createOrderModal"
-              id="createOrder"
-            >
-              <i class="fa-solid fa-plus fs-6 fw-lighter"></i> Create Order
-            </button>
-          </div>
-          <!-- headline end -->
+    <!-- Start Purchase Orders -->
+     <section class="Purchase content p-5">
 
-          <!-- dropdown start -->
-          <div class="dropdown my-lg-0 my-3">
-            <button
-              class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              All Statuses
-            </button>
-            <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-              <li><a class="dropdown-item" href="#">All Statuses</a></li>
-              <li><a class="dropdown-item" href="#">Pending</a></li>
-              <li><a class="dropdown-item" href="#">Received</a></li>
-              <li><a class="dropdown-item" href="#">Cancelled</a></li>
-            </ul>
-          </div>
-          <!-- dropdown end -->
+    <!-- headline start -->
+    <div class="headline d-lg-flex justify-content-between align-items-center">
+        <div class="">
+            <h2>Purchase Orders</h2>
+            <p class="text-light-emphasis">Order stock from suppliers</p>
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createOrderModal" id="createOrder"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Create Order</button>
 
-          <!-- product info table start -->
-          <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
-            <table class="table mb-0">
-              <thead class="table-header">
-                <tr class="table-header">
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    PO #
-                  </th>
-                  <th
-                    class="text-dark-emphasis table-header d-none d-sm-table-cell"
-                    scope="col"
-                  >
-                    Supplier
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Items
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Total
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Status
-                  </th>
-                  <th
-                    class="text-dark-emphasis table-header d-none d-md-table-cell"
-                    scope="col"
-                  >
-                    Date
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>PO-01001</td>
-                  <td class="d-none d-sm-table-cell">TechWorld Inc.</td>
-                  <td>1</td>
-                  <td>$15.00</td>
-                  <td>
-                    <span
-                      class="rounded-pill text-dark-emphasis text-opacity-25 px-2 py-1 status"
-                      >Cancelled</span
-                    >
-                  </td>
-                  <td class="d-none d-md-table-cell">3/14/2026</td>
-                  <td>
-                    <span
-                      class="d-flex justify-content-end gap-2 align-items-center"
-                      ><i
-                        class="fa-regular fa-eye text-dark-emphasis text-opacity-25"
-                      ></i
-                      ><i class="fa-regular fa-circle-check text-success"></i
-                      ><i class="fa-regular fa-circle-xmark text-danger"></i
-                    ></span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- product info table end -->
+    </div>
+    <!-- headline end -->
 
-          <!-- create order onclick -->
-          <div
-            id="createOrderCard"
-            class="card mx-5 visually-hidden"
-            style="width: 60%"
-          >
-            <div class="card-body">
-              <div class="d-lg-flex justify-content-between align-items-center">
-                <h5 class="card-title fw-bold">Create Purchase Order</h5>
-                <i
-                  class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"
-                ></i>
-              </div>
+    <!-- dropdown start -->
+    <div class="dropdown my-lg-0 my-3">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            All Statuses
+        </button>
+        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">All Statuses</a></li>
+            <li><a class="dropdown-item" href="#">Pending</a></li>
+            <li><a class="dropdown-item" href="#">Received</a></li>
+            <li><a class="dropdown-item" href="#">Cancelled</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
 
-              <hr />
-              <p class="card-text">Supplier *</p>
-              <!-- dropdown start -->
-              <div class="dropdown mb-2">
-                <button
-                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  — Select Suppliers —
-                </button>
-                <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-                  <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Office Depot Pro</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
-                </ul>
-              </div>
-              <!-- dropdown end -->
 
-              <div class="d-lg-flex justify-content-between align-items-center">
-                <p>Order Items</p>
-                <p class="text-primary">
-                  <i class="fa-solid fa-plus fs-6 fw-lighter"></i> Add item
-                </p>
-              </div>
-              <div
-                class="rounded-2 p-2 text-center mb-4"
-                style="background-color: rgba(231, 231, 231, 0.349)"
-              >
-                <p>No items added yet. Click "Add Item" to start.</p>
-              </div>
+    
 
-              <div class="d-flex justify-content-end column-gap-lg-2">
-                <a href="#" class="btn bg-light text-black border-dark-subtle"
-                  >Cancel</a
-                >
-                <a href="#" class="btn btn-primary">Create order</a>
-              </div>
-            </div>
-          </div>
+    <!-- product info table start -->
+     <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+   <table class="table mb-0">
+    <thead class="table-header">
+        <tr class="table-header">
+        <th class="text-dark-emphasis table-header" scope="col">PO #</th>
+        <th class="text-dark-emphasis table-header d-none d-sm-table-cell" scope="col">Supplier</th>
+        <th class="text-dark-emphasis table-header" scope="col">Items</th>
+        <th class="text-dark-emphasis table-header" scope="col">Total</th>
+        <th class="text-dark-emphasis table-header" scope="col">Status</th>
+        <th class="text-dark-emphasis table-header d-none d-md-table-cell" scope="col">Date</th>
+        <th class="text-dark-emphasis table-header" scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody id="purchaseOrdersTable">
+        <tr>
+        <td>PO-01001</td>
+        <td class="d-none d-sm-table-cell">TechWorld Inc.</td>
+        <td>1</td>
+        <td>$15.00</td>
+        <td><span class="rounded-pill text-dark-emphasis text-opacity-25 px-2 py-1 status">Cancelled</span></td>
+        <td class="d-none d-md-table-cell">3/14/2026</td>
+        <td><span class="d-flex justify-content-end gap-2 align-items-center"><i class="fa-regular fa-eye text-dark-emphasis text-opacity-25"></i><i class="fa-regular fa-circle-check text-success"></i><i class="fa-regular fa-circle-xmark text-danger"></i></span></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+    <!-- product info table end -->
 
-          <!-- Modal -->
-          <div class="modal fade" id="createOrderModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <div
-                    class="d-lg-flex justify-content-between align-items-center"
-                  >
-                    <h5 class="fw-bold">Create Purchase Order</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
 
-                  <hr />
 
-                  <p>Supplier *</p>
+    <!-- create order onclick -->
+<div id="createOrderCard" class="card mx-5 visually-hidden" style="width: 60%;">
+  <div class="card-body">
+     <div class="d-lg-flex justify-content-between align-items-center">
+            <h5 class="card-title fw-bold">Create Purchase Order</h5>
+            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
+    </div>
+   
+    <hr>
+    <p class="card-text">Supplier *</p>
+        <!-- dropdown start -->
+    <div class="dropdown mb-2">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+           — Select Suppliers —
+        </button>
+        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
+            <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
+            <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
 
-                  <!-- dropdown -->
-                  <div class="dropdown mb-2">
-                    <button
-                      class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      — Select Suppliers —
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#">TechWorld Inc.</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">Office Depot Pro</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">FurniCraft Ltd.</a>
-                      </li>
-                    </ul>
-                  </div>
+     <div class="d-lg-flex justify-content-between align-items-center">
+            <p>Order Items</p>
+             <p class="text-primary"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Add item</p>
+    </div>
+    <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.349);">
+        <p>No items added yet. Click "Add Item" to start.</p>
+    </div>
 
-                  <div
-                    class="d-lg-flex justify-content-between align-items-center"
-                  >
-                    <p>Order Items</p>
-                    <p class="text-primary">
-                      <i class="fa-solid fa-plus"></i> Add item
-                    </p>
-                  </div>
+    <div class="d-flex justify-content-end column-gap-lg-2">
+        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
+        <a href="#" class="btn btn-primary">Create order</a>
+    </div>
+  
+  </div>
+</div>
 
-                  <div
-                    class="rounded-2 p-2 text-center mb-4"
-                    style="background-color: rgba(231, 231, 231, 0.349)"
-                  >
-                    <p>No items added yet. Click "Add Item" to start.</p>
-                  </div>
 
-                  <div class="d-flex justify-content-end gap-2">
-                    <button class="btn bg-light border" data-bs-dismiss="modal">
-                      Cancel
-                    </button>
-                    <button class="btn btn-primary">Create order</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- End Purchase Orders -->
 
-        <!-- start Stock Adjustments -->
-        <section class="Stock-Adjustments content p-5">
-          <!-- headline start -->
-          <div
-            class="headline d-lg-flex justify-content-between align-items-center"
-          >
-            <div class="">
-              <h2>Stock Adjustments</h2>
-              <p class="text-light-emphasis">
-                Manually adjust inventory quantities
-              </p>
-            </div>
-            <button
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#newStockAdjustment"
-            >
-              <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
-            </button>
-          </div>
-          <!-- headline end -->
 
-          <!-- product info table start -->
-          <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
-            <table class="table mb-0">
-              <thead class="table-header">
-                <tr class="table-header">
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Type
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Product
-                  </th>
-                  <th class="text-dark-emphasis table-header" scope="col">
-                    Qty
-                  </th>
-                  <th
-                    class="text-dark-emphasis table-header"
-                    scope="col"
-                    colspan="2"
-                  >
-                    Reason
-                  </th>
-                  <th
-                    class="text-dark-emphasis table-header"
-                    scope="col"
-                    colspan="2"
-                  >
-                    Date
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="text-success">
-                    <i class="fa-solid fa-circle-arrow-up text-success"></i>
-                    increase
-                  </td>
-                  <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
-                  <td>TechWorld Inc.</td>
-                  <td>+1</td>
-                  <td colspan="2">Reason because</td>
-                  <td colspan="2">3/14/2026</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- product info table end -->
 
-          <div class="modal fade" id="newStockAdjustment" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <h5 class="fw-bold">New Stock Adjustment</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                    ></button>
-                  </div>
+<!-- Modal -->
+<div class="modal fade" id="createOrderModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
 
-                  <hr />
+      <div class="modal-body">
+        <div class="d-lg-flex justify-content-between align-items-center">
+          <h5 class="fw-bold">Create Purchase Order</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
 
-                  <p class="mb-1">Product *</p>
-                  <div class="dropdown mb-3">
-                    <button
-                      class="btn bg-light text-black border w-100 text-start dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      — Select Product —
-                    </button>
-                    <ul class="dropdown-menu w-100">
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          >Wireless Mouse — Current: 43</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          >Laptop 6357Hp — Current: 5</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"
-                          >Headset 634 bluetooth — Current: 12</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
+        <hr>
 
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <p class="mb-1">Type *</p>
-                      <div class="dropdown">
-                        <button
-                          class="btn bg-light text-black border w-100 text-start dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                        >
-                          Increase
-                        </button>
-                        <ul class="dropdown-menu w-100">
-                          <li>
-                            <a class="dropdown-item" href="#">Increase</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item" href="#">Decrease</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+        <p>Supplier *</p>
 
-                    <div class="col-md-6">
-                      <p class="mb-1">Quantity *</p>
-                      <input
-                        type="number"
-                        class="form-control"
-                        placeholder="Enter quantity"
-                      />
-                    </div>
-                  </div>
+        <!-- dropdown -->
+        <div class="dropdown mb-2">
+          <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown">
+            — Select Suppliers —
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
+            <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
+            <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
+          </ul>
+        </div>
 
-                  <div class="mb-3">
-                    <p class="mb-1">Reason *</p>
-                    <textarea
-                      class="form-control"
-                      rows="3"
-                      placeholder="Write reason..."
-                    ></textarea>
-                  </div>
-                </div>
+        <div class="d-lg-flex justify-content-between align-items-center">
+          <p>Order Items</p>
+          <p id="addItemBtn" class="text-primary">
+            <i class="fa-solid fa-plus"></i> Add item
+          </p>
+        </div>
 
-                <div class="modal-footer">
-                  <button class="btn bg-light border" data-bs-dismiss="modal">
-                    Cancel
-                  </button>
-                  <button class="btn btn-primary">Submit Adjustments</button>
-                </div>
-              </div>
+        <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.267);">
+          <p  id="noItemsMsg">No items added yet. Click "Add Item" to start.</p>
+          <div id="itemsContainer"></div>
+        </div>
+
+         
+
+
+        <div class="d-flex justify-content-end gap-2">
+          <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
+          <button id="createOrderBtn" class="btn btn-primary">Create order</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+     </section>
+    <!-- End Purchase Orders -->
+
+
+
+
+
+    <!-- start Stock Adjustments -->
+
+    <section class="Stock-Adjustments content p-5">
+
+      
+     <!-- headline start -->
+    <div class="headline d-lg-flex justify-content-between align-items-center">
+        <div class="">
+            <h2>Stock Adjustments</h2>
+            <p class="text-light-emphasis">Manually adjust inventory quantities</p>
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newStockAdjustment">
+  <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
+</button>
+
+    </div>
+    <!-- headline end -->
+    
+
+    <!-- product info table start -->
+   <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+   <table class="table mb-0">
+    <thead class="table-header">
+        <tr class="table-header">
+        <th class="text-dark-emphasis table-header" scope="col">Type</th>
+        <th class="text-dark-emphasis table-header" scope="col">Product</th>
+        <th class="text-dark-emphasis table-header" scope="col">Qty</th>
+        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Reason</th>
+        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Date</th>
+        </tr>
+    </thead>
+    <tbody id="stockAdjustmentsTable">
+        <tr>
+        <td class="text-success"><i class="fa-solid fa-circle-arrow-up text-success"></i> increase</td>
+        <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
+        <td>TechWorld Inc.</td>
+        <td>+1</td>
+        <td colspan="2">Reason because</td>
+        <td colspan="2">3/14/2026</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+    <!-- product info table end -->
+
+
+
+<div class="modal fade" id="newStockAdjustment" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+     
+      <div class="modal-body">
+
+        
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold">New Stock Adjustment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <hr>
+
+       
+        <p class="mb-1">Product *</p>
+        <div class="dropdown mb-3">
+          <button id="stockProductBtn" class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            — Select Product —
+          </button>
+          <ul class="dropdown-menu w-100" id="stockProductsList">
+            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43</a></li>
+            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
+            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p class="mb-1">Type *</p>
+            <div class="dropdown">
+              <button id="stockTypeBtn" class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Increase
+              </button>
+              <ul class="dropdown-menu w-100" id="stockTypeList">
+                <li><a class="dropdown-item" href="#">Increase</a></li>
+                <li><a class="dropdown-item" href="#">Decrease</a></li>
+              </ul>
             </div>
           </div>
 
-          <div
-            class="card mx-5 pb-3 px-2 visually-hidden"
-            style="width: 40%; height: auto"
-          >
-            <div class="card-body">
-              <div class="d-lg-flex justify-content-between align-items-center">
-                <h5 class="card-title fw-bold">New Stock Adjustment</h5>
-                <i
-                  class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"
-                ></i>
-              </div>
-
-              <hr />
-              <p class="card-text">Product *</p>
-              <!-- dropdown start -->
-              <div class="dropdown mb-2">
-                <button
-                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  — Select Product —
-                </button>
-                <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      >Wireless Mouse — Current: 43
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      >Laptop 6357Hp — Current: 5</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      >Headset 634 bluetooth — Current: 12</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <!-- dropdown end -->
-
-              <div class="d-lg-flex justify-content-between align-items-center">
-                <div>
-                  <p class="mb-1">Type *</p>
-                  <!-- dropdown start -->
-                  <div class="dropdown mb-2">
-                    <button
-                      class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Increase
-                    </button>
-                    <ul
-                      class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9"
-                    >
-                      <li><a class="dropdown-item" href="#">Increase </a></li>
-                      <li><a class="dropdown-item" href="#">Decrease</a></li>
-                    </ul>
-                  </div>
-                  <!-- dropdown end -->
-                </div>
-
-                <div>
-                  <p class="mb-1">Quantity *</p>
-
-                  <input
-                    class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
-                    type="number"
-                    name=""
-                    id=""
-                  />
-                </div>
-              </div>
-
-              <div>
-                <p class="mb-1">Reason *</p>
-
-                <textarea
-                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
-                  name=""
-                  id=""
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-end column-gap-lg-2">
-              <a href="#" class="btn bg-light text-black border-dark-subtle"
-                >Cancel</a
-              >
-              <a href="#" class="btn btn-primary">Submit Adjustments</a>
-            </div>
+          <div class="col-md-6">
+            <p class="mb-1">Quantity *</p>
+            <input type="number" id="stockQtyInput" class="form-control" placeholder="Enter quantity">
           </div>
-          <!-- </div> -->
-        </section>
+        </div>
 
-        <!-- End Stock Adjustments -->
+       
+        <div class="mb-3">
+          <p class="mb-1">Reason *</p>
+          <textarea id="stockReasonInput" class="form-control" rows="3" placeholder="Write reason..."></textarea>
+        </div>
 
-        <!-- Start Reports -->
-        <section class="Reports">
-          <div class="mb-4">
-            <h3 class="fw-bold mb-1">Reports</h3>
-            <p class="text-secondary mb-0">Inventory analytics and insights</p>
+      </div>
+
+      
+      <div class="modal-footer">
+        <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
+        <button id="submitAdjustmentBtn" class="btn btn-primary">Submit Adjustments</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card mx-5 pb-3 px-2 visually-hidden" style="width: 40%; height: auto;">
+  <div class="card-body">
+     <div class="d-lg-flex justify-content-between align-items-center">
+            <h5 class="card-title fw-bold">New Stock Adjustment</h5>
+            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
+    </div>
+   
+    <hr>
+    <p class="card-text">Product *</p>
+        <!-- dropdown start -->
+    <div class="dropdown mb-2">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+           — Select Product —
+        </button>
+        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43 </a></li>
+            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
+            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
+
+    <div class="d-lg-flex justify-content-between align-items-center">
+        <div>
+
+    <p class="mb-1">Type *</p>
+            <!-- dropdown start -->
+    <div class="dropdown mb-2">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Increase
+        </button>
+        <ul class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9">
+            <li><a class="dropdown-item" href="#">Increase </a></li>
+            <li><a class="dropdown-item" href="#">Decrease</a></li>
+        </ul>
+    </div>
+    <!-- dropdown end -->
+     </div>
+
+    <div>
+        <p class="mb-1">Quantity *</p>
+        
+        <input class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="number" name="" id="">
+     </div>
+
+</div>
+
+
+    <div>
+        <p class="mb-1">Reason *</p>
+        
+        <textarea class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" name="" id=""></textarea>
+     </div>
+
+</div>
+
+
+
+    <div class="d-flex justify-content-end column-gap-lg-2">
+        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
+        <a href="#" class="btn btn-primary">Submit Adjustments</a>
+    </div>
+  
+  </div>
+</div>
+
+
+</section>
+
+    <!-- End Stock Adjustments -->
+  
+      <!-- Start Reports -->
+      <section class="Reports">
+        <div class="container">
+        <div class="mb-4">
+          <h3 class=" mt-4 fw-bold">Reports</h3>
+          <p class="text-secondary mb-0">Inventory analytics and insights</p>
+        </div>
+
+        <div class="reports-btn d-inline-flex gap-1 p-1 rounded-3 mb-4" style="background-color: rgb(230, 229, 229)">
+          <div class="low-stock-btn px-3 py-2 rounded-3 bg-white">
+            <i class="fa-solid fa-arrow-trend-down me-1"></i>
+            Low Stock Report
           </div>
-
-          <div
-            class="reports-btn d-inline-flex gap-1 p-1 rounded-3 mb-4"
-            style="background-color: rgb(230, 229, 229)"
-          >
-            <div class="low-stock-btn px-3 py-2 rounded-3 bg-white">
-              <i class="fa-solid fa-arrow-trend-down me-1"></i>
-              Low Stock Report
-            </div>
-            <div class="inventory-value-btn px-3 py-2 rounded-3">
-              <i class="fa-solid fa-chart-line me-1"></i>
-              Inventory Value
-            </div>
+          <div class="inventory-value-btn px-3 py-2 rounded-3">
+            <i class="fa-solid fa-chart-line me-1"></i>
+            Inventory Value
           </div>
+        </div>
 
-          <div class="table-container"></div>
-        </section>
-        <!-- End Reports -->
+        <div class="table-container"></div>
+        </div>
+      </section>
+      <!-- End Reports -->
 
-        <!-- Start Activity-Log -->
-        <section class="Activity-Log">
-          <div class="d-flex justify-content-between align-items-start mb-4">
-            <div>
-              <h3 class="fw-bold mb-1">Activity Log</h3>
-              <p class="text-secondary mb-0">8 logged actions</p>
-            </div>
-
-            <button class="btn btn-outline-danger">
-              <i class="fa-solid fa-trash me-1"></i>
-              Clear All
-            </button>
+      <!-- Start Activity-Log -->
+      <section class="Activity-Log">
+        <div class="container">
+        <div class="d-flex justify-content-between align-items-start mt-4">
+          <div class="my-2">
+            <h3 class="fw-bold mb-1">Activity Log</h3>
+            <p class="log-count text-secondary mb-0">8 logged actions</p>
           </div>
 
-          <div class="mb-4" style="max-width: 250px">
-            <select class="form-select">
-              <option>All Types</option>
-              <option>Products</option>
-              <option>Orders</option>
-              <option>Suppliers</option>
-            </select>
-          </div>
+          <button class="clearLogBtn btn btn-outline-danger">
+            <i class="fa-solid fa-trash me-1"></i>
+            Clear All
+          </button>
+        </div>
 
-          <div class="bg-white rounded-4 shadow-sm p-3">
-            <div
-              class="d-flex justify-content-between align-items-start py-3 border-bottom"
-            >
-              <div class="d-flex gap-3">
-                <div class="bg-primary-subtle p-2 rounded-3">
-                  <i class="fa-solid fa-box text-primary"></i>
-                </div>
-                <div>
-                  <div class="fw-semibold">Product Created</div>
-                  <div class="text-secondary small">
-                    Created product "electric" (SKU: ele-666)
-                  </div>
-                </div>
-              </div>
-              <small class="text-secondary">3/17/2026, 1:46 AM</small>
-            </div>
+        <div class="mb-4" style="max-width: 250px">
+          <select class="form-select" id="selectForm">
+            <option>All Types</option>
+            <option>Products</option>
+            <option>Orders</option>
+            <option>Suppliers</option>
+          </select>
+        </div>
 
-            <div
-              class="d-flex justify-content-between align-items-start py-3 border-bottom"
-            >
-              <div class="d-flex gap-3">
-                <div class="bg-warning-subtle p-2 rounded-3">
-                  <i class="fa-solid fa-receipt text-warning"></i>
-                </div>
-                <div>
-                  <div class="fw-semibold">Purchase Order Received</div>
-                  <div class="text-secondary small">
-                    Received PO-01002 — stock updated for 1 product(s)
-                  </div>
-                </div>
-              </div>
-              <small class="text-secondary">3/15/2026, 1:34 AM</small>
-            </div>
+        <div class="activity-div bg-white rounded-4 shadow-sm p-3">
+        </div>
+       </div>
+      </section>
+      <!-- End Activity-Log -->
 
-            <div
-              class="d-flex justify-content-between align-items-start py-3 border-bottom"
-            >
-              <div class="d-flex gap-3">
-                <div class="bg-warning-subtle p-2 rounded-3">
-                  <i class="fa-solid fa-receipt text-warning"></i>
-                </div>
-                <div>
-                  <div class="fw-semibold">Purchase Order Created</div>
-                  <div class="text-secondary small">
-                    Created PO-01002 with 1 item(s), total $2.00
-                  </div>
-                </div>
-              </div>
-              <small class="text-secondary">3/15/2026, 1:33 AM</small>
-            </div>
+    </div>
 
-            <div
-              class="d-flex justify-content-between align-items-start py-3 border-bottom"
-            >
-              <div class="d-flex gap-3">
-                <div class="bg-success-subtle p-2 rounded-3">
-                  <i class="fa-solid fa-truck text-success"></i>
-                </div>
-                <div>
-                  <div class="fw-semibold">Supplier Deleted</div>
-                  <div class="text-secondary small">Deleted supplier "j"</div>
-                </div>
-              </div>
-              <small class="text-secondary">3/13/2026, 6:19 AM</small>
-            </div>
 
-            <div
-              class="d-flex justify-content-between align-items-start py-3 border-bottom"
-            >
-              <div class="d-flex gap-3">
-                <div class="bg-success-subtle p-2 rounded-3">
-                  <i class="fa-solid fa-truck text-success"></i>
-                </div>
-                <div>
-                  <div class="fw-semibold">Supplier Created</div>
-                  <div class="text-secondary small">Created supplier "j"</div>
-                </div>
-              </div>
-              <small class="text-secondary">3/13/2026, 6:19 AM</small>
-            </div>
-
-            <div
-              class="d-flex justify-content-between align-items-start py-3 border-bottom"
-            >
-              <div class="d-flex gap-3">
-                <div class="bg-warning-subtle p-2 rounded-3">
-                  <i class="fa-solid fa-receipt text-warning"></i>
-                </div>
-                <div>
-                  <div class="fw-semibold">Purchase Order Received</div>
-                  <div class="text-secondary small">
-                    Received PO-01001 — stock updated for 1 product(s)
-                  </div>
-                </div>
-              </div>
-              <small class="text-secondary">3/13/2026, 6:16 AM</small>
-            </div>
-
-            <div
-              class="d-flex justify-content-between align-items-start py-3 border-bottom"
-            >
-              <div class="d-flex gap-3">
-                <div class="bg-warning-subtle p-2 rounded-3">
-                  <i class="fa-solid fa-receipt text-warning"></i>
-                </div>
-                <div>
-                  <div class="fw-semibold">Purchase Order Created</div>
-                  <div class="text-secondary small">
-                    Created PO-01001 with 1 item(s), total $45.00
-                  </div>
-                </div>
-              </div>
-              <small class="text-secondary">3/13/2026, 6:16 AM</small>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-start py-3">
-              <div class="d-flex gap-3">
-                <div class="bg-secondary-subtle p-2 rounded-3">
-                  <i class="fa-solid fa-gear text-secondary"></i>
-                </div>
-                <div>
-                  <div class="fw-semibold">System Initialized</div>
-                  <div class="text-secondary small">
-                    Inventory Management System loaded with seed data
-                  </div>
-                </div>
-              </div>
-              <small class="text-secondary">3/13/2026, 6:15 AM</small>
-            </div>
-          </div>
-        </section>
-        <!-- End Activity-Log -->
-        <!-- Start Model suppliers -->
+       <!-- Start Model suppliers -->
 
         <!-- Modal -->
         <div
@@ -2718,14 +2082,12 @@
           </div>
         </div>
         <!-- End Model suppliers -->
-      </div>
-    </main>
-    <script src="./src/js/reports.js"></script>
-    <!-- ------------------------end content----------------------------- -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+  </main>
+  <script src="./src/js/reports.js" type="module"></script>
+  <script src="./src/js/activitylog.js" type="module"></script>
+  <!-- ------------------------end content----------------------------- -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
+</body>
+
 </html>

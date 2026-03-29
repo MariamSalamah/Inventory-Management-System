@@ -17,37 +17,59 @@
       "name": "Networking"
     }
   ],
-
   "suppliers": [
     {
-      "id": 1,
-      "name": "Tech Supplies Co.",
-      "email": "sales@techsupplies.com",
-      "phone": "01000000001"
+      "companyName": "Case Simmons Trading",
+      "name": "Boris Daniel",
+      "address": "Voluptatem Accusamu",
+      "email": "lypapi@mailinator.com",
+      "phone": "+1 (812) 765-8084",
+      "id": "1"
     },
     {
-      "id": 2,
-      "name": "Global Keyboards",
-      "email": "info@globalkeyboards.com",
-      "phone": "01000000002"
+      "companyName": "Medina and Rivera Associates",
+      "name": "Aretha Moon",
+      "address": "Enim aut iusto rerum",
+      "email": "bine@mailinator.com",
+      "phone": "+1 (509) 918-6609",
+      "id": "2"
     },
     {
-      "id": 3,
-      "name": "Display Market",
-      "email": "contact@displaymarket.com",
-      "phone": "01000000003"
+      "companyName": "Head Hampton Inc",
+      "name": "Anika Malone",
+      "address": "Dolor aspernatur ame",
+      "email": "lifome@mailinator.com",
+      "phone": "+1 (434) 569-1104",
+      "id": "3"
     },
     {
-      "id": 4,
-      "name": "Network Hub",
-      "email": "support@networkhub.com",
-      "phone": "01000000004"
+      "id": "4",
+      "companyName": "Newman Lindsay Inc",
+      "name": "Jaime Morin",
+      "address": "Animi ipsa dolore ",
+      "email": "gugog@mailinator.com",
+      "phone": "+1 (249) 881-3848"
+    },
+    {
+      "id": "MRDLW94l6KA",
+      "companyName": "Thornton and Norman Associates",
+      "name": "Gloria Talley",
+      "address": "Eum deserunt exercit",
+      "email": "fodojufuxo@mailinator.com",
+      "phone": "+1 (111) 813-5745"
+    },
+    {
+      "id": "UzRw6qOD13w",
+      "companyName": "Noble and Merrill LLC",
+      "name": "Paloma Fields",
+      "address": "Elit eiusmod archit",
+      "email": "ripedik@mailinator.com",
+      "phone": "01140114773"
     }
   ],
-
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Wireless Mouse",
       "sku": "WM-1001",
       "categoryId": 1,
@@ -133,14 +155,12 @@
       "supplierId": 1,
       "date": "2026-03-01",
       "status": "received",
+      "total": 150,
       "items": [
         {
-          "productId": 1,
-          "quantity": 20
-        },
-        {
           "productId": 8,
-          "quantity": 50
+          "quantity": 50,
+          "cost": 3
         }
       ]
     },
@@ -149,14 +169,12 @@
       "supplierId": 2,
       "date": "2026-03-05",
       "status": "pending",
+      "total": 200,
       "items": [
         {
-          "productId": 2,
-          "quantity": 15
-        },
-        {
           "productId": 7,
-          "quantity": 10
+          "quantity": 10,
+          "cost": 20
         }
       ]
     }
@@ -167,14 +185,16 @@
       "productId": 3,
       "type": "decrease",
       "quantity": 2,
-      "reason": "Damaged items"
+      "reason": "Damaged items",
+      "date": "2026-03-27"
     },
     {
       "id": "2",
       "productId": 6,
       "type": "increase",
       "quantity": 3,
-      "reason": "Stock correction"
+      "reason": "Stock correction",
+      "date": "2026-03-05"
     }
   ],
   "reports": [
@@ -220,35 +240,34 @@
       "id": "3Ett9nBfQo8"
     }
   ],
-
   "activityLog": [
     {
       "type": "products",
       "action": "Product created",
       "message": "Product Laptop was created",
       "date": "2026-03-01",
-      "id": "KNQfFpst8ow"
+      "id": "Fg_ZzpAtA0g"
     },
     {
       "type": "suppliers",
       "action": "supplier created",
       "message": "Product Laptop was created",
       "date": "2026-03-01",
-      "id": "Qs9azXN8W0k"
+      "id": "putZQc3jbRw"
     },
     {
       "type": "orders",
       "action": "order created",
       "message": "Product Laptop was created",
       "date": "2026-03-01",
-      "id": "jBXSxBuMQ1g"
+      "id": "KMVGCLb-qXI"
     },
     {
       "type": "products",
       "action": "product deleted",
       "message": "Product Laptop was created",
       "date": "2026-03-01",
-      "id": "NBjKTSjo8ZU"
+      "id": "Cd2zKoqrnh0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
