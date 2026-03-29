@@ -210,14 +210,17 @@
       "productId": 3,
       "type": "decrease",
       "quantity": 2,
-      "reason": "Damaged items"
+      "reason": "Damaged items",
+      "date": "2026-03-27"
+
     },
     {
       "id": "2",
       "productId": 6,
       "type": "increase",
       "quantity": 3,
-      "reason": "Stock correction"
+      "reason": "Stock correction",
+      "date": "2026-03-05"
     }
   ],
   "reports": [
