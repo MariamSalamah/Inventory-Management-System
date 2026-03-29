@@ -67,6 +67,7 @@
       "categoryId": 1,
       "supplierId": 1,
       "price": 15,
+      "cost": 0.12,
       "quantity": 50,
       "reorderLevel": 10
     },
@@ -77,6 +78,7 @@
       "categoryId": 1,
       "supplierId": 2,
       "price": 60,
+      "cost": 0.12,
       "quantity": 20,
       "reorderLevel": 5
     },
@@ -87,6 +89,7 @@
       "categoryId": 2,
       "supplierId": 3,
       "price": 220,
+      "cost": 0.12,
       "quantity": 8,
       "reorderLevel": 10
     },
@@ -97,6 +100,7 @@
       "categoryId": 1,
       "supplierId": 1,
       "price": 25,
+      "cost": 0.12,
       "quantity": 30,
       "reorderLevel": 10
     },
@@ -107,6 +111,7 @@
       "categoryId": 3,
       "supplierId": 1,
       "price": 120,
+      "cost": 0.12,
       "quantity": 12,
       "reorderLevel": 5
     },
@@ -117,6 +122,7 @@
       "categoryId": 4,
       "supplierId": 4,
       "price": 90,
+      "cost": 0.12,
       "quantity": 6,
       "reorderLevel": 5
     },
@@ -127,6 +133,7 @@
       "categoryId": 1,
       "supplierId": 2,
       "price": 70,
+      "cost": 0.12,
       "quantity": 4,
       "reorderLevel": 5
     },
@@ -137,8 +144,20 @@
       "categoryId": 3,
       "supplierId": 1,
       "price": 12,
+      "cost": 0.12,
       "quantity": 100,
       "reorderLevel": 20
+    },
+    {
+      "name": "sdf",
+      "sku": "USB-1008",
+      "categoryId": 1,
+      "supplierId": 1,
+      "cost": 0.12,
+      "price": 0.33,
+      "quantity": 17,
+      "reorderLevel": 7,
+      "id": "xoKX59xfJSI"
     }
   ],
   "purchaseOrders": [
