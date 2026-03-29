@@ -116,6 +116,7 @@ ul li {
   .top {
     margin-bottom: 20px;
     .left {
+      height: 60px;
       line-height: 0.2;
       gap: 10px;
       .icon {
@@ -650,7 +651,15 @@ select,
   background-color: #7700ff25;
   color: #5000d1;
 }
-
+.Categories .card-A .top .left {
+  .text {
+    height: 100%;
+    line-height: 0.1;
+    h6 {
+      margin-top: 10px;
+    }
+  }
+}
 .Categories card > p {
   color: var(--normal-text-color);
 }
