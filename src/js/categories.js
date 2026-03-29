@@ -177,6 +177,7 @@ $(document).ready(async () => {
     const payload = {
       name: $modal.find("#categoryName").val().trim(),
       description: $modal.find("#categoryDescription").val().trim(),
+      id: categoriesData.length,
     };
 
     if (editingId !== null) {

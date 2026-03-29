@@ -17,9 +17,9 @@
       "name": "Networking"
     },
     {
-      "name": "ggggg",
-      "description": "",
-      "id": "3G7ne6BTD8E"
+      "name": "rrrr",
+      "description": "sss",
+      "id": "WPOdSbGgc5U"
     }
   ],
   "suppliers": [
@@ -185,6 +185,17 @@
       "quantity": 5,
       "reorderLevel": 4,
       "id": "fv0IrbWj0ro"
+    },
+    {
+      "name": "sadasd",
+      "sku": "USB-1008",
+      "categoryId": "WPOdSbGgc5U",
+      "supplierId": "1",
+      "cost": "344",
+      "price": "333",
+      "quantity": "333",
+      "reorderLevel": "33",
+      "id": "fQwW2qKvBWI"
     }
   ],
   "purchaseOrders": [
