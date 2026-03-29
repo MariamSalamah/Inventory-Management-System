@@ -1,4 +1,5 @@
-{"categories": [
+{
+  "categories": [
     {
       "id": "1",
       "name": "Computer Accessories"
@@ -58,10 +59,9 @@
       "phone": "+1 (111) 813-5745"
     }
   ],
-
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Wireless Mouse",
       "sku": "WM-1001",
       "categoryId": 1,
@@ -71,7 +71,7 @@
       "reorderLevel": 10
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Mechanical Keyboard",
       "sku": "MK-1002",
       "categoryId": 1,
@@ -81,7 +81,7 @@
       "reorderLevel": 5
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "27 Inch Monitor",
       "sku": "MN-1003",
       "categoryId": 2,
@@ -91,7 +91,7 @@
       "reorderLevel": 10
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "USB-C Charger",
       "sku": "CH-1004",
       "categoryId": 1,
@@ -101,7 +101,7 @@
       "reorderLevel": 10
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "External SSD 1TB",
       "sku": "SSD-1005",
       "categoryId": 3,
@@ -111,7 +111,7 @@
       "reorderLevel": 5
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "WiFi Router",
       "sku": "RT-1006",
       "categoryId": 4,
@@ -121,7 +121,7 @@
       "reorderLevel": 5
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Gaming Headset",
       "sku": "GH-1007",
       "categoryId": 1,
@@ -131,7 +131,7 @@
       "reorderLevel": 5
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "USB Flash 64GB",
       "sku": "USB-1008",
       "categoryId": 3,
@@ -160,7 +160,7 @@
       "id": "2",
       "supplierId": 2,
       "date": "2026-03-05",
-      "status": "pending",
+      "status": "cancelled",
       "total": 200,
       "items": [
         {
@@ -179,7 +179,6 @@
       "quantity": 2,
       "reason": "Damaged items",
       "date": "2026-03-27"
-
     },
     {
       "id": "2",
@@ -233,31 +232,35 @@
       "id": "3Ett9nBfQo8"
     }
   ],
-  
   "activityLog": [
     {
       "type": "products",
       "action": "Product created",
       "message": "Product Laptop was created",
-      "date": "2026-03-01"
+      "date": "2026-03-01",
+      "id": "AnJNnBAnsKE"
     },
     {
       "type": "suppliers",
       "action": "supplier created",
       "message": "Product Laptop was created",
-      "date": "2026-03-01"
+      "date": "2026-03-01",
+      "id": "wlQ7yK3vm7g"
     },
     {
       "type": "orders",
       "action": "order created",
       "message": "Product Laptop was created",
-      "date": "2026-03-01"
+      "date": "2026-03-01",
+      "id": "D5x00kHwOg0"
     },
     {
       "type": "products",
       "action": "product deleted",
       "message": "Product Laptop was created",
-      "date": "2026-03-01"
+      "date": "2026-03-01",
+      "id": "7FoSejjGft4"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
