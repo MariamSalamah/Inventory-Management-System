@@ -10,6 +10,12 @@ async function loadLowStock() {
   const categories = await getData("categories");
 
   const lowProducts = products.filter((el) => el.quantity <= el.reorderLevel);
+  let totalRetail = 0;
+  products.forEach((p) => {
+    totalRetail += p.price * p.quantity;
+  });
+  document.querySelector(".inventory-ratialvalue").textContent =
+    `${totalRetail.toFixed(2)} $`;
 
   document.querySelectorAll("#low-notify").forEach((el) => {
     el.textContent = lowProducts.length;
@@ -69,9 +75,10 @@ async function loadInventoryValue() {
   const categories = await getData("categories");
 
   let totalRetail = 0;
-
+  let totalcost = 0;
   // Total Inventory Value
   products.forEach((p) => {
+    totalcost += p.cost * p.quantity;
     totalRetail += p.price * p.quantity;
   });
 
@@ -84,12 +91,14 @@ async function loadInventoryValue() {
     if (!categoryMap[category.name]) {
       categoryMap[category.name] = {
         products: 0,
-        value: 0,
+        price: 0,
+        cost: 0,
       };
     }
 
     categoryMap[category.name].products += 1;
-    categoryMap[category.name].value += p.price * p.quantity;
+    categoryMap[category.name].price += p.price * p.quantity;
+    categoryMap[category.name].cost += p.cost * p.quantity;
   });
 
   // Category Rows
@@ -99,9 +108,9 @@ async function loadInventoryValue() {
       <tr>
         <td>${cat}</td>
         <td>${categoryMap[cat].products}</td>
-        <td>$${categoryMap[cat].value.toFixed(2)}</td>
-        <td>$${categoryMap[cat].value.toFixed(2)}</td>
-        <td class="text-success">$0</td>
+        <td>$${categoryMap[cat].price.toFixed(2)}</td>
+        <td>$${categoryMap[cat].cost.toFixed(2)}</td>
+        <td class="text-success">$${(categoryMap[cat].price - categoryMap[cat].cost).toFixed(2)}</td>
       </tr>
     `;
   }
@@ -149,7 +158,7 @@ async function loadInventoryValue() {
             </div>
             <div>
               <p class="mb-1 small">Total Cost Value</p>
-              <strong>$${totalRetail.toFixed(2)}</strong>
+              <strong>$${totalcost.toFixed(2)}</strong>
             </div>
           </div>
         </div>
@@ -161,7 +170,7 @@ async function loadInventoryValue() {
             </div>
             <div>
               <p class="mb-1 small">Potential Profit</p>
-              <strong>$0</strong>
+              <strong>$${(totalRetail - totalcost).toFixed(2)}</strong>
             </div>
           </div>
         </div>
