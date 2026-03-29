@@ -168,7 +168,7 @@
       "id": "2",
       "supplierId": 2,
       "date": "2026-03-05",
-      "status": "pending",
+      "status": "cancelled",
       "total": 200,
       "items": [
         {

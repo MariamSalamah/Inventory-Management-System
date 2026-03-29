@@ -446,4 +446,4 @@ It also reflects teamwork, planning, and real-world problem-solving through Agil
 
 ## License
 
-This project was developed for educational purposes as part of a student assignment. @ITI MEARN STACK - 2026 G4
+This project was developed for educational purposes as part of the ITI MEARN Stack Program – 2026 G4.

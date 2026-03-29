@@ -11,11 +11,18 @@ let reports = await getData("reports");
 let PendingOrders = purchaseOrdersData.filter(
   (elm) => elm.status === "pending",
 );
+let totalRetail = 0;
+
+// Total Inventory Value
+productsData.forEach((p) => {
+  totalRetail += p.price * p.quantity;
+});
 
 document.getElementById("prodlen").innerHTML = productsData.length;
 document.getElementById("catlen").innerHTML = categoriesData.length;
 document.getElementById("suplLen").innerHTML = suppliersData.length;
-document.getElementById("InventoryValue").innerHTML = suppliersData.length;
+document.getElementById("InventoryValue").innerHTML =
+  `${totalRetail.toFixed()}$`;
 document.getElementById("LowStockLen").innerHTML = reports.filter(
   (elm) => elm.urgency == "high",
 ).length;
