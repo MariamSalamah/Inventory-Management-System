@@ -386,7 +386,7 @@ Possible future enhancements include:
 
 ## Team Contributions
 
-### Youssef sheashia 
+### Youssef Sheashia 
 - Developed the **Analytics Section**, including:
   - **Reports Page**
   - **Activity Log Page**
