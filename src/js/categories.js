@@ -177,7 +177,7 @@ $(document).ready(async () => {
     const payload = {
       name: $modal.find("#categoryName").val().trim(),
       description: $modal.find("#categoryDescription").val().trim(),
-      id: categoriesData.length,
+      id: editingId,
     };
 
     if (editingId !== null) {
@@ -206,7 +206,8 @@ $(document).ready(async () => {
 
   function handleEdit() {
     const id = $(this).closest(".card-A").data("id");
-    const cat = categoriesData.find((c) => c.id === id);
+    const cat = categoriesData.find((c) => c.id == id);
+
     if (!cat) return;
 
     editingId = id;
@@ -217,7 +218,7 @@ $(document).ready(async () => {
 
   async function handleDelete() {
     const id = $(this).closest(".card-A").data("id");
-    const cat = categoriesData.find((c) => c.id === id);
+    const cat = categoriesData.find((c) => c.id == id);
     if (!cat) return;
 
     const count = productCountFor(id);
