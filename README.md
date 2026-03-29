@@ -32,7 +32,7 @@ The project focuses on applying clean UI/UX design, implementing clear business 
 - [Validation & Error Handling](#validation--error-handling)
 - [Future Improvements](#future-improvements)
 - [Team Contributions](#team-contributions)
-- [Screenshots](#screenshots)
+- [Screenshots](#some-screenshots)
 - [Conclusion](#conclusion)
 - [License](#license)
 
