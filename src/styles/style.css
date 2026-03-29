@@ -401,7 +401,7 @@ span.link {
 
   .window {
     width: 800px;
-    min-height: 60%;
+    min-height: 40%;
     border-radius: calc(var(--main-border-radius) + 5px);
     background-color: var(--table-feild-hover-color);
 
@@ -419,6 +419,28 @@ span.link {
         &:hover {
           color: red;
         }
+      }
+    }
+
+    .input {
+      width: 49%;
+
+      input,
+      select {
+        background-color: transparent;
+        padding: 10px 8px;
+        border: 1px solid rgba(151, 151, 151, 0.5);
+        border-radius: var(--main-border-radius);
+      }
+    }
+    textarea {
+      background-color: transparent;
+      padding: 10px 8px;
+      border: 1px solid rgba(151, 151, 151, 0.5);
+      border-radius: var(--main-border-radius);
+      height: 80px;
+      select {
+        padding: 6px;
       }
     }
 
@@ -486,30 +508,8 @@ span.link {
   padding-bottom: 60px;
 }
 
-.Products .sec-Form .input {
-  width: 49%;
-
-  input,
-  select {
-    background-color: transparent;
-    padding: 10px 8px;
-    border: 1px solid rgba(151, 151, 151, 0.5);
-    border-radius: var(--main-border-radius);
-  }
-}
-
-.Products .sec-Form textarea {
-  background-color: transparent;
-  padding: 10px 8px;
-  border: 1px solid rgba(151, 151, 151, 0.5);
-  border-radius: var(--main-border-radius);
-  height: 80px;
-}
-.Products select {
-  padding: 6px;
-}
-.Products select,
-.Products .search input {
+select,
+.search input {
   border-radius: var(--main-border-radius);
   border: 1px solid #bdbdbd;
   outline: 0;

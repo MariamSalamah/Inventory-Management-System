@@ -256,12 +256,12 @@ $(document).ready(async () => {
     const payload = {
       name: $modal.find("#productName").val().trim(),
       sku: $modal.find("#sku").val().trim(),
-      categoryId: parseInt($modal.find("#productCategory").val()),
-      supplierId: parseInt($modal.find("#productSupplier").val()),
-      cost: parseFloat($("#CostPrice").val()),
-      price: parseFloat($("#SellingPrice").val()),
-      quantity: parseInt($modal.find("#productQuantity").val()),
-      reorderLevel: parseInt($modal.find("#productReorder").val()),
+      categoryId: $modal.find("#productCategory").val(),
+      supplierId: $modal.find("#productSupplier").val(),
+      cost: $("#CostPrice").val(),
+      price: $("#SellingPrice").val(),
+      quantity: $modal.find("#productQuantity").val(),
+      reorderLevel: $modal.find("#productReorder").val(),
     };
 
     if (editingId !== null) {
