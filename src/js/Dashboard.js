@@ -55,7 +55,7 @@ function displayActivityLog(activityLogs) {
                       <div class="right">
                         <p class="m-0 mb-1">${activityLog.action}</p>
                         <p class="m-0 ">
-                          ${activityLog.description}
+                          ${activityLog.description || "No Description"}
                         </p>
                         <p class="m-0">
                            ${activityLog.date}
