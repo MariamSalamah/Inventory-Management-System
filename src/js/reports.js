@@ -140,7 +140,7 @@ async function loadInventoryValue() {
       <div class="row g-3">
         
         <div class="col-md-4">
-          <div class="bg-white overflow-x-scroll p-3 rounded-4 shadow-sm d-flex align-items-center gap-3">
+          <div class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center gap-3">
             <div class="bg-success-subtle p-2 rounded-3">
               <i class="fa-solid fa-dollar-sign fs-4 text-success"></i>
             </div>
@@ -152,7 +152,7 @@ async function loadInventoryValue() {
         </div>
 
         <div class="col-md-4">
-          <div class="bg-white overflow-x-scroll p-3 rounded-4 shadow-sm d-flex align-items-center gap-3">
+          <div class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center gap-3">
             <div class="bg-warning-subtle p-2 rounded-3">
               <i class="fa-solid fa-coins fs-4 text-warning"></i>
             </div>
