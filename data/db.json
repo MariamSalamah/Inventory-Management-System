@@ -13,8 +13,14 @@
       "name": "Storage Devices"
     },
     {
-      "id": "4",
-      "name": "Networking"
+      "name": "ss",
+      "description": "aaaaa",
+      "id": "4"
+    },
+    {
+      "name": "rrrr",
+      "description": "sss",
+      "id": "WPOdSbGgc5U"
     }
   ],
   "suppliers": [
@@ -166,6 +172,39 @@
       "quantity": 17,
       "reorderLevel": 7,
       "id": "xoKX59xfJSI"
+    },
+    {
+      "name": "asd",
+      "sku": "asd",
+      "categoryId": 3,
+      "supplierId": 4,
+      "cost": 0.12,
+      "price": 0.16,
+      "quantity": 10,
+      "reorderLevel": 8,
+      "id": "lElVAmUS3r4"
+    },
+    {
+      "name": "oooooo",
+      "sku": "oooooo",
+      "categoryId": 3,
+      "supplierId": 3,
+      "cost": 0.1,
+      "price": 0.11,
+      "quantity": 5,
+      "reorderLevel": 4,
+      "id": "fv0IrbWj0ro"
+    },
+    {
+      "name": "sadasd",
+      "sku": "USB-1008",
+      "categoryId": "WPOdSbGgc5U",
+      "supplierId": "1",
+      "cost": "344",
+      "price": "333",
+      "quantity": "333",
+      "reorderLevel": "33",
+      "id": "fQwW2qKvBWI"
     }
   ],
   "purchaseOrders": [

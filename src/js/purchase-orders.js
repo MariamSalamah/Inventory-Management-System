@@ -7,7 +7,7 @@ window.addEventListener("load", async () => {
     const suppliers = await api.getData("suppliers");
     const products = await api.getData("products");
 
-    // Status color changing 
+    // Status Badge Helper 
     function getStatusBadge(status) {
         const s = status?.toLowerCase();
         const label = status ? (status.charAt(0).toUpperCase() + status.slice(1).toLowerCase()) : "Unknown";
@@ -18,7 +18,7 @@ window.addEventListener("load", async () => {
         return `<span class="${base}bg-light">${label}</span>`;
     }
 
-    //Table Render
+    // Table Render 
     const tbody = document.getElementById("purchaseOrdersTable");
     let currentFilter = "all";
 
@@ -35,7 +35,7 @@ window.addEventListener("load", async () => {
     }
 
     function createRow(order, index) {
-        
+        // 
         const poNumber = `PO-${String(index + 1).padStart(2, '0')}`;
         const supplier = suppliers.find(s => String(s.id) === String(order.supplierId));
         const isFinal = order.status === "received" || order.status === "cancelled";
@@ -63,17 +63,26 @@ window.addEventListener("load", async () => {
 
         if (!isFinal) {
             tr.querySelector(".fa-circle-check").addEventListener("click", async () => {
+                
                 await api.putData("purchaseOrders", order.id, { ...order, status: "received" });
                 order.status = "received";
                 ordersPurchased = ordersPurchased.map(o => o.id === order.id ? { ...o, status: "received" } : o);
 
-                // Update each product quantity
+                
                 for (const item of order.items) {
                     const product = await api.getSingleData("products", item.productId);
                     if (product) {
-                        await api.putData("products", product.id, {
-                            ...product,
-                            quantity: (product.quantity || 0) + item.quantity
+                        
+                        const newQty = (product.quantity || 0) + item.quantity;
+                        await api.putData("products", product.id, { ...product, quantity: newQty });
+
+                        
+                        await api.postData("stockAdjustments", {
+                            productId: product.id,
+                            type: "increase",
+                            quantity: item.quantity,
+                            reason: `Purchase order received (${poNumber})`,
+                            date: new Date().toISOString().split("T")[0]
                         });
                     }
                 }
@@ -96,8 +105,8 @@ window.addEventListener("load", async () => {
 
     renderTable();
 
-    //Filter Dropdown
-       const purchaseSection = document.querySelector(".Purchase");
+    // Filter Dropdown 
+    const purchaseSection = document.querySelector(".Purchase");
     const filterDropdownToggle = purchaseSection.querySelector(":scope > .dropdown .dropdown-toggle");
     purchaseSection.querySelectorAll(":scope > .dropdown .dropdown-item").forEach(item => {
         item.addEventListener("click", (e) => {
@@ -109,7 +118,7 @@ window.addEventListener("load", async () => {
         });
     });
 
-    //View Details Modal
+    // View Details Modal 
     if (!document.getElementById("viewOrderModal")) {
         document.body.insertAdjacentHTML("beforeend", `
         <div class="modal fade" id="viewOrderModal" tabindex="-1">
@@ -169,7 +178,7 @@ window.addEventListener("load", async () => {
         new bootstrap.Modal(document.getElementById("viewOrderModal")).show();
     }
 
-    //Supplier Dropdown in Create Modal
+    // Supplier Dropdown in Create Modal
     const supplierDropdownMenu = document.querySelector("#createOrderModal .dropdown-menu");
     const supplierDropdownBtn = document.querySelector("#createOrderModal .dropdown-toggle");
     supplierDropdownMenu.innerHTML = "";
@@ -188,7 +197,7 @@ window.addEventListener("load", async () => {
         });
     });
 
-    //Items Container
+    // Items Container
     const itemsContainer = document.getElementById("itemsContainer");
     const totalEl = document.createElement("p");
     totalEl.className = "text-end fw-semibold mt-2";
@@ -241,7 +250,7 @@ window.addEventListener("load", async () => {
         document.getElementById("orderTotal").textContent = `$${total.toFixed(2)}`;
     }
 
-    //Create Order 
+    //Create Order
     document.getElementById("createOrderBtn").addEventListener("click", async () => {
         if (!selectedSupplierId) { alert("Please select a supplier."); return; }
 

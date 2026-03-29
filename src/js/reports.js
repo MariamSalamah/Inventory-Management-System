@@ -127,7 +127,7 @@ async function loadInventoryValue() {
           <small class="text-secondary">${p.sku}</small>
         </td>
         <td>$${p.price}</td>
-        <td>$${p.price}</td>
+        <td>$${p.cost}</td>
         <td>${p.quantity}</td>
         <td class="text-end fw-bold">$${total.toFixed(2)}</td>
       </tr>
