@@ -258,6 +258,7 @@ $(document).ready(async () => {
       sku: $modal.find("#sku").val().trim(),
       categoryId: parseInt($modal.find("#productCategory").val()),
       supplierId: parseInt($modal.find("#productSupplier").val()),
+      cost: parseFloat($("#CostPrice").val()),
       price: parseFloat($("#SellingPrice").val()),
       quantity: parseInt($modal.find("#productQuantity").val()),
       reorderLevel: parseInt($modal.find("#productReorder").val()),
