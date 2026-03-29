@@ -6,17 +6,14 @@ import {
 } from "../../../controller/crud.js";
 
 $(document).ready(async () => {
-  // ── 1. Data ───────────────────────────────────────────────────────────────
   let productsData = await getData("products");
   const categoriesData = await getData("categories");
   const suppliersData = await getData("suppliers");
 
   let editingId = null;
 
-  // ── 2. Stable const references (must be before any function that uses them) ─
   const $modal = $(".Products .sec-Form");
 
-  // Validation uses element ids
   const rules = [
     { id: "sku", msg: "SKU is required.", test: (v) => v.trim() !== "" },
     {
@@ -61,7 +58,6 @@ $(document).ready(async () => {
     },
   ];
 
-  // ── 3. Bootstrap ──────────────────────────────────────────────────────────
   updateCount();
   populateSelect("#productCategory", categoriesData);
   populateSelect("#productSupplier", suppliersData);
@@ -69,27 +65,18 @@ $(document).ready(async () => {
   addErrorSpans();
   renderProducts(productsData);
 
-  // ── 4. Event bindings ─────────────────────────────────────────────────────
-
-  // Open modal
   $(".Products .addBTN").on("click", () => openModal("Add Product"));
-
-  // Close modal — X button and Cancel button
   $modal.on("click", ".closeWindow, .cancel", closeModal);
 
-  // Close on backdrop click
   $modal.on("click", function (e) {
     if (e.target === this) closeModal();
   });
 
-  // Save (create / update)
   $modal.on("click", ".create", saveProduct);
 
-  // Edit / Delete — delegated on tbody for dynamically rendered rows
   $(".Products .productTable tbody").on("click", ".edit-btn", handleEdit);
   $(".Products .productTable tbody").on("click", ".delete-btn", handleDelete);
 
-  // Search + category filter
   $(".Products .input-field").on("input", () => renderProducts(getFiltered()));
   $(".Products #categories").on("change", () => renderProducts(getFiltered()));
 
@@ -134,8 +121,6 @@ $(document).ready(async () => {
       return matchSearch && matchCat;
     });
   }
-
-  // ── Render ────────────────────────────────────────────────────────────────
 
   function renderProducts(list) {
     const $tbody = $(".Products .productTable tbody");
@@ -190,8 +175,6 @@ $(document).ready(async () => {
     });
   }
 
-  // ── Modal ─────────────────────────────────────────────────────────────────
-
   function openModal(title = "Add Product") {
     $modal.find(".title h4").text(title);
     clearAllErrors();
@@ -213,8 +196,6 @@ $(document).ready(async () => {
     $modal.find("#productCategory, #productSupplier").val("none");
   }
 
-  // ── Validation ────────────────────────────────────────────────────────────
-
   function addErrorSpans() {
     rules.forEach(({ id, msg }) => {
       const $field = $modal.find(`#${id}`);
@@ -223,7 +204,6 @@ $(document).ready(async () => {
       if (!$wrap.find(".error-msg").length) {
         $wrap.append(`<span class="error-msg">${msg}</span>`);
       }
-      // Clear error as the user fixes the field
       $field.on("input change", () => $wrap.removeClass("field-error"));
     });
   }
@@ -247,8 +227,6 @@ $(document).ready(async () => {
   function clearAllErrors() {
     $modal.find(".field-error").removeClass("field-error");
   }
-
-  // ── CRUD ──────────────────────────────────────────────────────────────────
 
   async function saveProduct() {
     if (!validate()) return;
