@@ -1,4 +1,4 @@
-# Inventory Management System
+# ITI Stock (Inventory Management System)
 
 ## Overview
 This project is a responsive web-based Inventory Management System designed for small businesses to manage their products, suppliers, and stock levels efficiently.
