@@ -1,382 +1,265 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- -----------------fonts-------------------- -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- -----------------fontawesome-------------------- -->
-    <script
-      src="https://kit.fontawesome.com/1c5a67489d.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- -----------------bootstrap-------------------- -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- -----------------fonts-------------------- -->
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <!-- -----------------style-------------------- -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <!-- -----------------fontawesome-------------------- -->
+  <script src="https://kit.fontawesome.com/1c5a67489d.js" crossorigin="anonymous"></script>
+  <!-- -----------------bootstrap-------------------- -->
 
-    <link rel="stylesheet" href="./src/styles/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <!-- -----------------style-------------------- -->
 
-    <!-- -----------------JQuery-------------------- -->
+  <link rel="stylesheet" href="./src/styles/style.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <!-- -----------------JS-------------------- -->
+  <!-- -----------------JQuery-------------------- -->
 
-    <script src="./src/js/main.js"></script>
-    <script src="./src/js/Suppliers.js" type="module"></script>
-    <script src="./src/js/Dashboard.js" type="module"></script>
-    <script src="./src/js/products.js" type="module"></script>
-    <script src="./src/js/categories.js" type="module"></script>
-    <script type="module" src="./src/js/purchase-orders.js"></script>
-    <script type="module" src="./src/js/stock_adjustments.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <!-- -----------------JS-------------------- -->
 
-  </head>
+  <script src="./src/js/main.js"></script>
+  <script src="./src/js/Suppliers.js" type="module"></script>
+  <script src="./src/js/Dashboard.js" type="module"></script>
+  <script src="./src/js/products.js" type="module"></script>
+  <script src="./src/js/categories.js" type="module"></script>
+  <script type="module" src="./src/js/purchase-orders.js"></script>
+  <script type="module" src="./src/js/stock_adjustments.js"></script>
 
-  <body>
-    <div class="overlay"></div>
-    <!-- ------------------------start sidebar----------------------------- -->
-    <aside
-      class="position-fixed vh-100 start-0 top-0 bottom-0 d-flex flex-column"
-    >
-      <div class="aside-header p-4 d-flex align-items-center gap-3">
-        <div
-          class="logo d-flex justify-content-center align-items-center bg-primary text-light fs-4 rounded-4"
-        >
-          <i class="fa-solid fa-cubes"></i>
-        </div>
-        <div class="text-logo flex-grow-1 d-flex flex-column">
-          <span class="">StockPilot </span>
-          <span class="text-uppercase">Inventory System</span>
-        </div>
-        <div class="close-aside d-block d-lg-none">
-          <i class="fa-solid fa-xmark"></i>
-        </div>
+</head>
+
+<body>
+  <div class="overlay"></div>
+  <!-- ------------------------start sidebar----------------------------- -->
+  <aside class="position-fixed vh-100 start-0 top-0 bottom-0 d-flex flex-column">
+    <div class="aside-header p-4 d-flex align-items-center gap-3">
+      <div class="logo d-flex justify-content-center align-items-center bg-primary text-light fs-4 rounded-4">
+        <i class="fa-solid fa-cubes"></i>
       </div>
-      <div class="aside-links p-4">
-        <div class="Overview d-flex flex-column mb-3">
-          <span class="title-links text-uppercase ps-2 mb-2">Overview</span>
-          <span
-            class="link active btn border-0 py-2 text-start"
-            data-target="Dashboard"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-layout-dashboard me-2"
-              aria-hidden="true"
-            >
-              <rect width="7" height="9" x="3" y="3" rx="1"></rect>
-              <rect width="7" height="5" x="14" y="3" rx="1"></rect>
-              <rect width="7" height="9" x="14" y="12" rx="1"></rect>
-              <rect width="7" height="5" x="3" y="16" rx="1"></rect>
-            </svg>
-            Dashboard</span
-          >
-        </div>
-        <div class="Inventory d-flex flex-column mb-3">
-          <span class="title-links text-uppercase ps-2 mb-2">Inventory</span>
-          <span
-            class="link btn border-0 py-2 text-start"
-            data-target="Products"
-          >
-            <i class="fa-solid fa-box-open me-2"></i>
-            Products</span
-          >
-          <span
-            class="link btn border-0 py-2 text-start"
-            data-target="Categories"
-          >
-            <i class="fa-solid fa-tag me-2"></i>
-            Categories</span
-          >
-          <span
-            class="link btn border-0 py-2 text-start"
-            data-target="Suppliers"
-          >
-            <i class="fa-regular fa-truck me-2"></i>
-            Suppliers</span
-          >
-        </div>
-        <div class="Operations d-flex flex-column mb-3">
-          <span class="title-links text-uppercase ps-2 mb-2">Inventory</span>
-          <span
-            class="link btn border-0 py-2 text-start"
-            data-target="Purchase"
-          >
-            <i class="fa-regular fa-clipboard me-2"></i>
-            Purchase Orders</span
-          >
-          <span
-            class="link btn border-0 py-2 text-start"
-            data-target="Stock-Adjustments"
-          >
-            <i class="fa-solid fa-arrow-right-arrow-left me-2"></i>
-            Stock Adjustments</span
-          >
-        </div>
-        <div class="Analytics d-flex flex-column mb-3">
-          <span class="title-links text-uppercase ps-2 mb-2">Analytics</span>
-          <span
-            class="link d-flex align-items-center gap-1 btn border-0 py-2 text-start"
-            data-target="Reports"
-          >
-            <i class="fa-regular fa-chart-bar me-2"></i>
-            <span>Reports</span>
-            <span class="ms-auto text-danger alert-danger px-1 py-1 rounded-3">
-              <i class="fa-solid fa-triangle-exclamation"></i>
-              4</span
-            >
-          </span>
-          <span
-            class="link btn border-0 py-2 text-start"
-            data-target="Activity-Log"
-          >
-            <i class="fa-solid fa-scroll me-2"></i>
-            Activity Log</span
-          >
-        </div>
+      <div class="text-logo flex-grow-1 d-flex flex-column">
+        <span class="">StockPilot </span>
+        <span class="text-uppercase">Inventory System</span>
       </div>
-      <div class="aside-footer"></div>
-    </aside>
-    <!-- ------------------------end sidebar----------------------------- -->
+      <div class="close-aside d-block d-lg-none">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+    </div>
+    <div class="aside-links p-4">
+      <div class="Overview d-flex flex-column mb-3">
+        <span class="title-links text-uppercase ps-2 mb-2">Overview</span>
+        <span class="link active btn border-0 py-2 text-start" data-target="Dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-layout-dashboard me-2" aria-hidden="true">
+            <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+            <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+            <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+            <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+          </svg>
+          Dashboard</span>
+      </div>
+      <div class="Inventory d-flex flex-column mb-3">
+        <span class="title-links text-uppercase ps-2 mb-2">Inventory</span>
+        <span class="link btn border-0 py-2 text-start" data-target="Products">
+          <i class="fa-solid fa-box-open me-2"></i>
+          Products</span>
+        <span class="link btn border-0 py-2 text-start" data-target="Categories">
+          <i class="fa-solid fa-tag me-2"></i>
+          Categories</span>
+        <span class="link btn border-0 py-2 text-start" data-target="Suppliers">
+          <i class="fa-regular fa-truck me-2"></i>
+          Suppliers</span>
+      </div>
+      <div class="Operations d-flex flex-column mb-3">
+        <span class="title-links text-uppercase ps-2 mb-2">Inventory</span>
+        <span class="link btn border-0 py-2 text-start" data-target="Purchase">
+          <i class="fa-regular fa-clipboard me-2"></i>
+          Purchase Orders</span>
+        <span class="link btn border-0 py-2 text-start" data-target="Stock-Adjustments">
+          <i class="fa-solid fa-arrow-right-arrow-left me-2"></i>
+          Stock Adjustments</span>
+      </div>
+      <div class="Analytics d-flex flex-column mb-3">
+        <span class="title-links text-uppercase ps-2 mb-2">Analytics</span>
+        <span class="link d-flex align-items-center gap-1 btn border-0 py-2 text-start" data-target="Reports">
+          <i class="fa-regular fa-chart-bar me-2"></i>
+          <span>Reports</span>
+          <span class="ms-auto text-danger alert-danger px-1 py-1 rounded-3">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            4</span>
+        </span>
+        <span class="link btn border-0 py-2 text-start" data-target="Activity-Log">
+          <i class="fa-solid fa-scroll me-2"></i>
+          Activity Log</span>
+      </div>
+    </div>
+    <div class="aside-footer"></div>
+  </aside>
+  <!-- ------------------------end sidebar----------------------------- -->
 
-    <!-- ------------------------start nav----------------------------- -->
-    <nav
-      class="position-fixed p-3 top-0 d-flex justify-content-between align-items-center z-3"
-    >
-      <span class="d-block d-lg-none"><i class="fa-solid fa-bars"></i></span>
-      <span class="d-block d-lg-none">Dashboard</span>
-      <span
-        class="link text-danger alert-danger m-0 ms-lg-auto px-1 py-1 rounded-3"
-        data-target="Reports"
-      >
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        4 Low Stock</span
-      >
-    </nav>
-    <!-- ------------------------end nav----------------------------- -->
+  <!-- ------------------------start nav----------------------------- -->
+  <nav class="position-fixed p-3 top-0 d-flex justify-content-between align-items-center z-3">
+    <span class="d-block d-lg-none"><i class="fa-solid fa-bars"></i></span>
+    <span class="d-block d-lg-none">Dashboard</span>
+    <span class="link text-danger alert-danger m-0 ms-lg-auto px-1 py-1 rounded-3" data-target="Reports">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      4 Low Stock</span>
+  </nav>
+  <!-- ------------------------end nav----------------------------- -->
 
-    <!-- ------------------------start content----------------------------- -->
-    <main class="">
-      <div class="">
-        <!-- Start Dashboard -->
-        <section class="Dashboard container-lg p-4">
-          <h2 class="m-0">Dashboard</h2>
-          <p class="m-0 mb-4">Overview of your inventory at a glance</p>
-          <div class="Categories-dashboard">
-            <div class="row gy-4">
-              <div class="col-12 col-lg-4 col-md-6">
-                <div
-                  class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4"
-                  data-target="Products"
-                >
-                  <div
-                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-box-open"></i>
-                  </div>
-                  <div
-                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
-                  >
-                    <span>total products</span>
-                    <span id="prodlen">8</span>
-                  </div>
+  <!-- ------------------------start content----------------------------- -->
+  <main class="">
+    <div class="">
+      <!-- Start Dashboard -->
+      <section class="Dashboard container-lg p-4">
+        <h2 class="m-0">Dashboard</h2>
+        <p class="m-0 mb-4">Overview of your inventory at a glance</p>
+        <div class="Categories-dashboard">
+          <div class="row gy-4">
+            <div class="col-12 col-lg-4 col-md-6">
+              <div class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4" data-target="Products">
+                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
+                  <i class="fa-solid fa-box-open"></i>
+                </div>
+                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
+                  <span>total products</span>
+                  <span id="prodlen">8</span>
                 </div>
               </div>
-              <div class="col-12 col-lg-4 col-md-6">
-                <div
-                  class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4"
-                  data-target="Categories"
-                >
-                  <div
-                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-tag"></i>
-                  </div>
-                  <div
-                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
-                  >
-                    <span>Categories</span>
-                    <span id="catlen"> 4</span>
-                  </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-6">
+              <div class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4" data-target="Categories">
+                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
+                  <i class="fa-solid fa-tag"></i>
+                </div>
+                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
+                  <span>Categories</span>
+                  <span id="catlen"> 4</span>
                 </div>
               </div>
-              <div class="col-12 col-lg-4 col-md-6">
-                <div
-                  class="card d-flex flex-row link align-items-center gap-3 p-3 rounded-4"
-                  data-target="Suppliers"
-                >
-                  <div
-                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
-                  >
-                    <i class="fa-regular fa-truck"></i>
-                  </div>
-                  <div
-                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
-                  >
-                    <span>Suppliers</span>
-                    <span id="suplLen"> 3</span>
-                  </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-6">
+              <div class="card d-flex flex-row link align-items-center gap-3 p-3 rounded-4" data-target="Suppliers">
+                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
+                  <i class="fa-regular fa-truck"></i>
+                </div>
+                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
+                  <span>Suppliers</span>
+                  <span id="suplLen"> 3</span>
                 </div>
               </div>
-              <div class="col-12 col-lg-4 col-md-6">
-                <div
-                  class="card d-flex flex-row align-items-center link gap-3 p-3 rounded-4"
-                  data-target="Reports"
-                >
-                  <div
-                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                  </div>
-                  <div
-                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
-                  >
-                    <span>Low Stock Items</span>
-                    <span id="LowStockLen"> 54</span>
-                  </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-6">
+              <div class="card d-flex flex-row align-items-center link gap-3 p-3 rounded-4" data-target="Reports">
+                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
+                  <span>Low Stock Items</span>
+                  <span id="LowStockLen"> 54</span>
                 </div>
               </div>
-              <div class="col-12 col-lg-4 col-md-6">
-                <div
-                  class="card d-flex flex-row link align-items-center gap-3 p-3 rounded-4"
-                  data-target="Reports"
-                >
-                  <div
-                    class="card-icon d-flex link align-items-center justify-content-center p-2 rounded-3"
-                  >
-                    <i class="fa-solid fa-dollar-sign"></i>
-                  </div>
-                  <div
-                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
-                  >
-                    <span>Inventory Value</span>
-                    <span id="InventoryValue">$7,670.65</span>
-                  </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-6">
+              <div class="card d-flex flex-row link align-items-center gap-3 p-3 rounded-4" data-target="Reports">
+                <div class="card-icon d-flex link align-items-center justify-content-center p-2 rounded-3">
+                  <i class="fa-solid fa-dollar-sign"></i>
+                </div>
+                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
+                  <span>Inventory Value</span>
+                  <span id="InventoryValue">$7,670.65</span>
                 </div>
               </div>
-              <div class="col-12 col-lg-4 col-md-6">
-                <div
-                  class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4"
-                  data-target="Purchase"
-                >
-                  <div
-                    class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3"
-                  >
-                    <i class="fa-regular fa-clipboard"></i>
-                  </div>
-                  <div
-                    class="card-body p-0 text-capitalize w-auto d-flex flex-column"
-                  >
-                    <span>Pending Orders</span>
-                    <span id="PendingOrdersLen">0</span>
-                  </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-6">
+              <div class="card link d-flex flex-row align-items-center gap-3 p-3 rounded-4" data-target="Purchase">
+                <div class="card-icon d-flex align-items-center justify-content-center p-2 rounded-3">
+                  <i class="fa-regular fa-clipboard"></i>
+                </div>
+                <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
+                  <span>Pending Orders</span>
+                  <span id="PendingOrdersLen">0</span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="tabls mt-4">
-            <div class="row gy-4">
-              <div class="col-12 col-lg-6">
-                <div class="card p-3 rounded-4">
-                  <div
-                    class="card-title bg-body d-flex align-items-center justify-content-between"
-                  >
-                    <h3>
-                      <i class="fa-solid fa-arrow-trend-down"></i> Low Stock
-                      Alerts
-                    </h3>
-                    <span class="link" data-target="Reports"
-                      >View All <i class="fa-solid fa-arrow-right-long"></i
-                    ></span>
+        </div>
+        <div class="tabls mt-4">
+          <div class="row gy-4">
+            <div class="col-12 col-lg-6">
+              <div class="card p-3 rounded-4">
+                <div class="card-title bg-body d-flex align-items-center justify-content-between">
+                  <h3>
+                    <i class="fa-solid fa-arrow-trend-down"></i> Low Stock
+                    Alerts
+                  </h3>
+                  <span class="link" data-target="Reports">View All <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+                <div class="card-body" id="reports-dashboard">
+                  <div class="cell pb-3 mb-3 d-flex align-items-center justify-content-between">
+                    <div class="right">
+                      <p class="m-0">Mechanical Keyboard</p>
+                      <p class="m-0">Electronics · SKU: ELEC-002</p>
+                    </div>
+                    <div class="left alert-danger text-danger p-2 rounded-4">
+                      <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
+                    </div>
                   </div>
-                  <div class="card-body" id="reports-dashboard">
-                    <div
-                      class="cell pb-3 mb-3 d-flex align-items-center justify-content-between"
-                    >
-                      <div class="right">
-                        <p class="m-0">Mechanical Keyboard</p>
-                        <p class="m-0">Electronics · SKU: ELEC-002</p>
-                      </div>
-                      <div class="left alert-danger text-danger p-2 rounded-4">
-                        <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
-                      </div>
+                  <div class="cell pb-3 mb-3 d-flex align-items-center justify-content-between">
+                    <div class="right">
+                      <p class="m-0">Mechanical Keyboard</p>
+                      <p class="m-0">Electronics · SKU: ELEC-002</p>
                     </div>
-                    <div
-                      class="cell pb-3 mb-3 d-flex align-items-center justify-content-between"
-                    >
-                      <div class="right">
-                        <p class="m-0">Mechanical Keyboard</p>
-                        <p class="m-0">Electronics · SKU: ELEC-002</p>
-                      </div>
-                      <div class="left alert-danger text-danger p-2 rounded-4">
-                        <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
-                      </div>
+                    <div class="left alert-danger text-danger p-2 rounded-4">
+                      <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
                     </div>
-                    <div
-                      class="cell pb-3 mb-3 d-flex align-items-center justify-content-between"
-                    >
-                      <div class="right">
-                        <p class="m-0">Mechanical Keyboard</p>
-                        <p class="m-0">Electronics · SKU: ELEC-002</p>
-                      </div>
-                      <div class="left alert-danger text-danger p-2 rounded-4">
-                        <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
-                      </div>
+                  </div>
+                  <div class="cell pb-3 mb-3 d-flex align-items-center justify-content-between">
+                    <div class="right">
+                      <p class="m-0">Mechanical Keyboard</p>
+                      <p class="m-0">Electronics · SKU: ELEC-002</p>
+                    </div>
+                    <div class="left alert-danger text-danger p-2 rounded-4">
+                      <i class="fa-solid fa-triangle-exclamation"></i> 12 / 15
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-lg-6">
-                <div class="card p-3 rounded-4">
-                  <div
-                    class="card-title bg-body d-flex align-items-center justify-content-between"
-                  >
-                    <h3>Recent Activity</h3>
-                    <span class="link" data-target="Reports"
-                      >View All <i class="fa-solid fa-arrow-right-long"></i
-                    ></span>
-                  </div>
-                  <div class="card-body" id="card-RecentActivity-dashboard">
-                    <div
-                      class="cell d-flex align-items-center justify-content-between"
-                    >
-                      <div class="right">
-                        <p class="m-0">System Initialized</p>
-                        <p class="m-0">
-                          Inventory Management System loaded with seed data
-                        </p>
-                        <p class="m-0">3/14/2026, 9:30:54 PM</p>
-                      </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card p-3 rounded-4">
+                <div class="card-title bg-body d-flex align-items-center justify-content-between">
+                  <h3>Recent Activity</h3>
+                  <span class="link" data-target="Reports">View All <i class="fa-solid fa-arrow-right-long"></i></span>
+                </div>
+                <div class="card-body" id="card-RecentActivity-dashboard">
+                  <div class="cell d-flex align-items-center justify-content-between">
+                    <div class="right">
+                      <p class="m-0">System Initialized</p>
+                      <p class="m-0">
+                        Inventory Management System loaded with seed data
+                      </p>
+                      <p class="m-0">3/14/2026, 9:30:54 PM</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        <!-- End Dashboard -->
+        </div>
+      </section>
+      <!-- End Dashboard -->
 
-  <!-- Start Products -->
+      <!-- Start Products -->
       <section class="Products">
 
         <div
@@ -605,173 +488,6 @@
           </div>
 
           <div class="cards d-flex justify-content-start flex-wrap mt-5 gap-4">
-
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-            <div class="card card-A p-4 bg-white">
-              <div class="top d-flex justify-content-between align-items-start ">
-                <div class="left d-flex align-items-center">
-                  <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="lucide lucide-tag text-purple-600" aria-hidden="true">
-                      <path
-                        d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z">
-                      </path>
-                      <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                  </div>
-                  <div class="text">
-                    <h6>Electronics</h6>
-                    <p><span>0</span> products</p>
-                  </div>
-                </div>
-                <div class="right actions d-flex justify-content-center align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-gray-400" aria-hidden="true">
-                    <path
-                      d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide text-danger text-red-400" aria-hidden="true">
-                    <path d="M10 11v6"></path>
-                    <path d="M14 11v6"></path>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
-                    <path d="M3 6h18"></path>
-                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                </div>
-
-              </div>
-              <p>Electronic devices and components</p>
-            </div>
-
-
 
           </div>
 
@@ -1181,362 +897,384 @@
       </section>
       <!-- End Suppliers -->
 
-    <!-- Start Purchase Orders -->
-     <section class="Purchase content p-5">
+      <!-- Start Purchase Orders -->
+      <section class="Purchase content p-5">
 
-    <!-- headline start -->
-    <div class="headline d-lg-flex justify-content-between align-items-center">
-        <div class="">
+        <!-- headline start -->
+        <div class="headline d-lg-flex justify-content-between align-items-center">
+          <div class="">
             <h2>Purchase Orders</h2>
             <p class="text-light-emphasis">Order stock from suppliers</p>
+          </div>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createOrderModal" id="createOrder"><i
+              class="fa-solid fa-plus fs-6 fw-lighter"></i> Create Order</button>
+
         </div>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createOrderModal" id="createOrder"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Create Order</button>
+        <!-- headline end -->
 
-    </div>
-    <!-- headline end -->
-
-    <!-- dropdown start -->
-    <div class="dropdown my-lg-0 my-3">
-        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <!-- dropdown start -->
+        <div class="dropdown my-lg-0 my-3">
+          <button
+            class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
+            type="button" data-bs-toggle="dropdown" aria-expanded="false">
             All Statuses
-        </button>
-        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+          </button>
+          <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
             <li><a class="dropdown-item" href="#">All Statuses</a></li>
             <li><a class="dropdown-item" href="#">Pending</a></li>
             <li><a class="dropdown-item" href="#">Received</a></li>
             <li><a class="dropdown-item" href="#">Cancelled</a></li>
-        </ul>
-    </div>
-    <!-- dropdown end -->
-
-
-    
-
-    <!-- product info table start -->
-     <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
-   <table class="table mb-0">
-    <thead class="table-header">
-        <tr class="table-header">
-        <th class="text-dark-emphasis table-header" scope="col">PO #</th>
-        <th class="text-dark-emphasis table-header d-none d-sm-table-cell" scope="col">Supplier</th>
-        <th class="text-dark-emphasis table-header" scope="col">Items</th>
-        <th class="text-dark-emphasis table-header" scope="col">Total</th>
-        <th class="text-dark-emphasis table-header" scope="col">Status</th>
-        <th class="text-dark-emphasis table-header d-none d-md-table-cell" scope="col">Date</th>
-        <th class="text-dark-emphasis table-header" scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody id="purchaseOrdersTable">
-        <tr>
-        <td>PO-01001</td>
-        <td class="d-none d-sm-table-cell">TechWorld Inc.</td>
-        <td>1</td>
-        <td>$15.00</td>
-        <td><span class="rounded-pill text-dark-emphasis text-opacity-25 px-2 py-1 status">Cancelled</span></td>
-        <td class="d-none d-md-table-cell">3/14/2026</td>
-        <td><span class="d-flex justify-content-end gap-2 align-items-center"><i class="fa-regular fa-eye text-dark-emphasis text-opacity-25"></i><i class="fa-regular fa-circle-check text-success"></i><i class="fa-regular fa-circle-xmark text-danger"></i></span></td>
-        </tr>
-    </tbody>
-  </table>
-  </div>
-    <!-- product info table end -->
-
-
-
-    <!-- create order onclick -->
-<div id="createOrderCard" class="card mx-5 visually-hidden" style="width: 60%;">
-  <div class="card-body">
-     <div class="d-lg-flex justify-content-between align-items-center">
-            <h5 class="card-title fw-bold">Create Purchase Order</h5>
-            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
-    </div>
-   
-    <hr>
-    <p class="card-text">Supplier *</p>
-        <!-- dropdown start -->
-    <div class="dropdown mb-2">
-        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-           — Select Suppliers —
-        </button>
-        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-            <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
-            <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
-            <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
-        </ul>
-    </div>
-    <!-- dropdown end -->
-
-     <div class="d-lg-flex justify-content-between align-items-center">
-            <p>Order Items</p>
-             <p class="text-primary"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Add item</p>
-    </div>
-    <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.349);">
-        <p>No items added yet. Click "Add Item" to start.</p>
-    </div>
-
-    <div class="d-flex justify-content-end column-gap-lg-2">
-        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
-        <a href="#" class="btn btn-primary">Create order</a>
-    </div>
-  
-  </div>
-</div>
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="createOrderModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-
-      <div class="modal-body">
-        <div class="d-lg-flex justify-content-between align-items-center">
-          <h5 class="fw-bold">Create Purchase Order</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <hr>
-
-        <p>Supplier *</p>
-
-        <!-- dropdown -->
-        <div class="dropdown mb-2">
-          <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-8 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown">
-            — Select Suppliers —
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
-            <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
-            <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
           </ul>
         </div>
+        <!-- dropdown end -->
 
-        <div class="d-lg-flex justify-content-between align-items-center">
-          <p>Order Items</p>
-          <p id="addItemBtn" class="text-primary">
-            <i class="fa-solid fa-plus"></i> Add item
-          </p>
+
+
+
+        <!-- product info table start -->
+        <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+          <table class="table mb-0">
+            <thead class="table-header">
+              <tr class="table-header">
+                <th class="text-dark-emphasis table-header" scope="col">PO #</th>
+                <th class="text-dark-emphasis table-header d-none d-sm-table-cell" scope="col">Supplier</th>
+                <th class="text-dark-emphasis table-header" scope="col">Items</th>
+                <th class="text-dark-emphasis table-header" scope="col">Total</th>
+                <th class="text-dark-emphasis table-header" scope="col">Status</th>
+                <th class="text-dark-emphasis table-header d-none d-md-table-cell" scope="col">Date</th>
+                <th class="text-dark-emphasis table-header" scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="purchaseOrdersTable">
+              <tr>
+                <td>PO-01001</td>
+                <td class="d-none d-sm-table-cell">TechWorld Inc.</td>
+                <td>1</td>
+                <td>$15.00</td>
+                <td><span class="rounded-pill text-dark-emphasis text-opacity-25 px-2 py-1 status">Cancelled</span></td>
+                <td class="d-none d-md-table-cell">3/14/2026</td>
+                <td><span class="d-flex justify-content-end gap-2 align-items-center"><i
+                      class="fa-regular fa-eye text-dark-emphasis text-opacity-25"></i><i
+                      class="fa-regular fa-circle-check text-success"></i><i
+                      class="fa-regular fa-circle-xmark text-danger"></i></span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-        <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.267);">
-          <p  id="noItemsMsg">No items added yet. Click "Add Item" to start.</p>
-          <div id="itemsContainer"></div>
-        </div>
-
-         
-
-
-        <div class="d-flex justify-content-end gap-2">
-          <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
-          <button id="createOrderBtn" class="btn btn-primary">Create order</button>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-     </section>
-    <!-- End Purchase Orders -->
+        <!-- product info table end -->
 
 
 
+        <!-- create order onclick -->
+        <div id="createOrderCard" class="card mx-5 visually-hidden" style="width: 60%;">
+          <div class="card-body">
+            <div class="d-lg-flex justify-content-between align-items-center">
+              <h5 class="card-title fw-bold">Create Purchase Order</h5>
+              <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
+            </div>
 
-
-    <!-- start Stock Adjustments -->
-
-    <section class="Stock-Adjustments content p-5">
-
-      
-     <!-- headline start -->
-    <div class="headline d-lg-flex justify-content-between align-items-center">
-        <div class="">
-            <h2>Stock Adjustments</h2>
-            <p class="text-light-emphasis">Manually adjust inventory quantities</p>
-        </div>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newStockAdjustment">
-  <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
-</button>
-
-    </div>
-    <!-- headline end -->
-    
-
-    <!-- product info table start -->
-   <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
-   <table class="table mb-0">
-    <thead class="table-header">
-        <tr class="table-header">
-        <th class="text-dark-emphasis table-header" scope="col">Type</th>
-        <th class="text-dark-emphasis table-header" scope="col">Product</th>
-        <th class="text-dark-emphasis table-header" scope="col">Qty</th>
-        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Reason</th>
-        <th class="text-dark-emphasis table-header" scope="col"  colspan="2">Date</th>
-        </tr>
-    </thead>
-    <tbody id="stockAdjustmentsTable">
-        <tr>
-        <td class="text-success"><i class="fa-solid fa-circle-arrow-up text-success"></i> increase</td>
-        <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
-        <td>TechWorld Inc.</td>
-        <td>+1</td>
-        <td colspan="2">Reason because</td>
-        <td colspan="2">3/14/2026</td>
-        </tr>
-    </tbody>
-  </table>
-  </div>
-    <!-- product info table end -->
-
-
-
-<div class="modal fade" id="newStockAdjustment" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-
-     
-      <div class="modal-body">
-
-        
-        <div class="d-flex justify-content-between align-items-center">
-          <h5 class="fw-bold">New Stock Adjustment</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <hr>
-
-       
-        <p class="mb-1">Product *</p>
-        <div class="dropdown mb-3">
-          <button id="stockProductBtn" class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-8 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown">
-            — Select Product —
-          </button>
-          <ul class="dropdown-menu w-100" id="stockProductsList">
-            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43</a></li>
-            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
-            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
-          </ul>
-        </div>
-
-        
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <p class="mb-1">Type *</p>
-            <div class="dropdown">
-              <button id="stockTypeBtn" class="btn bg-light text-black border w-100 text-start dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                Increase
+            <hr>
+            <p class="card-text">Supplier *</p>
+            <!-- dropdown start -->
+            <div class="dropdown mb-2">
+              <button
+                class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-3 col-12 col-md-6 col-sm-9"
+                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                — Select Suppliers —
               </button>
-              <ul class="dropdown-menu w-100" id="stockTypeList">
-                <li><a class="dropdown-item" href="#">Increase</a></li>
-                <li><a class="dropdown-item" href="#">Decrease</a></li>
+              <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+                <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
+                <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
+                <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
               </ul>
             </div>
-          </div>
+            <!-- dropdown end -->
 
-          <div class="col-md-6">
-            <p class="mb-1">Quantity *</p>
-            <input type="number" id="stockQtyInput" class="form-control" placeholder="Enter quantity">
+            <div class="d-lg-flex justify-content-between align-items-center">
+              <p>Order Items</p>
+              <p class="text-primary"><i class="fa-solid fa-plus fs-6 fw-lighter"></i> Add item</p>
+            </div>
+            <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.349);">
+              <p>No items added yet. Click "Add Item" to start.</p>
+            </div>
+
+            <div class="d-flex justify-content-end column-gap-lg-2">
+              <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
+              <a href="#" class="btn btn-primary">Create order</a>
+            </div>
+
           </div>
         </div>
 
-       
-        <div class="mb-3">
-          <p class="mb-1">Reason *</p>
-          <textarea id="stockReasonInput" class="form-control" rows="3" placeholder="Write reason..."></textarea>
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="createOrderModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+              <div class="modal-body">
+                <div class="d-lg-flex justify-content-between align-items-center">
+                  <h5 class="fw-bold">Create Purchase Order</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <hr>
+
+                <p>Supplier *</p>
+
+                <!-- dropdown -->
+                <div class="dropdown mb-2">
+                  <button
+                    class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-8 col-12 col-md-6 col-sm-9"
+                    type="button" data-bs-toggle="dropdown">
+                    — Select Suppliers —
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">TechWorld Inc.</a></li>
+                    <li><a class="dropdown-item" href="#">Office Depot Pro</a></li>
+                    <li><a class="dropdown-item" href="#">FurniCraft Ltd.</a></li>
+                  </ul>
+                </div>
+
+                <div class="d-lg-flex justify-content-between align-items-center">
+                  <p>Order Items</p>
+                  <p id="addItemBtn" class="text-primary">
+                    <i class="fa-solid fa-plus"></i> Add item
+                  </p>
+                </div>
+
+                <div class="rounded-2 p-2 text-center mb-4" style="background-color: rgba(231, 231, 231, 0.267);">
+                  <p id="noItemsMsg">No items added yet. Click "Add Item" to start.</p>
+                  <div id="itemsContainer"></div>
+                </div>
+
+
+
+
+                <div class="d-flex justify-content-end gap-2">
+                  <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
+                  <button id="createOrderBtn" class="btn btn-primary">Create order</button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
         </div>
 
-      </div>
 
-      
-      <div class="modal-footer">
-        <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
-        <button id="submitAdjustmentBtn" class="btn btn-primary">Submit Adjustments</button>
-      </div>
-
-    </div>
-  </div>
-</div>
+      </section>
+      <!-- End Purchase Orders -->
 
 
 
-<div class="card mx-5 pb-3 px-2 visually-hidden" style="width: 40%; height: auto;">
-  <div class="card-body">
-     <div class="d-lg-flex justify-content-between align-items-center">
-            <h5 class="card-title fw-bold">New Stock Adjustment</h5>
-            <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
-    </div>
-   
-    <hr>
-    <p class="card-text">Product *</p>
-        <!-- dropdown start -->
-    <div class="dropdown mb-2">
-        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-           — Select Product —
-        </button>
-        <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
-            <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43 </a></li>
-            <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
-            <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
-        </ul>
-    </div>
-    <!-- dropdown end -->
 
-    <div class="d-lg-flex justify-content-between align-items-center">
-        <div>
 
-    <p class="mb-1">Type *</p>
+      <!-- start Stock Adjustments -->
+
+      <section class="Stock-Adjustments content p-5">
+
+
+        <!-- headline start -->
+        <div class="headline d-lg-flex justify-content-between align-items-center">
+          <div class="">
+            <h2>Stock Adjustments</h2>
+            <p class="text-light-emphasis">Manually adjust inventory quantities</p>
+          </div>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newStockAdjustment">
+            <i class="fa-solid fa-plus fs-6 fw-lighter"></i> New Adjustments
+          </button>
+
+        </div>
+        <!-- headline end -->
+
+
+        <!-- product info table start -->
+        <div class="table-wrapper rounded-3 card p-1 mt-5 table-responsive">
+          <table class="table mb-0">
+            <thead class="table-header">
+              <tr class="table-header">
+                <th class="text-dark-emphasis table-header" scope="col">Type</th>
+                <th class="text-dark-emphasis table-header" scope="col">Product</th>
+                <th class="text-dark-emphasis table-header" scope="col">Qty</th>
+                <th class="text-dark-emphasis table-header" scope="col" colspan="2">Reason</th>
+                <th class="text-dark-emphasis table-header" scope="col" colspan="2">Date</th>
+              </tr>
+            </thead>
+            <tbody id="stockAdjustmentsTable">
+              <tr>
+                <td class="text-success"><i class="fa-solid fa-circle-arrow-up text-success"></i> increase</td>
+                <!-- <td class="text-danger"><i class="fa-solid fa-circle-arrow-down text-danger"></i> increase</td> -->
+                <td>TechWorld Inc.</td>
+                <td>+1</td>
+                <td colspan="2">Reason because</td>
+                <td colspan="2">3/14/2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- product info table end -->
+
+
+
+        <div class="modal fade" id="newStockAdjustment" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+
+              <div class="modal-body">
+
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5 class="fw-bold">New Stock Adjustment</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <hr>
+
+
+                <p class="mb-1">Product *</p>
+                <div class="dropdown mb-3">
+                  <button id="stockProductBtn"
+                    class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-8 col-12 col-md-6 col-sm-9"
+                    type="button" data-bs-toggle="dropdown">
+                    — Select Product —
+                  </button>
+                  <ul class="dropdown-menu w-100" id="stockProductsList">
+                    <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43</a></li>
+                    <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
+                    <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
+                  </ul>
+                </div>
+
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <p class="mb-1">Type *</p>
+                    <div class="dropdown">
+                      <button id="stockTypeBtn" class="btn bg-light text-black border w-100 text-start dropdown-toggle"
+                        type="button" data-bs-toggle="dropdown">
+                        Increase
+                      </button>
+                      <ul class="dropdown-menu w-100" id="stockTypeList">
+                        <li><a class="dropdown-item" href="#">Increase</a></li>
+                        <li><a class="dropdown-item" href="#">Decrease</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p class="mb-1">Quantity *</p>
+                    <input type="number" id="stockQtyInput" class="form-control" placeholder="Enter quantity">
+                  </div>
+                </div>
+
+
+                <div class="mb-3">
+                  <p class="mb-1">Reason *</p>
+                  <textarea id="stockReasonInput" class="form-control" rows="3"
+                    placeholder="Write reason..."></textarea>
+                </div>
+
+              </div>
+
+
+              <div class="modal-footer">
+                <button class="btn bg-light border" data-bs-dismiss="modal">Cancel</button>
+                <button id="submitAdjustmentBtn" class="btn btn-primary">Submit Adjustments</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="card mx-5 pb-3 px-2 visually-hidden" style="width: 40%; height: auto;">
+          <div class="card-body">
+            <div class="d-lg-flex justify-content-between align-items-center">
+              <h5 class="card-title fw-bold">New Stock Adjustment</h5>
+              <i class="fa-solid fa-xmark fs-4 text-light-emphasis text-opacity-25"></i>
+            </div>
+
+            <hr>
+            <p class="card-text">Product *</p>
             <!-- dropdown start -->
-    <div class="dropdown mb-2">
-        <button class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Increase
-        </button>
-        <ul class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9">
-            <li><a class="dropdown-item" href="#">Increase </a></li>
-            <li><a class="dropdown-item" href="#">Decrease</a></li>
-        </ul>
+            <div class="dropdown mb-2">
+              <button
+                class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-6 col-12 col-md-6 col-sm-9"
+                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                — Select Product —
+              </button>
+              <ul class="dropdown-menu col-lg-3 col-12 col-md-6 col-sm-9">
+                <li><a class="dropdown-item" href="#">Wireless Mouse — Current: 43 </a></li>
+                <li><a class="dropdown-item" href="#">Laptop 6357Hp — Current: 5</a></li>
+                <li><a class="dropdown-item" href="#">Headset 634 bluetooth — Current: 12</a></li>
+              </ul>
+            </div>
+            <!-- dropdown end -->
+
+            <div class="d-lg-flex justify-content-between align-items-center">
+              <div>
+
+                <p class="mb-1">Type *</p>
+                <!-- dropdown start -->
+                <div class="dropdown mb-2">
+                  <button
+                    class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Increase
+                  </button>
+                  <ul class="dropdown-menu col-lg-12 col-12 col-md-6 col-sm-9">
+                    <li><a class="dropdown-item" href="#">Increase </a></li>
+                    <li><a class="dropdown-item" href="#">Decrease</a></li>
+                  </ul>
+                </div>
+                <!-- dropdown end -->
+              </div>
+
+              <div>
+                <p class="mb-1">Quantity *</p>
+
+                <input
+                  class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
+                  type="number" name="" id="">
+              </div>
+
+            </div>
+
+
+            <div>
+              <p class="mb-1">Reason *</p>
+
+              <textarea
+                class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9"
+                name="" id=""></textarea>
+            </div>
+
+          </div>
+
+
+
+          <div class="d-flex justify-content-end column-gap-lg-2">
+            <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
+            <a href="#" class="btn btn-primary">Submit Adjustments</a>
+          </div>
+
+        </div>
     </div>
-    <!-- dropdown end -->
-     </div>
-
-    <div>
-        <p class="mb-1">Quantity *</p>
-        
-        <input class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" type="number" name="" id="">
-     </div>
-
-</div>
 
 
-    <div>
-        <p class="mb-1">Reason *</p>
-        
-        <textarea class="btn btn-secondary dropdown-toggle bg-light text-black text-start border-dark-subtle border-opacity-25 d-flex justify-content-between align-items-center col-lg-12 col-12 col-md-6 col-sm-9" name="" id=""></textarea>
-     </div>
-
-</div>
-
-
-
-    <div class="d-flex justify-content-end column-gap-lg-2">
-        <a href="#" class="btn bg-light text-black border-dark-subtle">Cancel</a>
-        <a href="#" class="btn btn-primary">Submit Adjustments</a>
-    </div>
-  
-  </div>
-</div>
-
-
-</section>
+    </section>
 
     <!-- End Stock Adjustments -->
-  
-      <!-- Start Reports -->
-      <section class="Reports">
-        <div class="container">
+
+    <!-- Start Reports -->
+    <section class="Reports">
+      <div class="container">
         <div class="mb-4">
           <h3 class=" mt-4 fw-bold">Reports</h3>
           <p class="text-secondary mb-0">Inventory analytics and insights</p>
@@ -1554,13 +1292,13 @@
         </div>
 
         <div class="table-container"></div>
-        </div>
-      </section>
-      <!-- End Reports -->
+      </div>
+    </section>
+    <!-- End Reports -->
 
-      <!-- Start Activity-Log -->
-      <section class="Activity-Log">
-        <div class="container">
+    <!-- Start Activity-Log -->
+    <section class="Activity-Log">
+      <div class="container">
         <div class="d-flex justify-content-between align-items-start mt-4">
           <div class="my-2">
             <h3 class="fw-bold mb-1">Activity Log</h3>
@@ -1584,15 +1322,17 @@
 
         <div class="activity-div bg-white rounded-4 shadow-sm p-3">
         </div>
-       </div>
-      </section>
-      <!-- End Activity-Log -->
+      </div>
+    </section>
+    <!-- End Activity-Log -->
     </div>
   </main>
   <script src="./src/js/reports.js" type="module"></script>
   <script src="./src/js/activitylog.js" type="module"></script>
   <!-- ------------------------end content----------------------------- -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
