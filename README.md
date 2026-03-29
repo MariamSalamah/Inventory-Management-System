@@ -423,16 +423,16 @@ All team members contributed to collaboration tasks such as resolving merge conf
 
 ## Some Screenshots
 
-### Dashboard
+### Dashboard Page
 ![Dashboard](./assets/screenshots/dashboard.PNG)
 
 ### Products Page
 ![Products](./assets/screenshots/products.PNG)
 
-### Stock Adjustments
+### Stock Adjustments Page
 ![Stock Adjustments](./assets/screenshots/stock.png)
 
-### Activity Log
+### Activity Log Page
 ![Activity Log](./assets/screenshots/log.png)
 
 ---
