@@ -34,6 +34,8 @@
   <script src="./src/js/categories.js" type="module"></script>
   <script type="module" src="./src/js/purchase-orders.js"></script>
   <script type="module" src="./src/js/stock_adjustments.js"></script>
+  <script src="./src/js/reports.js" type="module"></script>
+  <script src="./src/js/activitylog.js" type="module"></script>
 
 </head>
 
@@ -46,7 +48,7 @@
         <i class="fa-solid fa-cubes"></i>
       </div>
       <div class="text-logo flex-grow-1 d-flex flex-column">
-        <span class="">StockPilot </span>
+        <span class="">ITI Stock </span>
         <span class="text-uppercase">Inventory System</span>
       </div>
       <div class="close-aside d-block d-lg-none">
@@ -94,8 +96,9 @@
           <i class="fa-regular fa-chart-bar me-2"></i>
           <span>Reports</span>
           <span class="ms-auto text-danger alert-danger px-1 py-1 rounded-3">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            4</span>
+            <i class=" fa-solid fa-triangle-exclamation"></i>
+            <span id="low-notify"></span>
+            </span>
         </span>
         <span class="link btn border-0 py-2 text-start" data-target="Activity-Log">
           <i class="fa-solid fa-scroll me-2"></i>
@@ -112,7 +115,7 @@
     <span class="d-block d-lg-none">Dashboard</span>
     <span class="link text-danger alert-danger m-0 ms-lg-auto px-1 py-1 rounded-3" data-target="Reports">
       <i class="fa-solid fa-triangle-exclamation"></i>
-      4 Low Stock</span>
+      <span id="low-notify"></span> Low Stock</span>
   </nav>
   <!-- ------------------------end nav----------------------------- -->
 
@@ -165,7 +168,7 @@
                 </div>
                 <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
                   <span>Low Stock Items</span>
-                  <span id="LowStockLen"> 54</span>
+                  <span id="LowStockLen">  <span id="low-notify"></span></span>
                 </div>
               </div>
             </div>
@@ -176,7 +179,7 @@
                 </div>
                 <div class="card-body p-0 text-capitalize w-auto d-flex flex-column">
                   <span>Inventory Value</span>
-                  <span id="InventoryValue">$7,670.65</span>
+                  <span class="inventory-ratialvalue"></span>
                 </div>
               </div>
             </div>
@@ -1276,7 +1279,7 @@
     <section class="Reports">
       <div class="container">
         <div class="mb-4">
-          <h3 class=" mt-4 fw-bold">Reports</h3>
+          <h3 class=" mt-4 ">Reports</h3>
           <p class="text-secondary mb-0">Inventory analytics and insights</p>
         </div>
 
@@ -1301,7 +1304,7 @@
       <div class="container">
         <div class="d-flex justify-content-between align-items-start mt-4">
           <div class="my-2">
-            <h3 class="fw-bold mb-1">Activity Log</h3>
+            <h3 class=" mb-1">Activity Log</h3>
             <p class="log-count text-secondary mb-0">8 logged actions</p>
           </div>
 
@@ -1327,8 +1330,7 @@
     <!-- End Activity-Log -->
     </div>
   </main>
-  <script src="./src/js/reports.js" type="module"></script>
-  <script src="./src/js/activitylog.js" type="module"></script>
+
   <!-- ------------------------end content----------------------------- -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
