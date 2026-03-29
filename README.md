@@ -12,7 +12,7 @@ The project focuses on applying clean UI/UX design, implementing clear business 
 
 ## Preview
 
-![Project Screenshot](./assets/screenshots/home.png)
+![Project Screenshot](./assets/screenshots/home.PNG)
 
 ---
 ## Table of Contents
@@ -427,7 +427,7 @@ All team members contributed to collaboration tasks such as resolving merge conf
 ![Dashboard](./assets/screenshots/dashboard.PNG)
 
 ### Products Page
-![Products](./assets/screenshots/products.png)
+![Products](./assets/screenshots/products.PNG)
 
 ### Stock Adjustments
 ![Stock Adjustments](./assets/screenshots/stock.png)
