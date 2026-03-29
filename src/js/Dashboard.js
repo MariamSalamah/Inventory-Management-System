@@ -23,26 +23,30 @@ document.getElementById("catlen").innerHTML = categoriesData.length;
 document.getElementById("suplLen").innerHTML = suppliersData.length;
 // document.getElementById("InventoryValue").innerHTML =
 //   `${totalRetail.toFixed()}$`;
-document.getElementById("LowStockLen").innerHTML = reports.filter(
-  (elm) => elm.urgency == "high",
-).length;
+// document.getElementById("LowStockLen").innerHTML = reports.filter(
+//   (elm) => elm.urgency == "high",
+// ).length;
+
 document.getElementById("PendingOrdersLen").innerHTML = PendingOrders.length;
 function displayAlerts(reports) {
   let cartona = "";
 
-  reports.forEach((r, index) => {
-    cartona += `<div
+  productsData
+    .filter((el) => el.reorderLevel > el.quantity)
+    .forEach((r, index) => {
+      let category = categoriesData.find((el) => el.id == r.categoryId);
+      cartona += `<div
                       class="cell pb-3 mb-3 d-flex align-items-center justify-content-between"
                     >
                       <div class="right">
-                        <p class="m-0">${r.products}</p>
-                        <p class="m-0">${r.category} · SKU: ${r.sku}</p>
+                        <p class="m-0">${r.name}</p>
+                        <p class="m-0">${category.name} · SKU: ${r.sku}</p>
                       </div>
                       <div class="left alert-danger text-danger p-2 rounded-4">
-                        <i class="fa-solid fa-triangle-exclamation"></i> ${r.date ? `${r.date.split("-")[0]}/${r.date.split("-")[1]}` : "not recorded"}
+                        <i class="fa-solid fa-triangle-exclamation"></i>  
                       </div>
                     </div>`;
-  });
+    });
   document.querySelector("#reports-dashboard").innerHTML = cartona;
 }
 function displayActivityLog(activityLogs) {
