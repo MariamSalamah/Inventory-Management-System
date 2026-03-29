@@ -532,8 +532,9 @@ select,
 .Products table {
   margin-top: 40px;
   width: 100%;
-  box-shadow: 0 0 25px rgb(202, 202, 202);
-  border-radius: var(--main-border-radius);
+  box-shadow: 0 0 25px rgb(224, 224, 224);
+  border-radius: calc(var(--main-border-radius) + 13px);
+  overflow: hidden;
 }
 .Products table thead {
   height: 50px;
